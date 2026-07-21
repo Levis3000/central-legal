@@ -1,0 +1,16 @@
+{
+  "title": "Terms of Service",
+  "updated": "July 2026",
+  "contactEmail": "support@snaptract.app",
+  "sections": [
+    { "heading": "Acceptance", "body": "By using SnapTract you agree to these terms. If you don't agree, please don't use the app." },
+    { "heading": "The service", "body": "SnapTract lets you scan receipts, track your spending, remember prices, and turn receipts into expense and tax reports you can export." },
+    { "heading": "Your account", "body": "You sign in with Apple. You're responsible for activity on your account. Keep your device secure." },
+    { "heading": "Subscriptions", "body": "SnapTract Pro is an auto-renewing subscription billed to your Apple ID. It renews unless cancelled at least 24 hours before the period ends. Manage or cancel it anytime in Settings › Apple ID › Subscriptions, or from within the app." },
+    { "heading": "Your content", "body": "Your receipts, reports and data are yours. You grant SnapTract permission to store and process them only to provide the service to you." },
+    { "heading": "Acceptable use", "body": "Don't misuse the app, attempt to break its security, or upload unlawful content." },
+    { "heading": "Disclaimer", "body": "SnapTract is provided “as is.” AI-extracted data may contain errors — always review amounts before relying on them for tax or reimbursement. SnapTract is not a tax or financial advisor." },
+    { "heading": "Changes", "body": "We may update these terms; continued use means you accept the changes." },
+    { "heading": "Contact", "body": "Questions? Reach us through Contact us in the app, or email support@snaptract.app." }
+  ]
+}
