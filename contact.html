@@ -1,0 +1,161 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Contact us — Central Legal</title>
+<style>
+  :root{
+    --bg:#EAF4FC; --card:#FFFFFF; --ink:#20374A; --soft:#5E7B90;
+    --brand:#2F9BE8; --coral:#F5654C; --line:#D6E7F4; --num:#A9CBE6; --ok:#2FA36B;
+  }
+  @media (prefers-color-scheme: dark){
+    :root{ --bg:#0E1A24; --card:#16242F; --ink:#DCEBF6; --soft:#8AA6BA;
+           --brand:#4FB0F0; --coral:#FF7D66; --line:#243743; --num:#37536A; --ok:#48C88A; }
+  }
+  *{box-sizing:border-box}
+  body{margin:0;background:var(--bg);color:var(--ink);
+    font:16px/1.6 -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;}
+  .wrap{max-width:600px;margin:0 auto;padding:32px 22px 96px}
+  header{display:flex;align-items:center;gap:12px;padding:8px 0 4px}
+  .mark{font-weight:800;font-size:22px;letter-spacing:-.02em}
+  .mark .s{color:var(--brand)} .mark .t{color:var(--coral)}
+  nav{display:flex;gap:8px;margin:22px 0 4px;flex-wrap:wrap}
+  nav a{font-size:14px;font-weight:600;text-decoration:none;color:var(--soft);
+    padding:7px 14px;border:1px solid var(--line);border-radius:999px;background:var(--card)}
+  nav a.on{color:#fff;background:var(--brand);border-color:var(--brand)}
+  h1{font-size:30px;letter-spacing:-.02em;margin:26px 0 4px}
+  .lede{color:var(--soft);margin:0 0 20px}
+  .card{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:22px}
+  label{display:block;font-size:12px;font-weight:700;letter-spacing:.03em;
+    text-transform:uppercase;color:var(--soft);margin:16px 0 6px}
+  label:first-child{margin-top:0}
+  input,select,textarea{width:100%;font:inherit;color:var(--ink);background:var(--bg);
+    border:1px solid var(--line);border-radius:12px;padding:12px 14px}
+  textarea{min-height:130px;resize:vertical}
+  input:focus,select,textarea:focus{outline:2px solid var(--brand);outline-offset:1px}
+  .hp{position:absolute;left:-9999px;width:1px;height:1px;overflow:hidden}
+  button{margin-top:20px;width:100%;font:inherit;font-weight:700;color:#fff;
+    background:var(--brand);border:0;border-radius:12px;padding:14px;cursor:pointer}
+  button:disabled{opacity:.55;cursor:default}
+  .err{color:var(--coral);font-size:14px;margin-top:12px;min-height:1.2em}
+  .done{text-align:center;padding:28px 8px}
+  .done .badge{width:56px;height:56px;border-radius:50%;background:color-mix(in srgb,var(--ok) 18%,transparent);
+    color:var(--ok);display:grid;place-items:center;margin:0 auto 14px;font-size:28px}
+  .done h2{margin:0 0 8px;font-size:22px}
+  .done p{color:var(--soft);margin:0}
+  .promise{display:flex;gap:10px;align-items:center;margin-top:18px;color:var(--soft);font-size:14px}
+  .promise b{color:var(--ink)}
+  footer{color:var(--soft);font-size:13px;margin-top:28px;text-align:center}
+  a.link{color:var(--brand)}
+</style>
+</head>
+<body>
+  <div class="wrap">
+    <header><span class="mark"><span class="s">Snap</span><span class="t">Tract</span></span></header>
+    <nav id="nav"></nav>
+
+    <h1>Contact us</h1>
+    <p class="lede">Questions, bugs, or feedback — send us a note and we'll get back to you.</p>
+
+    <div class="card" id="card">
+      <form id="form" novalidate>
+        <label for="app">App</label>
+        <select id="app" name="app">
+          <option>SnapTract</option>
+          <option>Falaah</option>
+          <option>Other</option>
+        </select>
+
+        <label for="name">Your name</label>
+        <input id="name" name="name" autocomplete="name" placeholder="Optional">
+
+        <label for="email">Email</label>
+        <input id="email" name="email" type="email" autocomplete="email" placeholder="So we can reply to you">
+
+        <label for="message">Message</label>
+        <textarea id="message" name="message" required placeholder="How can we help?"></textarea>
+
+        <!-- honeypot: real people leave this empty -->
+        <div class="hp" aria-hidden="true"><label>Company</label><input id="company" tabindex="-1" autocomplete="off"></div>
+
+        <div class="promise">🕑&nbsp;<span>We typically reply <b>within 48 hours</b>.</span></div>
+
+        <button type="submit" id="send">Send message</button>
+        <div class="err" id="err" role="alert"></div>
+      </form>
+
+      <div class="done" id="done" hidden>
+        <div class="badge">✓</div>
+        <h2>Message received</h2>
+        <p id="doneMsg">Thanks! We've got your message and will get back to you within 48 hours.</p>
+      </div>
+    </div>
+
+    <footer>Or email <a class="link" href="mailto:support@snaptract.app">support@snaptract.app</a></footer>
+  </div>
+
+<script>
+  // ── Config ──────────────────────────────────────────────────────────────
+  // Fill these in with your Supabase project URL + the PUBLIC anon key.
+  // The anon key is safe to ship in a web page: the contact_messages table is
+  // insert-only under RLS (see migration 0015), so it can only add messages.
+  const SUPABASE_URL = "https://YOUR-PROJECT.supabase.co";
+  const SUPABASE_ANON_KEY = "YOUR-SUPABASE-ANON-KEY";
+  // ────────────────────────────────────────────────────────────────────────
+
+  const $ = (id) => document.getElementById(id);
+
+  // Pre-select the app from ?app=SnapTract, and build the nav back to that app's docs.
+  const params = new URLSearchParams(location.search);
+  const appParam = (params.get("app") || "SnapTract");
+  const appSel = $("app");
+  [...appSel.options].forEach(o => { if (o.value.toLowerCase() === appParam.toLowerCase()) appSel.value = o.value; });
+
+  const slug = appSel.value.toLowerCase();
+  $("nav").innerHTML = appSel.value === "Other" ? "" :
+    `<a href="${slug}-terms-of-service.html">Terms of Service</a>
+     <a href="${slug}-privacy-policy.html">Privacy Policy</a>
+     <a class="on" href="#">Contact</a>`;
+
+  $("form").addEventListener("submit", async (e) => {
+    e.preventDefault();
+    $("err").textContent = "";
+    if ($("company").value) return;                     // honeypot tripped — silently ignore
+    const message = $("message").value.trim();
+    if (!message) { $("err").textContent = "Please enter a message."; return; }
+
+    const btn = $("send");
+    btn.disabled = true; btn.textContent = "Sending…";
+    try {
+      const res = await fetch(`${SUPABASE_URL}/rest/v1/contact_messages`, {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+          "apikey": SUPABASE_ANON_KEY,
+          "Authorization": `Bearer ${SUPABASE_ANON_KEY}`,
+          "Prefer": "return=minimal",
+        },
+        body: JSON.stringify({
+          app: appSel.value,
+          name: $("name").value.trim() || null,
+          email: $("email").value.trim() || null,
+          message,
+          source: "web",
+        }),
+      });
+      if (!res.ok) throw new Error(await res.text());
+      const name = $("name").value.trim();
+      $("doneMsg").textContent =
+        `Thanks${name ? ", " + name : ""}! We've got your message and will get back to you within 48 hours.`;
+      $("form").hidden = true;
+      $("done").hidden = false;
+    } catch (err) {
+      btn.disabled = false; btn.textContent = "Send message";
+      $("err").textContent = "Couldn't send just now — please try again in a moment.";
+      console.error(err);
+    }
+  });
+</script>
+</body>
+</html>

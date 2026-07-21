@@ -12,10 +12,14 @@ Replace `YOUR-APP.up.railway.app` with your Railway domain:
 | **SnapTract** | `https://YOUR-APP.up.railway.app/snaptract/privacy` | `https://YOUR-APP.up.railway.app/snaptract/terms` |
 | **Falaah** | `https://YOUR-APP.up.railway.app/falaah/privacy` | `https://YOUR-APP.up.railway.app/falaah/terms` |
 
-SnapTract JSON (for the iOS app):
+SnapTract JSON (for the iOS app) — product-prefixed filenames:
 
-- `https://YOUR-APP.up.railway.app/snaptract/privacy.json`
-- `https://YOUR-APP.up.railway.app/snaptract/terms.json`
+- `https://YOUR-APP.up.railway.app/snaptract-privacy-policy.json`
+- `https://YOUR-APP.up.railway.app/snaptract-terms-of-service.json`
+
+Also available as short aliases: `/snaptract/privacy.json`, `/snaptract/terms.json`
+
+Contact form (all apps): `https://YOUR-APP.up.railway.app/contact.html?app=SnapTract`
 
 Optional combined Falaah page: `/falaah/both`
 
@@ -52,4 +56,5 @@ npm start   # http://localhost:3000/snaptract/privacy
 | `falaah-privacy-and-terms.html` | Falaah (combined) |
 | `snaptract-privacy-policy.html` | SnapTract |
 | `snaptract-terms-of-service.html` | SnapTract |
-| `snaptract-privacy.json` / `snaptract-terms.json` | SnapTract (app) |
+| `snaptract-privacy-policy.json` / `snaptract-terms-of-service.json` | SnapTract (app) |
+| `contact.html` | Shared contact form |
