@@ -19,7 +19,7 @@ SnapTract JSON (for the iOS app) — product-prefixed filenames:
 
 Also available as short aliases: `/snaptract/privacy.json`, `/snaptract/terms.json`
 
-Contact form (all apps): `https://YOUR-APP.up.railway.app/contact.html?app=SnapTract`
+Contact (SnapTract only): `https://YOUR-APP.up.railway.app/snaptract-contact.html`
 
 Optional combined Falaah page: `/falaah/both`
 
@@ -57,4 +57,4 @@ npm start   # http://localhost:3000/snaptract/privacy
 | `snaptract-privacy-policy.html` | SnapTract |
 | `snaptract-terms-of-service.html` | SnapTract |
 | `snaptract-privacy-policy.json` / `snaptract-terms-of-service.json` | SnapTract (app) |
-| `contact.html` | Shared contact form |
+| `snaptract-contact.html` | SnapTract contact form |
