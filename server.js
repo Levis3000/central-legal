@@ -15,10 +15,12 @@ const APPS = {
     files: {
       privacy: 'snaptract-privacy-policy.html',
       terms: 'snaptract-terms-of-service.html',
+      contact: 'snaptract-contact.html',
+      '': 'snaptract.html',
     },
     json: {
-      privacy: 'snaptract-privacy.json',
-      terms: 'snaptract-terms.json',
+      privacy: 'snaptract-privacy-policy.json',
+      terms: 'snaptract-terms-of-service.json',
     },
   },
   falaah: {
@@ -44,14 +46,20 @@ app.get('/', (_req, res) => {
 
 for (const [slug, cfg] of Object.entries(APPS)) {
   for (const [doc, file] of Object.entries(cfg.files)) {
-    app.get(`/${slug}/${doc}`, (_req, res) => {
+    const route = doc ? `/${slug}/${doc}` : `/${slug}`;
+    app.get(route, (_req, res) => {
       res.set('Cache-Control', 'public, max-age=300');
       res.sendFile(path.join(ROOT, file));
     });
   }
   if (cfg.json) {
     for (const [doc, file] of Object.entries(cfg.json)) {
+      // Short path + product-prefixed filename the iOS app uses.
       app.get(`/${slug}/${doc}.json`, (_req, res) => {
+        res.set('Cache-Control', 'public, max-age=300');
+        res.type('json').send(fs.readFileSync(path.join(ROOT, file), 'utf8'));
+      });
+      app.get(`/${path.basename(file)}`, (_req, res) => {
         res.set('Cache-Control', 'public, max-age=300');
         res.type('json').send(fs.readFileSync(path.join(ROOT, file), 'utf8'));
       });
