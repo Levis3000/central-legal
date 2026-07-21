@@ -1,0 +1,74 @@
+const express = require('express');
+const path = require('path');
+const fs = require('fs');
+
+const app = express();
+const PORT = process.env.PORT || 3000;
+const ROOT = __dirname;
+
+// One deploy, separate public URLs per app:
+//   /snaptract/privacy  /snaptract/terms  (+ .json for the iOS app)
+//   /falaah/privacy     /falaah/terms
+const APPS = {
+  snaptract: {
+    label: 'SnapTract',
+    files: {
+      privacy: 'snaptract-privacy-policy.html',
+      terms: 'snaptract-terms-of-service.html',
+    },
+    json: {
+      privacy: 'snaptract-privacy.json',
+      terms: 'snaptract-terms.json',
+    },
+  },
+  falaah: {
+    label: 'Falaah',
+    files: {
+      privacy: 'falaah-privacy-policy.html',
+      terms: 'falaah-terms-of-service.html',
+      both: 'falaah-privacy-and-terms.html',
+    },
+  },
+};
+
+app.use((req, res, next) => {
+  res.set('Access-Control-Allow-Origin', '*');
+  next();
+});
+
+app.get('/healthz', (_req, res) => res.json({ ok: true }));
+
+app.get('/', (_req, res) => {
+  res.sendFile(path.join(ROOT, 'index.html'));
+});
+
+for (const [slug, cfg] of Object.entries(APPS)) {
+  for (const [doc, file] of Object.entries(cfg.files)) {
+    app.get(`/${slug}/${doc}`, (_req, res) => {
+      res.set('Cache-Control', 'public, max-age=300');
+      res.sendFile(path.join(ROOT, file));
+    });
+  }
+  if (cfg.json) {
+    for (const [doc, file] of Object.entries(cfg.json)) {
+      app.get(`/${slug}/${doc}.json`, (_req, res) => {
+        res.set('Cache-Control', 'public, max-age=300');
+        res.type('json').send(fs.readFileSync(path.join(ROOT, file), 'utf8'));
+      });
+    }
+  }
+}
+
+// Flat filenames still work (GitHub Pages–style links).
+app.use(express.static(ROOT, {
+  extensions: ['html'],
+  setHeaders(res) {
+    res.set('Cache-Control', 'public, max-age=300');
+  },
+}));
+
+app.listen(PORT, () => {
+  console.log(`central-legal listening on :${PORT}`);
+  console.log('  /snaptract/privacy  /snaptract/terms');
+  console.log('  /falaah/privacy     /falaah/terms');
+});
