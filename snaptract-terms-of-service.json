@@ -1,16 +1,103 @@
 {
   "title": "Terms of Service",
-  "updated": "July 2026",
+  "updated": "21 July 2026",
   "contactEmail": "support@snaptract.app",
   "sections": [
-    { "heading": "Acceptance", "body": "By using SnapTract you agree to these terms. If you don't agree, please don't use the app." },
-    { "heading": "The service", "body": "SnapTract lets you scan receipts, track your spending, remember prices, and turn receipts into expense and tax reports you can export." },
-    { "heading": "Your account", "body": "You sign in with Apple. You're responsible for activity on your account. Keep your device secure." },
-    { "heading": "Subscriptions", "body": "SnapTract Pro is an auto-renewing subscription billed to your Apple ID. It renews unless cancelled at least 24 hours before the period ends. Manage or cancel it anytime in Settings › Apple ID › Subscriptions, or from within the app." },
-    { "heading": "Your content", "body": "Your receipts, reports and data are yours. You grant SnapTract permission to store and process them only to provide the service to you." },
-    { "heading": "Acceptable use", "body": "Don't misuse the app, attempt to break its security, or upload unlawful content." },
-    { "heading": "Disclaimer", "body": "SnapTract is provided “as is.” AI-extracted data may contain errors — always review amounts before relying on them for tax or reimbursement. SnapTract is not a tax or financial advisor." },
-    { "heading": "Changes", "body": "We may update these terms; continued use means you accept the changes." },
-    { "heading": "Contact", "body": "Questions? Reach us through Contact us in the app, or email support@snaptract.app." }
+    {
+      "heading": "Agreement to these Terms",
+      "body": "These Terms of Service (\"Terms\") are a binding agreement between you and the operator of SnapTract (\"SnapTract,\" \"we,\" \"us,\" or \"our\") governing your access to and use of the SnapTract mobile application and related services (the \"Service\").\n\nBy downloading, accessing, or using the Service, you agree to these Terms and our Privacy Policy. If you do not agree, do not use the Service.\n\nSnapTract is offered worldwide. Local mandatory consumer protections that cannot be waived under the law of your country of residence still apply."
+    },
+    {
+      "heading": "Eligibility",
+      "body": "You must be at least 13 years old (or the minimum age of digital consent in your country, if higher) to use the Service. If you use the Service on behalf of an organization, you represent that you have authority to bind that organization to these Terms."
+    },
+    {
+      "heading": "The Service",
+      "body": "SnapTract lets you scan or upload receipts, extract data with AI assistance, track spending, remember prices, and create expense or tax-oriented reports you can export.\n\nWe may change, suspend, or discontinue features at any time. We do not guarantee that any particular feature will remain available indefinitely."
+    },
+    {
+      "heading": "Not tax, legal, or financial advice",
+      "body": "SnapTract is a productivity tool only. It is not a tax advisor, accountant, bookkeeper, auditor, lawyer, or financial advisor. Reports, categories, totals, and AI-extracted fields are informational aids only.\n\nYou alone are responsible for verifying all amounts, taxes, categories, and documents before using them for reimbursement, bookkeeping, tax filing, audits, or any financial or legal purpose. Always consult a qualified professional for advice specific to your situation."
+    },
+    {
+      "heading": "Accounts and security",
+      "body": "Access requires Sign in with Apple. You are responsible for maintaining the confidentiality of your Apple ID and device, and for all activity under your account. Notify us promptly at support@snaptract.app if you suspect unauthorized access. We are not liable for loss or damage arising from your failure to keep credentials or devices secure."
+    },
+    {
+      "heading": "Subscriptions, billing, and trials",
+      "body": "SnapTract Pro and other paid features are sold as auto-renewing subscriptions through the Apple App Store. Payment is charged to your Apple ID at confirmation of purchase.\n\nSubscriptions renew automatically unless cancelled at least 24 hours before the end of the current period. If a free trial is offered, unused trial time is forfeited when you purchase, and the trial converts to a paid subscription unless cancelled before it ends.\n\nManage or cancel anytime in Settings › Apple ID › Subscriptions, or via in-app subscription management. Prices may change with notice as required by Apple or law. Except where required by law, payments are non-refundable; refund requests are handled by Apple under Apple's refund policies. We do not control Apple's billing or refund decisions."
+    },
+    {
+      "heading": "License to use the Service",
+      "body": "Subject to these Terms, we grant you a limited, non-exclusive, non-transferable, revocable license to install and use SnapTract on Apple devices you own or control, solely for your personal or internal business use, in accordance with the App Store terms and these Terms.\n\nYou may not copy, modify, distribute, sell, lease, reverse engineer, decompile, or create derivative works of the Service except to the extent such restriction is prohibited by law."
+    },
+    {
+      "heading": "Your content",
+      "body": "You retain ownership of receipts, images, notes, and other content you submit (\"Your Content\"). You grant us a worldwide, non-exclusive, royalty-free license to host, store, process, transmit, and display Your Content solely to operate and provide the Service to you (including AI extraction, sync, backup, and export features you use).\n\nYou represent that you have all rights needed to submit Your Content and that it does not violate law or third-party rights. We may remove content that we reasonably believe violates these Terms or law."
+    },
+    {
+      "heading": "Acceptable use",
+      "body": "You agree not to:\n\n• Use the Service for unlawful purposes or to violate any law or regulation.\n• Upload content you do not have rights to process, or that is illegal, harmful, or infringing.\n• Attempt to gain unauthorized access to the Service, other accounts, or related systems.\n• Interfere with or disrupt the Service, including via malware, scraping at abusive scale, or overloading infrastructure.\n• Misrepresent AI-extracted or app-generated data as professionally verified without review.\n• Circumvent subscription, security, or usage limits."
+    },
+    {
+      "heading": "AI features and accuracy",
+      "body": "AI-powered receipt reading and related features may be inaccurate, incomplete, biased, or inappropriate. Extraction errors are common for poor-quality images, unusual formats, multiple currencies, handwritten text, or damaged receipts.\n\nYOU MUST REVIEW ALL AI OUTPUT BEFORE RELYING ON IT. We disclaim responsibility for decisions, filings, reimbursements, or losses based on unverified AI output or app-generated reports."
+    },
+    {
+      "heading": "Third-party services",
+      "body": "The Service depends on third parties, including Apple, cloud hosting, and AI providers. Their availability, terms, and privacy practices are outside our control. Outages, changes, or failures of third-party services may affect SnapTract. We are not liable for third-party acts, omissions, or downtime."
+    },
+    {
+      "heading": "Intellectual property",
+      "body": "The Service, including software, design, trademarks, and original content (excluding Your Content), is owned by us or our licensors and protected by intellectual property laws. These Terms do not transfer any ownership to you."
+    },
+    {
+      "heading": "Privacy",
+      "body": "Our collection and use of personal information is described in the Privacy Policy. By using the Service, you consent to that processing as described there, to the extent permitted by applicable law."
+    },
+    {
+      "heading": "Disclaimer of warranties",
+      "body": "TO THE MAXIMUM EXTENT PERMITTED BY APPLICABLE LAW, THE SERVICE IS PROVIDED \"AS IS\" AND \"AS AVAILABLE,\" WITHOUT WARRANTIES OF ANY KIND, WHETHER EXPRESS, IMPLIED, OR STATUTORY, INCLUDING IMPLIED WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE, TITLE, QUIET ENJOYMENT, ACCURACY, AND NON-INFRINGEMENT.\n\nWE DO NOT WARRANT THAT THE SERVICE WILL BE UNINTERRUPTED, SECURE, ERROR-FREE, OR FREE OF HARMFUL COMPONENTS; THAT DATA WILL BE PRESERVED WITHOUT LOSS; OR THAT ANY CONTENT — INCLUDING AI EXTRACTIONS, TOTALS, CATEGORIES, OR REPORTS — WILL BE ACCURATE, COMPLETE, OR RELIABLE.\n\nSOME JURISDICTIONS DO NOT ALLOW THE EXCLUSION OF CERTAIN WARRANTIES. IN THOSE JURISDICTIONS, OUR WARRANTIES ARE LIMITED TO THE MINIMUM PERMITTED BY LAW."
+    },
+    {
+      "heading": "Limitation of liability",
+      "body": "TO THE MAXIMUM EXTENT PERMITTED BY APPLICABLE LAW, IN NO EVENT WILL SNAPTRACT, ITS OPERATORS, AFFILIATES, OFFICERS, EMPLOYEES, AGENTS, SUPPLIERS, OR LICENSORS BE LIABLE FOR ANY INDIRECT, INCIDENTAL, SPECIAL, CONSEQUENTIAL, EXEMPLARY, OR PUNITIVE DAMAGES; OR FOR ANY LOSS OF PROFITS, REVENUE, DATA, GOODWILL, BUSINESS OPPORTUNITY, OR COST OF SUBSTITUTE SERVICES; OR FOR ANY TAX PENALTIES, AUDIT COSTS, REIMBURSEMENT DENIALS, OR FINANCIAL LOSSES ARISING FROM YOUR USE OF OR INABILITY TO USE THE SERVICE OR FROM RELIANCE ON AI OUTPUT OR REPORTS — WHETHER BASED ON WARRANTY, CONTRACT, TORT (INCLUDING NEGLIGENCE), STRICT LIABILITY, OR ANY OTHER LEGAL THEORY, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGES.\n\nTO THE MAXIMUM EXTENT PERMITTED BY LAW, OUR TOTAL AGGREGATE LIABILITY FOR ALL CLAIMS RELATING TO THE SERVICE WILL NOT EXCEED THE GREATER OF: (A) THE AMOUNTS YOU PAID US FOR THE SERVICE IN THE TWELVE (12) MONTHS BEFORE THE CLAIM; OR (B) USD $10.00.\n\nTHESE LIMITATIONS ARE AN ESSENTIAL BASIS OF THE BARGAIN AND APPLY EVEN IF ANY REMEDY FAILS OF ITS ESSENTIAL PURPOSE. SOME JURISDICTIONS DO NOT ALLOW CERTAIN LIMITATIONS; IN THOSE CASES, OUR LIABILITY IS LIMITED TO THE MAXIMUM EXTENT PERMITTED BY LAW. NOTHING IN THESE TERMS EXCLUDES LIABILITY THAT CANNOT BE EXCLUDED UNDER APPLICABLE LAW (INCLUDING LIABILITY FOR DEATH OR PERSONAL INJURY CAUSED BY NEGLIGENCE WHERE SUCH EXCLUSION IS FORBIDDEN, OR FOR FRAUD)."
+    },
+    {
+      "heading": "Indemnification",
+      "body": "To the maximum extent permitted by law, you agree to indemnify, defend, and hold harmless SnapTract and its operators, affiliates, officers, employees, and agents from and against any claims, damages, losses, liabilities, costs, and expenses (including reasonable attorneys' fees) arising out of or related to: (a) Your Content; (b) your use or misuse of the Service; (c) your violation of these Terms or of any law or third-party right; or (d) your reliance on AI output or reports without independent verification."
+    },
+    {
+      "heading": "Termination",
+      "body": "You may stop using the Service at any time and may delete your account from Profile. We may suspend or terminate access immediately if you violate these Terms, if required by law, or if we discontinue the Service.\n\nUpon termination, your license ends. Provisions that by their nature should survive (including ownership, disclaimers, limitations of liability, indemnity, and governing law) will survive."
+    },
+    {
+      "heading": "Export controls and sanctions",
+      "body": "You may not use the Service if you are located in a country subject to comprehensive embargoes, or if you are on any restricted-party list maintained by the United States or other applicable governments. You agree to comply with all export and sanctions laws."
+    },
+    {
+      "heading": "International users",
+      "body": "You access the Service on your own initiative and are responsible for compliance with local laws. Where mandatory local consumer, privacy, or e-commerce rules grant you non-waivable rights, those rights remain available to you notwithstanding anything else in these Terms."
+    },
+    {
+      "heading": "Governing law and disputes",
+      "body": "Except where prohibited by mandatory law of your country of residence, these Terms are governed by the laws of the State of Delaware, United States, without regard to conflict-of-law rules, and courts located in Delaware shall have exclusive jurisdiction — except that consumers in the EEA, UK, or other jurisdictions with mandatory protective rules may bring proceedings in their country of residence, and those mandatory rules continue to apply.\n\nBefore filing a claim, you agree to try to resolve the dispute informally by contacting support@snaptract.app. Nothing in these Terms limits your right to file a complaint with a consumer protection or data-protection authority."
+    },
+    {
+      "heading": "Apple App Store terms",
+      "body": "You acknowledge that: (a) these Terms are between you and us, not Apple; (b) Apple has no obligation to furnish maintenance or support for the Service; (c) to the extent any warranty applies and is not effectively disclaimed, Apple's responsibility is limited as described in Apple's Licensed Application End User License Agreement; (d) Apple is not responsible for addressing claims relating to the Service or your possession/use of it, including product liability, legal/regulatory claims, and consumer protection claims; (e) Apple is not responsible for investigating, defending, settling, or discharging third-party IP claims; and (f) Apple and its subsidiaries are third-party beneficiaries of these Terms and may enforce them against you.\n\nYour use must also comply with the Apple Media Services Terms and any applicable Usage Rules."
+    },
+    {
+      "heading": "Changes to these Terms",
+      "body": "We may update these Terms from time to time. The \"Last updated\" date reflects the latest version. Continued use after changes take effect means you accept the updated Terms, except where applicable law requires additional notice or consent. If you do not agree, stop using the Service and delete your account."
+    },
+    {
+      "heading": "General",
+      "body": "If any provision of these Terms is held unenforceable, the remaining provisions remain in effect. Our failure to enforce a provision is not a waiver. You may not assign these Terms without our consent; we may assign them in connection with a merger, acquisition, or sale of assets. These Terms, together with the Privacy Policy and any in-app disclosures, are the entire agreement between you and us regarding the Service and supersede prior understandings on that subject.\n\nHeadings are for convenience only. \"Including\" means \"including without limitation.\""
+    },
+    {
+      "heading": "Contact",
+      "body": "Questions about these Terms: support@snaptract.app, or use Contact us in the app / on our legal site."
+    }
   ]
 }

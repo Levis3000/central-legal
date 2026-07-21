@@ -1,14 +1,91 @@
 {
   "title": "Privacy Policy",
-  "updated": "July 2026",
+  "updated": "21 July 2026",
   "contactEmail": "support@snaptract.app",
   "sections": [
-    { "heading": "What we collect", "body": "Your profile (name, currency, and any employee/department details you add), the receipts and reports you create, and — if you enable notifications — a device token used to deliver them." },
-    { "heading": "How we use it", "body": "Only to run the app for you: reading receipts with AI, syncing your data across your devices, showing your spending, and sending notifications you've allowed." },
-    { "heading": "Where it's stored", "body": "Your data is stored in our Supabase database, scoped so only you can read it; receipt images are stored in Cloudflare R2. Some processing happens on your device." },
-    { "heading": "Third parties", "body": "We use Apple (sign-in, subscriptions, push), an AI provider to read receipts, Supabase (database & functions), and Cloudflare (image storage). We don't sell your data or use it for advertising." },
-    { "heading": "Your choices", "body": "You can edit or delete your data, or delete your entire account, from Profile at any time. Deleting your account permanently removes your data." },
-    { "heading": "Retention", "body": "We keep your data until you delete it or close your account." },
-    { "heading": "Contact", "body": "Questions about privacy? Reach us through Contact us in the app, or email support@snaptract.app." }
+    {
+      "heading": "Introduction",
+      "body": "This Privacy Policy explains how SnapTract (\"SnapTract,\" \"we,\" \"us,\" or \"our\") collects, uses, stores, shares, and protects personal information when you use the SnapTract mobile application and related websites or services (collectively, the \"Service\").\n\nSnapTract is offered worldwide. This Policy is intended to meet requirements under the EU/EEA General Data Protection Regulation (\"GDPR\"), the UK GDPR, the Swiss Federal Act on Data Protection, the California Consumer Privacy Act as amended by the CPRA (\"CCPA\"), and other applicable privacy laws.\n\nBy using the Service, you acknowledge this Policy. If you do not agree, do not use the Service."
+    },
+    {
+      "heading": "Who we are (data controller)",
+      "body": "For personal data processed in connection with the Service, the data controller is the operator of SnapTract, reachable at support@snaptract.app.\n\nIf you are in the European Economic Area (EEA), United Kingdom, or Switzerland, you may contact us at the same address to exercise your rights or raise privacy questions. Where required by law, you may also lodge a complaint with your local supervisory authority."
+    },
+    {
+      "heading": "Scope",
+      "body": "This Policy applies to personal information we process about you as a user of SnapTract. It does not apply to third-party websites, apps, or services that we do not control (including Apple, AI providers, or cloud hosts), which have their own privacy policies."
+    },
+    {
+      "heading": "Information we collect",
+      "body": "Depending on how you use the Service, we may process:\n\n• Account and identity data: Apple Sign In identifier, email address (including a private relay address if you hide your email), and display name if you provide one.\n• Profile and preferences: currency, locale/region settings, employee or department fields you choose to add, and similar settings.\n• Receipt and expense content: receipt images, merchant names, dates, amounts, tax fields, categories, notes, tags, and reports or exports you create.\n• Device and technical data: device type, OS version, app version, language, rough diagnostics needed to run and secure the Service, and — only if you enable notifications — a push notification token.\n• Support communications: messages, email address, and related details you send via Contact us or support channels.\n• Subscription status: whether you have an active SnapTract Pro entitlement, as reported by Apple (we do not receive your full payment card details).\n\nWe do not intentionally collect precise GPS location for advertising. Location is not required for core receipt scanning."
+    },
+    {
+      "heading": "How we collect information",
+      "body": "We collect information:\n\n• Directly from you when you create an account, scan or upload receipts, edit data, export reports, or contact support.\n• Automatically from your device when the app runs (technical and diagnostic data needed to operate the Service).\n• From Apple when you Sign in with Apple or purchase/manage a subscription.\n• From processors acting on our instructions (for example, AI extraction of receipt text and cloud storage)."
+    },
+    {
+      "heading": "Legal bases (GDPR / UK GDPR)",
+      "body": "If you are in the EEA, UK, or Switzerland, we process personal data only where a legal basis applies, including:\n\n• Contract: to provide the Service you request (account, sync, scanning, reports, subscriptions you buy).\n• Legitimate interests: to secure the Service, prevent abuse, improve reliability, and communicate about service changes — balanced against your rights.\n• Consent: where required (for example, optional push notifications). You may withdraw consent at any time without affecting prior lawful processing.\n• Legal obligation: where we must retain or disclose information to comply with law.\n\nWhere we rely on legitimate interests, you may object as described in \"Your rights\" below."
+    },
+    {
+      "heading": "How we use information",
+      "body": "We use personal information to:\n\n• Provide, operate, maintain, and improve the Service.\n• Authenticate you and sync your data across your devices.\n• Process receipt images with AI to extract structured data you can review and edit.\n• Generate spending views, price memory, expense reports, and exports you request.\n• Send push notifications you have enabled.\n• Process subscriptions and entitlements via Apple.\n• Respond to support requests and investigate abuse or security issues.\n• Comply with law and enforce our Terms of Service.\n\nWe do not sell your personal information and we do not use it for third-party advertising or cross-context behavioral advertising."
+    },
+    {
+      "heading": "AI processing",
+      "body": "When you scan or upload a receipt, image content and related text may be sent to our AI processor solely to extract fields (merchant, amounts, dates, line items, and similar). Extracted results can be wrong. You are responsible for reviewing and correcting data before relying on it for reimbursement, accounting, or tax.\n\nWe instruct processors to use this content only to provide the extraction service to us. We do not use your receipts to train public advertising models. Processor terms may allow limited use to operate and secure their API; see their policies for details."
+    },
+    {
+      "heading": "Where data is stored and international transfers",
+      "body": "Your structured data is stored in our managed backend (Supabase). Receipt images are stored with cloud object storage (Cloudflare R2). Some processing occurs on your device.\n\nBecause SnapTract is available worldwide, personal data may be processed in countries other than where you live, including the United States and other locations where our providers operate. Those countries may have different data-protection laws than your home country.\n\nFor transfers from the EEA, UK, or Switzerland to countries not deemed adequate, we rely on appropriate safeguards where required — such as the European Commission's Standard Contractual Clauses (SCCs), the UK International Data Transfer Agreement / Addendum, and provider certifications or contractual commitments — together with technical and organizational measures. You may contact us for more information about transfers applicable to your account."
+    },
+    {
+      "heading": "Sharing and processors",
+      "body": "We share personal information only as needed to run the Service:\n\n• Apple — Sign in with Apple, App Store subscriptions, and push delivery.\n• Supabase — database, authentication-related backend, and server functions.\n• Cloudflare — object storage for receipt images.\n• AI provider — receipt reading / extraction.\n• Professional advisors or authorities — only if required by law or to protect rights, safety, or the Service.\n\nThese parties act as processors or independent controllers as applicable under their terms. We require processors who handle personal data on our behalf to protect it and use it only for instructed purposes.\n\nWe do not sell or rent your personal information."
+    },
+    {
+      "heading": "Retention",
+      "body": "We retain personal information for as long as your account remains active and as needed to provide the Service. When you delete your account, we delete or anonymize associated personal data from our systems within a reasonable period, except where we must retain limited information for legal, security, fraud-prevention, accounting, or dispute-resolution purposes.\n\nBackups may persist for a short additional period before being overwritten. Device-local copies remain until you remove the app or clear local data."
+    },
+    {
+      "heading": "Security",
+      "body": "We use reasonable technical and organizational measures designed to protect personal information, including access controls, encryption in transit where applicable, and provider security features. No method of transmission or storage is completely secure. You are responsible for keeping your device and Apple ID secure. We are not liable for unauthorized access resulting from circumstances beyond our reasonable control."
+    },
+    {
+      "heading": "Your rights (EEA, UK, Switzerland)",
+      "body": "Subject to applicable law, you may have the right to:\n\n• Access your personal data.\n• Rectify inaccurate data.\n• Erase data (\"right to be forgotten\").\n• Restrict or object to certain processing.\n• Data portability.\n• Withdraw consent where processing is consent-based.\n• Lodge a complaint with a supervisory authority in your country of residence or work.\n\nYou can exercise many of these rights in the app (edit or delete data; delete your account from Profile). For other requests, email support@snaptract.app. We may need to verify your identity before fulfilling a request. Some rights are limited where we have overriding legitimate grounds or legal duties."
+    },
+    {
+      "heading": "Your rights (California and other US states)",
+      "body": "If you are a California resident (and where similar US state laws apply, such as Virginia, Colorado, Connecticut, Utah, and others), you may have rights to:\n\n• Know / access categories and specific pieces of personal information collected.\n• Delete personal information.\n• Correct inaccurate personal information.\n• Opt out of \"sale\" or \"sharing\" for cross-context behavioral advertising (we do not sell or share personal information for such purposes).\n• Limit use of sensitive personal information where applicable.\n• Non-discrimination for exercising privacy rights.\n\nTo submit a request, email support@snaptract.app or use in-app account deletion. We will not discriminate against you for exercising your rights. We do not use personal information for targeted advertising as defined under those laws."
+    },
+    {
+      "heading": "Your choices",
+      "body": "You may:\n\n• Edit profile and receipt data in the app.\n• Disable push notifications in iOS Settings.\n• Manage or cancel SnapTract Pro in Apple ID subscription settings.\n• Delete your account and associated cloud data from Profile.\n• Contact us to request access, correction, or deletion where the app does not already provide it.\n\nSign in with Apple options (including Hide My Email) are controlled by Apple."
+    },
+    {
+      "heading": "Children's privacy",
+      "body": "SnapTract is not directed to children under 13 (or under 16 in the EEA/UK where a higher digital consent age applies), and we do not knowingly collect personal information from children. If you believe a child has provided us personal information, contact support@snaptract.app and we will take steps to delete it."
+    },
+    {
+      "heading": "Cookies, analytics, and tracking",
+      "body": "The native iOS app does not use third-party advertising trackers. Our marketing or legal web pages may use strictly necessary cookies or similar technologies to operate the site. We do not currently use third-party advertising analytics SDKs in the app. If that changes, we will update this Policy and obtain consent where required."
+    },
+    {
+      "heading": "Automated decision-making",
+      "body": "AI extraction suggests structured fields from receipts. This is assistive automation; it does not produce legal or similarly significant decisions about you without human review. You control whether to accept, edit, or discard extracted data."
+    },
+    {
+      "heading": "Do Not Track",
+      "body": "Some browsers send \"Do Not Track\" signals. There is no consistent industry standard for responding to them. Aside from the practices described in this Policy, we do not alter the Service based solely on a Do Not Track signal."
+    },
+    {
+      "heading": "Changes to this Policy",
+      "body": "We may update this Privacy Policy from time to time. The \"Last updated\" date at the top reflects the latest version. Material changes will be indicated by updating that date and, where appropriate, by in-app notice. Continued use of the Service after changes take effect constitutes acceptance of the updated Policy, except where applicable law requires additional consent."
+    },
+    {
+      "heading": "Contact",
+      "body": "Privacy questions or requests: support@snaptract.app, or use Contact us in the app / on our legal site.\n\nWe aim to respond within a reasonable period and, for GDPR requests, within one month (extendable where permitted by law for complex requests)."
+    }
   ]
 }
