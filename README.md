@@ -11,6 +11,7 @@ Replace `YOUR-APP.up.railway.app` with your Railway domain:
 | --- | --- | --- |
 | **SnapTract** | `https://YOUR-APP.up.railway.app/snaptract/privacy` | `https://YOUR-APP.up.railway.app/snaptract/terms` |
 | **Falaah** | `https://YOUR-APP.up.railway.app/falaah/privacy` | `https://YOUR-APP.up.railway.app/falaah/terms` |
+| **Towly** | `https://YOUR-APP.up.railway.app/towly/privacy` | `https://YOUR-APP.up.railway.app/towly/terms` |
 
 SnapTract JSON (for the iOS app) — product-prefixed filenames:
 
@@ -58,3 +59,6 @@ npm start   # http://localhost:3000/snaptract/privacy
 | `snaptract-terms-of-service.html` | SnapTract |
 | `snaptract-privacy-policy.json` / `snaptract-terms-of-service.json` | SnapTract (app) |
 | `snaptract-contact.html` | SnapTract contact form |
+| `towly.html` | Towly hub |
+| `towly-privacy-policy.html` | Towly |
+| `towly-terms-of-service.html` | Towly |

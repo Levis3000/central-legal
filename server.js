@@ -9,6 +9,7 @@ const ROOT = __dirname;
 // One deploy, separate public URLs per app:
 //   /snaptract/privacy  /snaptract/terms  (+ .json for the iOS app)
 //   /falaah/privacy     /falaah/terms
+//   /towly/privacy      /towly/terms
 const APPS = {
   snaptract: {
     label: 'SnapTract',
@@ -31,6 +32,14 @@ const APPS = {
       privacy: 'falaah-privacy-policy.html',
       terms: 'falaah-terms-of-service.html',
       both: 'falaah-privacy-and-terms.html',
+    },
+  },
+  towly: {
+    label: 'Towly',
+    files: {
+      privacy: 'towly-privacy-policy.html',
+      terms: 'towly-terms-of-service.html',
+      '': 'towly.html',
     },
   },
 };
@@ -81,4 +90,5 @@ app.listen(PORT, () => {
   console.log(`central-legal listening on :${PORT}`);
   console.log('  /snaptract/privacy  /snaptract/terms');
   console.log('  /falaah/privacy     /falaah/terms');
+  console.log('  /towly/privacy      /towly/terms');
 });
