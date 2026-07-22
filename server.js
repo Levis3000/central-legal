@@ -31,6 +31,7 @@ const APPS = {
     files: {
       privacy: 'falaah-privacy-policy.html',
       terms: 'falaah-terms-of-service.html',
+      eula: 'falaah-eula.html',
       both: 'falaah-privacy-and-terms.html',
     },
   },
@@ -90,6 +91,6 @@ app.use(express.static(ROOT, {
 app.listen(PORT, () => {
   console.log(`central-legal listening on :${PORT}`);
   console.log('  /snaptract/privacy  /snaptract/terms');
-  console.log('  /falaah/privacy     /falaah/terms');
+  console.log('  /falaah/privacy     /falaah/terms      /falaah/eula');
   console.log('  /towly/privacy      /towly/terms      /towly/eula');
 });

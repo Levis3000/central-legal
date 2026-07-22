@@ -12,156 +12,74 @@
     --muted: #7C6A6D;
     --hair: rgba(52, 37, 42, 0.12);
     --coral: #C05335;
-    --coral-soft: #D97A5E;
     --gold: #A9791F;
     --serif: 'Iowan Old Style', 'Palatino Linotype', Palatino, 'Book Antiqua', Georgia, serif;
     --sans: system-ui, -apple-system, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
   }
   @media (prefers-color-scheme: dark) {
     :root {
-      --ground: #191521;
-      --surface: #221D2E;
-      --ink: #EFE7DF;
-      --muted: #B0A3AC;
-      --hair: rgba(255, 255, 255, 0.13);
-      --coral: #E88C6D;
-      --coral-soft: #E88C6D;
-      --gold: #D8B25E;
+      --ground: #191521; --surface: #221D2E; --ink: #EFE7DF; --muted: #B0A3AC;
+      --hair: rgba(255, 255, 255, 0.13); --coral: #E88C6D; --gold: #D8B25E;
     }
   }
-  :root[data-theme="light"] {
-    --ground: #F7F1E7; --surface: #FFFDF8; --ink: #34252A; --muted: #7C6A6D;
-    --hair: rgba(52, 37, 42, 0.12); --coral: #C05335; --coral-soft: #D97A5E; --gold: #A9791F;
-  }
-  :root[data-theme="dark"] {
-    --ground: #191521; --surface: #221D2E; --ink: #EFE7DF; --muted: #B0A3AC;
-    --hair: rgba(255, 255, 255, 0.13); --coral: #E88C6D; --coral-soft: #E88C6D; --gold: #D8B25E;
-  }
-
   * { box-sizing: border-box; }
   body {
-    margin: 0;
-    background: var(--ground);
-    color: var(--ink);
-    font-family: var(--sans);
-    font-size: 17px;
-    line-height: 1.65;
+    margin: 0; background: var(--ground); color: var(--ink);
+    font-family: var(--sans); font-size: 17px; line-height: 1.65;
     -webkit-font-smoothing: antialiased;
   }
   .wrap { max-width: 760px; margin: 0 auto; padding: 0 24px 96px; }
-
-  /* Header */
   header.masthead {
-    text-align: center;
-    padding: 72px 0 40px;
-    border-bottom: 1px solid var(--hair);
-    margin-bottom: 8px;
+    text-align: center; padding: 72px 0 40px;
+    border-bottom: 1px solid var(--hair); margin-bottom: 8px;
   }
   .eyebrow {
-    font-size: 12.5px;
-    letter-spacing: 0.18em;
-    text-transform: uppercase;
-    color: var(--coral);
-    font-weight: 600;
-    margin: 0 0 14px;
+    font-size: 12.5px; letter-spacing: 0.18em; text-transform: uppercase;
+    color: var(--coral); font-weight: 600; margin: 0 0 14px;
   }
   h1.brand {
-    font-family: var(--serif);
-    font-weight: 600;
-    font-size: clamp(44px, 9vw, 68px);
-    line-height: 1;
-    margin: 0;
-    color: var(--ink);
-    letter-spacing: -0.01em;
+    font-family: var(--serif); font-weight: 600;
+    font-size: clamp(44px, 9vw, 68px); line-height: 1; margin: 0; letter-spacing: -0.01em;
   }
   .masthead .sub {
-    font-family: var(--serif);
-    font-size: clamp(19px, 3.4vw, 24px);
-    color: var(--muted);
-    margin: 18px 0 0;
-    font-style: italic;
+    font-family: var(--serif); font-size: clamp(19px, 3.4vw, 24px);
+    color: var(--muted); margin: 18px 0 0; font-style: italic;
   }
-  .updated {
-    font-size: 13.5px;
-    color: var(--muted);
-    margin: 22px 0 0;
-    font-variant-numeric: tabular-nums;
-  }
-
-  /* Anchor nav */
+  .updated { font-size: 13.5px; color: var(--muted); margin: 22px 0 0; font-variant-numeric: tabular-nums; }
   nav.toc {
-    display: flex; gap: 10px; justify-content: center; flex-wrap: wrap;
-    margin: 28px 0 8px;
+    display: flex; gap: 10px; justify-content: center; flex-wrap: wrap; margin: 28px 0 8px;
   }
   nav.toc a {
-    font-size: 14px; font-weight: 600; text-decoration: none;
-    color: var(--ink);
-    padding: 9px 18px;
-    border: 1px solid var(--hair);
-    border-radius: 999px;
-    background: var(--surface);
-    transition: border-color .15s ease, color .15s ease;
+    font-size: 14px; font-weight: 600; text-decoration: none; color: var(--ink);
+    padding: 9px 18px; border: 1px solid var(--hair); border-radius: 999px; background: var(--surface);
   }
   nav.toc a:hover { border-color: var(--coral); color: var(--coral); }
-  nav.toc a:focus-visible { outline: 2px solid var(--coral); outline-offset: 2px; }
-
-  /* Sections */
+  nav.toc a.on { border-color: var(--coral); color: var(--coral); background: color-mix(in srgb, var(--coral) 12%, transparent); }
   section.doc { padding-top: 56px; scroll-margin-top: 24px; }
   h2.doc-title {
-    font-family: var(--serif);
-    font-size: clamp(28px, 5vw, 36px);
-    font-weight: 600;
-    color: var(--ink);
-    margin: 0 0 6px;
-    text-wrap: balance;
+    font-family: var(--serif); font-size: clamp(28px, 5vw, 36px); font-weight: 600; margin: 0 0 6px;
   }
   .doc-title .rule {
-    display: block; width: 54px; height: 3px; border-radius: 2px;
-    background: var(--coral); margin-top: 16px;
+    display: block; width: 54px; height: 3px; border-radius: 2px; background: var(--coral); margin-top: 16px;
   }
   .intro { color: var(--muted); font-size: 16px; margin: 18px 0 4px; }
-
   article.clause { padding: 26px 0; border-bottom: 1px solid var(--hair); }
   article.clause:last-child { border-bottom: none; }
   h3.clause-head {
-    font-family: var(--serif);
-    font-size: 20px;
-    font-weight: 600;
-    margin: 0 0 8px;
-    color: var(--ink);
+    font-family: var(--serif); font-size: 20px; font-weight: 600; margin: 0 0 8px;
     display: flex; gap: 12px; align-items: baseline;
   }
   h3.clause-head .num {
-    font-family: var(--sans);
-    font-size: 13px; font-weight: 700;
-    color: var(--coral);
-    font-variant-numeric: tabular-nums;
-    flex: 0 0 auto;
-    min-width: 1.6em;
+    font-family: var(--sans); font-size: 13px; font-weight: 700; color: var(--coral);
+    font-variant-numeric: tabular-nums; flex: 0 0 auto; min-width: 1.6em;
   }
-  .clause p { margin: 0; color: var(--ink); }
+  .clause p { margin: 0; }
   .clause p + p { margin-top: 10px; }
-  .clause ul { margin: 8px 0 0; padding-left: 20px; color: var(--ink); }
+  .clause ul { margin: 8px 0 0; padding-left: 20px; }
   .clause li { margin: 4px 0; }
-  .legal-caps {
-    text-transform: uppercase;
-    letter-spacing: 0.02em;
-    font-size: 14.5px;
-    line-height: 1.6;
-    color: var(--muted);
-  }
   a.inline { color: var(--coral); text-decoration: underline; text-underline-offset: 2px; }
-
-  .placeholder {
-    background: color-mix(in srgb, var(--gold) 16%, transparent);
-    color: var(--ink);
-    padding: 0 5px; border-radius: 4px; font-weight: 600;
-    white-space: nowrap;
-  }
-
   footer.legal-foot {
-    margin-top: 64px; padding-top: 28px;
-    border-top: 1px solid var(--hair);
+    margin-top: 64px; padding-top: 28px; border-top: 1px solid var(--hair);
     text-align: center; color: var(--muted); font-size: 14.5px;
   }
   footer.legal-foot a { color: var(--coral); text-decoration: none; }
@@ -169,161 +87,235 @@
 </style>
 </head>
 <body>
-
 <div class="wrap">
   <header class="masthead" id="top">
     <p class="eyebrow">Ḥayya ʿala al-Falāḥ · Hasten to success</p>
     <h1 class="brand">Falaah</h1>
     <p class="sub">Privacy Policy &amp; Terms of Service</p>
-    <p class="updated">Last updated: 19 July 2026</p>
+    <p class="updated">Last updated: 22 July 2026</p>
+    <p class="updated" style="margin-top:8px">Worldwide · Includes GDPR (EEA/UK). See also our EULA for the iOS license.</p>
     <nav class="toc" aria-label="Sections">
       <a href="falaah-privacy-policy.html">Privacy Policy</a>
       <a href="falaah-terms-of-service.html">Terms of Service</a>
+      <a href="falaah-eula.html">EULA</a>
       <a href="#privacy">Privacy (this page)</a>
       <a href="#terms">Terms (this page)</a>
       <a href="#contact">Contact</a>
     </nav>
   </header>
 
-  <!-- ============ PRIVACY ============ -->
   <section class="doc" id="privacy" aria-labelledby="privacy-title">
     <h2 class="doc-title" id="privacy-title">Privacy Policy<span class="rule"></span></h2>
-    <p class="intro">Falaah is a Muslim prayer companion. Your worship is between you and Allah — this policy explains what we collect, what we never do, and the choices that stay yours.</p>
+    <p class="intro">Falaah is a Muslim prayer companion. Your worship is between you and Allah — this policy explains what we collect, how we use it, your GDPR and other privacy rights, and the choices that stay yours.</p>
 
     <article class="clause">
-      <h3 class="clause-head"><span class="num">1</span>Our commitment</h3>
-      <p>Falaah is built to protect your privacy. This policy explains what we collect, how we use it, and the choices you have. By using the app, you agree to this policy.</p>
+      <h3 class="clause-head"><span class="num">1</span>Who we are (data controller)</h3>
+      <p>For personal data processed in connection with Falaah (the “App”), the data controller is the operator of Falaah (“we,” “us,” “our”), reachable at <a class="inline" href="mailto:support@mysalahtracker.com">support@mysalahtracker.com</a>.</p>
+      <p>This Policy is intended to meet requirements under the EU/EEA General Data Protection Regulation (“GDPR”), the UK GDPR, the Swiss Federal Act on Data Protection, the California Consumer Privacy Act as amended by the CPRA (“CCPA”), and other applicable privacy laws. By using the App, you acknowledge this Policy. If you do not agree, do not use the App.</p>
     </article>
+
     <article class="clause">
       <h3 class="clause-head"><span class="num">2</span>Information we collect</h3>
       <ul>
         <li><strong>Account:</strong> your Apple ID identifier and email address via Sign in with Apple (you may choose to hide your email).</li>
-        <li><strong>Worship data you create:</strong> prayer logs, qaza (make-up) balances, goals, dhikr counts, memorization progress, and reflections.</li>
+        <li><strong>Worship data you create:</strong> prayer logs, qaza (make-up) balances, goals, dhikr counts, memorization progress, reflections, and similar entries.</li>
+        <li><strong>Content you submit to AI features:</strong> text or audio you choose to send for features such as dua composition, make-up planning, or recitation transcription.</li>
         <li><strong>Recitation recordings,</strong> only if you choose to make them.</li>
         <li><strong>A device notification token,</strong> only if you enable reminders.</li>
+        <li><strong>Subscription status</strong> as reported by Apple (we do not receive your full payment card details).</li>
+        <li><strong>Support communications</strong> you send to us.</li>
       </ul>
     </article>
+
     <article class="clause">
       <h3 class="clause-head"><span class="num">3</span>What we do <em>not</em> collect</h3>
-      <p>We do not collect your precise location — prayer times are calculated on your device and your location never leaves your phone. We do not use advertising identifiers, third-party analytics or tracking, and we never sell your data. Your qaza estimation answers stay on your device; only the resulting totals are saved.</p>
+      <p>We do not collect your precise location — prayer times are calculated on your device and your location never leaves your phone. We do not use advertising identifiers, third-party advertising analytics or tracking SDKs, and we never sell your personal data. Your detailed qaza estimation questionnaire answers stay on your device; only the resulting totals you save are stored.</p>
     </article>
+
     <article class="clause">
-      <h3 class="clause-head"><span class="num">4</span>How we use your information</h3>
-      <p>To provide and sync the app's features, back up your data when you sign in or enable backup, send the reminders you turn on, and respond to your support requests. We do not use your data for advertising.</p>
+      <h3 class="clause-head"><span class="num">4</span>Legal bases (GDPR / UK GDPR)</h3>
+      <p>If you are in the EEA, UK, or Switzerland, we process personal data only where a legal basis applies, including:</p>
+      <ul>
+        <li><strong>Contract:</strong> to provide the App features you request (account, sync, backup, subscriptions you buy, AI features you invoke).</li>
+        <li><strong>Legitimate interests:</strong> to secure the App, prevent abuse, improve reliability, and communicate about service changes — balanced against your rights.</li>
+        <li><strong>Consent:</strong> where required (for example, optional push notifications, or optional AI submissions). You may withdraw consent at any time without affecting prior lawful processing.</li>
+        <li><strong>Legal obligation:</strong> where we must retain or disclose information to comply with law.</li>
+      </ul>
     </article>
+
     <article class="clause">
-      <h3 class="clause-head"><span class="num">5</span>AI processing</h3>
-      <p>When you use AI features, the text or audio you submit is sent to our AI processor (OpenAI) to generate a response. Under OpenAI's API terms, this content is not used to train their models. Please only submit what you are comfortable having processed.</p>
+      <h3 class="clause-head"><span class="num">5</span>How we use your information</h3>
+      <p>To provide, sync, and back up the App’s features; send the reminders you turn on; process AI requests you initiate; manage entitlements via Apple; respond to support; and comply with law. We do not use your data for advertising or cross-context behavioral advertising.</p>
     </article>
+
     <article class="clause">
-      <h3 class="clause-head"><span class="num">6</span>Where your data is stored</h3>
-      <p>Structured data is stored on our managed backend (Supabase). Files you choose to back up, such as recordings, may be stored with a cloud object-storage provider (Cloudflare R2). These providers process data on our behalf under their own terms and security.</p>
+      <h3 class="clause-head"><span class="num">6</span>AI processing</h3>
+      <p>When you use AI features, the text or audio you submit is sent to our AI processor (currently OpenAI) solely to generate a response for you. AI output can be inaccurate, incomplete, culturally or religiously inappropriate, or otherwise unsuitable. AI results are assistive only — not religious rulings, not professional advice, and not decisions about you with legal or similarly significant effects without your own review.</p>
+      <p>Under applicable OpenAI API terms, customer content submitted via the API is not used to train their models. Please only submit what you are comfortable having processed by a third-party processor. We are not responsible for how you use or rely on AI output; see our Terms of Service and EULA for liability limits.</p>
     </article>
+
     <article class="clause">
-      <h3 class="clause-head"><span class="num">7</span>Sharing</h3>
-      <p>We do not sell or rent your data. We share it only with the service providers who help us operate the app (hosting, AI processing, and notification delivery), and where we are required to by law.</p>
+      <h3 class="clause-head"><span class="num">7</span>Where data is stored &amp; international transfers</h3>
+      <p>Structured data is stored on our managed backend (Supabase). Files you choose to back up, such as recordings, may be stored with a cloud object-storage provider (Cloudflare R2). Because Falaah is available worldwide, personal data may be processed in countries other than where you live, including the United States and other locations where our providers operate.</p>
+      <p>For transfers from the EEA, UK, or Switzerland to countries not deemed adequate, we rely on appropriate safeguards where required — such as the European Commission’s Standard Contractual Clauses (SCCs), the UK International Data Transfer Agreement / Addendum, and provider contractual commitments — together with technical and organizational measures. Contact us for more information about transfers applicable to your account.</p>
     </article>
+
     <article class="clause">
-      <h3 class="clause-head"><span class="num">8</span>Your rights &amp; choices</h3>
-      <p>You can view your data in the app, and permanently delete your account and all associated data at any time from Account &amp; preferences. You can turn reminders on or off in Settings. Depending on where you live, you may have additional rights to access, correct, or export your data — contact us to exercise them.</p>
+      <h3 class="clause-head"><span class="num">8</span>Sharing and processors</h3>
+      <p>We do not sell or rent your personal data. We share it only with service providers who help us operate the App (for example Apple, Supabase, Cloudflare, our AI processor, and push delivery), with professional advisors when needed, and where required by law. Processors who handle personal data on our behalf are instructed to protect it and use it only for instructed purposes.</p>
     </article>
+
     <article class="clause">
-      <h3 class="clause-head"><span class="num">9</span>Data retention</h3>
-      <p>We keep your data while your account is active. When you delete your account, we delete your associated data from our systems, except where we are required to retain it by law.</p>
+      <h3 class="clause-head"><span class="num">9</span>Your rights (EEA, UK, Switzerland)</h3>
+      <p>Subject to applicable law, you may have the right to:</p>
+      <ul>
+        <li>Access your personal data.</li>
+        <li>Rectify inaccurate data.</li>
+        <li>Erase data (“right to be forgotten”).</li>
+        <li>Restrict or object to certain processing.</li>
+        <li>Data portability.</li>
+        <li>Withdraw consent where processing is consent-based.</li>
+        <li>Lodge a complaint with a supervisory authority in your country of residence or work.</li>
+      </ul>
+      <p>You can exercise many of these rights in the App (view or edit data; delete your account from Account &amp; preferences). For other requests, email <a class="inline" href="mailto:support@mysalahtracker.com">support@mysalahtracker.com</a>. We may need to verify your identity. We aim to respond within one month for GDPR requests (extendable where permitted for complex requests). Some rights are limited where we have overriding legitimate grounds or legal duties.</p>
     </article>
+
     <article class="clause">
-      <h3 class="clause-head"><span class="num">10</span>Children's privacy</h3>
-      <p>Falaah is not directed to children under 13, or the age of digital consent where you live. We do not knowingly collect data from them. If you believe a child has provided us data, contact us and we will delete it.</p>
+      <h3 class="clause-head"><span class="num">10</span>Your rights (California and other US states)</h3>
+      <p>If you are a California resident (and where similar US state laws apply), you may have rights to know/access, delete, and correct personal information; opt out of “sale” or “sharing” for cross-context behavioral advertising (we do not sell or share for such purposes); and non-discrimination for exercising privacy rights. To submit a request, email <a class="inline" href="mailto:support@mysalahtracker.com">support@mysalahtracker.com</a> or use in-app account deletion.</p>
     </article>
+
     <article class="clause">
-      <h3 class="clause-head"><span class="num">11</span>Security</h3>
-      <p>We use reasonable technical and organizational measures to protect your data. However, no method of transmission or storage is completely secure, and we cannot guarantee absolute security.</p>
+      <h3 class="clause-head"><span class="num">11</span>Your choices</h3>
+      <p>You may edit or delete worship data in the App, turn reminders on or off, manage or cancel subscriptions in Apple ID settings, delete your account and associated cloud data from Account &amp; preferences, and choose not to use optional AI features.</p>
     </article>
+
     <article class="clause">
-      <h3 class="clause-head"><span class="num">12</span>International users</h3>
-      <p>Your data may be processed in countries other than the one you live in. By using the app, you consent to this processing consistent with this policy.</p>
+      <h3 class="clause-head"><span class="num">12</span>Data retention</h3>
+      <p>We keep your data while your account is active. When you delete your account, we delete or anonymize associated personal data from our systems within a reasonable period, except where we must retain limited information for legal, security, fraud-prevention, accounting, or dispute-resolution purposes. Backups may persist briefly before being overwritten. Device-local copies remain until you remove the App or clear local data.</p>
     </article>
+
     <article class="clause">
-      <h3 class="clause-head"><span class="num">13</span>Changes to this policy</h3>
-      <p>We may update this policy from time to time. The "Last updated" date above reflects the latest version, and material changes will be highlighted in the app.</p>
+      <h3 class="clause-head"><span class="num">13</span>Children’s privacy</h3>
+      <p>Falaah is not directed to children under 13 (or under 16 in the EEA/UK where a higher digital consent age applies). We do not knowingly collect personal data from them. If you believe a child has provided us data, contact us and we will delete it.</p>
     </article>
+
     <article class="clause">
-      <h3 class="clause-head"><span class="num">14</span>Contact</h3>
-      <p>Privacy questions? Email <a class="inline" href="mailto:support@mysalahtracker.com">support@mysalahtracker.com</a>.</p>
+      <h3 class="clause-head"><span class="num">14</span>Security</h3>
+      <p>We use reasonable technical and organizational measures to protect your data. No method of transmission or storage is completely secure. You are responsible for keeping your device and Apple ID secure. To the maximum extent permitted by law, we are not liable for unauthorized access resulting from circumstances beyond our reasonable control.</p>
+    </article>
+
+    <article class="clause">
+      <h3 class="clause-head"><span class="num">15</span>Automated decision-making</h3>
+      <p>AI features generate assistive text or suggestions you can review, edit, or ignore. They do not produce legal or similarly significant decisions about you without your own judgment. Prayer-time calculations and qaza estimates are organizational tools only.</p>
+    </article>
+
+    <article class="clause">
+      <h3 class="clause-head"><span class="num">16</span>Changes to this policy</h3>
+      <p>We may update this policy from time to time. The “Last updated” date above reflects the latest version. Material changes may also be highlighted in the App. Continued use after changes take effect constitutes acceptance where permitted by law.</p>
+    </article>
+
+    <article class="clause">
+      <h3 class="clause-head"><span class="num">17</span>Contact</h3>
+      <p>Privacy questions or GDPR/CCPA requests? Email <a class="inline" href="mailto:support@mysalahtracker.com">support@mysalahtracker.com</a>.</p>
     </article>
   </section>
 
-  <!-- ============ TERMS ============ -->
   <section class="doc" id="terms" aria-labelledby="terms-title">
     <h2 class="doc-title" id="terms-title">Terms of Service<span class="rule"></span></h2>
-    <p class="intro">The agreement for using Falaah — in plain language.</p>
+    <p class="intro">The agreement for using Falaah — including strong limits on our liability for any App content and all AI-generated results.</p>
 
     <article class="clause">
       <h3 class="clause-head"><span class="num">1</span>Agreement to these terms</h3>
-      <p>By downloading, accessing, or using Falaah (the "App"), you agree to these Terms of Service ("Terms"). If you do not agree, please do not use the App. These Terms are a binding agreement between you and the makers of Falaah ("we," "us," "our").</p>
+      <p>By downloading, accessing, or using Falaah (the “App”), you agree to these Terms of Service (“Terms”), our <a class="inline" href="falaah-privacy-policy.html">Privacy Policy</a>, and our <a class="inline" href="falaah-eula.html">End User License Agreement (EULA)</a>. If you do not agree, do not use the App. These Terms are a binding agreement between you and the makers of Falaah (“we,” “us,” “our”).</p>
     </article>
+
     <article class="clause">
       <h3 class="clause-head"><span class="num">2</span>What Falaah is</h3>
-      <p>Falaah is a personal worship companion for logging prayers, estimating and making up missed prayers (qaza), setting voluntary worship goals, memorization aids, dhikr, and supplications. It is a self-help organizational tool for your own use.</p>
+      <p>Falaah is a personal worship companion for logging prayers, estimating and making up missed prayers (qaza), setting voluntary worship goals, memorization aids, dhikr, and supplications. It is a self-help organizational tool for your own use — not a scholarly institution, not a fatwa service, and not a substitute for qualified human guidance.</p>
     </article>
+
     <article class="clause">
-      <h3 class="clause-head"><span class="num">3</span>Not religious or professional advice</h3>
-      <p>Falaah does not issue religious rulings (fatawa). All estimates, calculations, plans, and AI-generated text are practical aids for your own organization and reflection — not authoritative religious guidance. For rulings specific to your situation, consult a qualified scholar. Nothing in the App is medical, legal, or financial advice. You use the App at your own discretion and responsibility.</p>
+      <h3 class="clause-head"><span class="num">3</span>Not religious, medical, legal, or professional advice</h3>
+      <p>Falaah does not issue religious rulings (fatawa). All estimates, calculations, plans, prayer times, names of Allah content, dhikr text, and any AI-generated text or audio are practical aids for your own organization and reflection — not authoritative religious guidance. For rulings specific to your situation, consult a qualified scholar. Nothing in the App is medical, legal, psychological, or financial advice. You use the App entirely at your own discretion and responsibility.</p>
     </article>
+
     <article class="clause">
       <h3 class="clause-head"><span class="num">4</span>Your account</h3>
       <p>Access requires signing in with Apple. You are responsible for the security of your device and account and for all activity under it. You must be at least 13 years old, or the minimum age of digital consent where you live, to use the App.</p>
     </article>
+
     <article class="clause">
       <h3 class="clause-head"><span class="num">5</span>Subscriptions, billing &amp; free trials</h3>
       <p>Falaah offers auto-renewing subscriptions (monthly and yearly) sold through the Apple App Store. Payment is charged to your Apple ID at confirmation of purchase. Subscriptions renew automatically unless canceled at least 24 hours before the end of the current period. Where a free trial is offered, it converts to a paid subscription unless canceled before it ends, and any unused portion is forfeited when you purchase. You can manage or cancel anytime in your Apple ID settings. Prices may change with notice. Except where required by law, payments are non-refundable; refunds are handled by Apple under its policies.</p>
     </article>
+
     <article class="clause">
       <h3 class="clause-head"><span class="num">6</span>Acceptable use</h3>
-      <p>You agree not to reverse engineer, disrupt, or overload the service, access another person's data, upload unlawful or harmful content, or use the App for any unlawful purpose.</p>
+      <p>You agree not to reverse engineer, disrupt, or overload the service; access another person’s data; upload unlawful or harmful content; misuse AI features (including attempts to generate harmful, deceptive, or infringing content); or use the App for any unlawful purpose.</p>
     </article>
+
     <article class="clause">
-      <h3 class="clause-head"><span class="num">7</span>AI features</h3>
-      <p>Some features send text or audio you provide to third-party AI processors to generate responses (for example, dua composition, make-up plans, and recitation transcription). AI output may be inaccurate, incomplete, or inappropriate and must not be relied on as authoritative religious or factual guidance. Do not submit information you would not want processed by a third party.</p>
+      <h3 class="clause-head"><span class="num">7</span>AI features — no warranties, no reliance, no liability</h3>
+      <p>Some features send text or audio you provide to third-party AI processors to generate responses (for example, dua composition, make-up plans, and recitation transcription). AI systems are probabilistic. Output may be inaccurate, incomplete, outdated, biased, offensive, theologically incorrect, or otherwise inappropriate.</p>
+      <p>You alone are responsible for reviewing, verifying, editing, accepting, rejecting, or discarding any AI output before you act on it. You must not rely on AI output as a fatwa, scholarly opinion, translation authority, medical advice, legal advice, or any other authoritative guidance.</p>
+      <p class="legal-caps">To the maximum extent permitted by law, we disclaim all warranties regarding AI features and AI-generated content, and we will not be liable for any claim, loss, damage, decision, spiritual or religious reliance, emotional distress, data loss, or other harm arising from AI features or from any results they generate — whether based in contract, tort (including negligence), strict liability, or otherwise — even if we were advised of the possibility of such harm.</p>
+      <p>Do not submit information you would not want processed by a third party. Third-party AI providers process content under their own terms; we do not control their systems and are not responsible for their acts or omissions beyond instructing them as processors where applicable.</p>
     </article>
+
     <article class="clause">
-      <h3 class="clause-head"><span class="num">8</span>Your content</h3>
-      <p>You keep ownership of content you create (recordings, notes, entries). You grant us a limited license to store, process, and transmit it solely to operate the App and provide the features you request, including cloud backup if you enable it.</p>
+      <h3 class="clause-head"><span class="num">8</span>Prayer times, estimates &amp; other content</h3>
+      <p>Prayer times, qaza estimates, plans, counters, calendars, and similar features depend on settings, device clocks, calculation methods, and data you enter. They can be wrong. You remain solely responsible for verifying times and fulfilling your religious obligations. To the maximum extent permitted by law, we are not liable for missed prayers, incorrect estimates, or any consequence of relying on App calculations or content.</p>
     </article>
+
     <article class="clause">
-      <h3 class="clause-head"><span class="num">9</span>Intellectual property</h3>
-      <p>The App and its design, artwork, and original content are owned by us or our licensors and protected by law. Sacred texts, including the Qur'an and established supplications, are not owned by anyone.</p>
+      <h3 class="clause-head"><span class="num">9</span>Your content</h3>
+      <p>You keep ownership of content you create (recordings, notes, entries). You grant us a limited license to store, process, and transmit it solely to operate the App and provide the features you request, including cloud backup if you enable it and AI processing when you invoke AI features. You represent that you have the right to submit that content and that doing so does not violate law or third-party rights.</p>
     </article>
+
     <article class="clause">
-      <h3 class="clause-head"><span class="num">10</span>Disclaimer of warranties</h3>
-      <p class="legal-caps">The App is provided "as is" and "as available," without warranties of any kind, express or implied, including merchantability, fitness for a particular purpose, accuracy, and non-infringement. We do not warrant that the App will be uninterrupted, error-free, or secure, or that any content — including prayer times, estimates, or AI output — is accurate or reliable.</p>
+      <h3 class="clause-head"><span class="num">10</span>Intellectual property</h3>
+      <p>The App and its design, artwork, and original content are owned by us or our licensors and protected by law. Sacred texts, including the Qur’an and established supplications, are not owned by anyone. AI-generated text is provided solely for your personal use within the App and confers no ownership claim against us for third-party model output.</p>
     </article>
+
     <article class="clause">
-      <h3 class="clause-head"><span class="num">11</span>Limitation of liability</h3>
-      <p class="legal-caps">To the maximum extent permitted by law, we will not be liable for any indirect, incidental, special, consequential, or punitive damages, or for any loss of data, profits, or reliance (including religious or spiritual reliance), arising from your use of or inability to use the App. Our total liability for any claim will not exceed the greater of the amount you paid us in the 12 months before the claim or USD $10.00. Some jurisdictions do not allow certain limitations, so some of the above may not apply to you.</p>
+      <h3 class="clause-head"><span class="num">11</span>Disclaimer of warranties</h3>
+      <p class="legal-caps">The App is provided “as is” and “as available,” without warranties of any kind, express or implied, including merchantability, fitness for a particular purpose, accuracy, title, and non-infringement. We do not warrant that the App will be uninterrupted, error-free, or secure, or that any content — including prayer times, estimates, religious text presentations, or AI output — is accurate, complete, reliable, or fit for any purpose.</p>
     </article>
+
     <article class="clause">
-      <h3 class="clause-head"><span class="num">12</span>Indemnification</h3>
-      <p>You agree to indemnify and hold us harmless from any claim or demand arising out of your misuse of the App or your violation of these Terms or of any law or third-party right.</p>
+      <h3 class="clause-head"><span class="num">12</span>Limitation of liability</h3>
+      <p class="legal-caps">To the maximum extent permitted by law, we and our officers, directors, employees, contractors, and suppliers will not be liable for any indirect, incidental, special, consequential, exemplary, or punitive damages, or for any loss of data, profits, goodwill, opportunity, or reliance (including religious, spiritual, emotional, or personal reliance), arising from your use of or inability to use the App, from any content in the App, or from any AI-generated results — whether or not we were advised of the possibility of such damages.</p>
+      <p class="legal-caps">Our total aggregate liability for all claims relating to the App will not exceed the greater of the amount you paid us for the App in the twelve (12) months before the claim or USD $10.00. These limitations are an essential basis of the bargain. Some jurisdictions do not allow certain limitations; in those cases our liability is limited to the fullest extent permitted by law. Nothing in these Terms excludes liability that cannot be excluded under applicable law.</p>
     </article>
+
     <article class="clause">
-      <h3 class="clause-head"><span class="num">13</span>Termination</h3>
-      <p>You may stop using the App at any time and delete your account from Account &amp; preferences. We may suspend or end access if you violate these Terms or where necessary to comply with the law.</p>
+      <h3 class="clause-head"><span class="num">13</span>Indemnification</h3>
+      <p>You agree to indemnify, defend, and hold us harmless from any claim, demand, loss, or expense (including reasonable attorneys’ fees) arising out of your misuse of the App; your violation of these Terms, the EULA, or any law or third-party right; your submission of content; or your reliance on App content or AI-generated results.</p>
     </article>
+
     <article class="clause">
-      <h3 class="clause-head"><span class="num">14</span>Changes to these terms</h3>
-      <p>We may update these Terms from time to time. Continued use of the App after changes take effect means you accept the updated Terms. The "Last updated" date above reflects the latest version.</p>
+      <h3 class="clause-head"><span class="num">14</span>Termination</h3>
+      <p>You may stop using the App at any time and delete your account from Account &amp; preferences. We may suspend or end access if you violate these Terms or where necessary to comply with the law. Sections that by their nature should survive (including disclaimers, liability limits, and indemnification) will survive termination.</p>
     </article>
+
     <article class="clause">
-      <h3 class="clause-head"><span class="num">15</span>Governing law</h3>
-      <p>These Terms are governed by the laws of <span class="placeholder">[your country / state]</span>, without regard to its conflict-of-law rules, and disputes will be handled by the courts located there, unless the law grants you rights that cannot be waived.</p>
+      <h3 class="clause-head"><span class="num">15</span>Changes to these terms</h3>
+      <p>We may update these Terms from time to time. Continued use of the App after changes take effect means you accept the updated Terms where permitted by law. The “Last updated” date above reflects the latest version.</p>
     </article>
+
     <article class="clause">
-      <h3 class="clause-head"><span class="num">16</span>Apple</h3>
-      <p>Apple is not a party to these Terms and is not responsible for the App or its content. The Apple App Store terms also apply to your use of the App.</p>
+      <h3 class="clause-head"><span class="num">16</span>Governing law</h3>
+      <p>These Terms are governed by applicable law without regard to conflict-of-law rules, except where mandatory local consumer-protection laws apply to you. Nothing in this section deprives you of protections that cannot be waived under the law of your country of residence.</p>
     </article>
+
     <article class="clause">
-      <h3 class="clause-head"><span class="num">17</span>Contact</h3>
+      <h3 class="clause-head"><span class="num">17</span>Apple</h3>
+      <p>Apple is not a party to these Terms and is not responsible for the App or its content. The Apple App Store / Media Services terms also apply. Additional license terms appear in our <a class="inline" href="falaah-eula.html">EULA</a>.</p>
+    </article>
+
+    <article class="clause">
+      <h3 class="clause-head"><span class="num">18</span>Contact</h3>
       <p>Questions about these Terms? Email <a class="inline" href="mailto:support@mysalahtracker.com">support@mysalahtracker.com</a>.</p>
     </article>
   </section>

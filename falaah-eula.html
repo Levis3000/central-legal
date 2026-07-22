@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Falaah — End User License Agreement (EULA)</title>
+<style>
+  :root {
+    --ground: #F7F1E7; --surface: #FFFDF8; --ink: #34252A; --muted: #7C6A6D;
+    --hair: rgba(52, 37, 42, 0.12); --coral: #C05335; --gold: #A9791F;
+    --serif: 'Iowan Old Style', 'Palatino Linotype', Palatino, 'Book Antiqua', Georgia, serif;
+    --sans: system-ui, -apple-system, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --ground: #191521; --surface: #221D2E; --ink: #EFE7DF; --muted: #B0A3AC;
+      --hair: rgba(255, 255, 255, 0.13); --coral: #E88C6D; --gold: #D8B25E;
+    }
+  }
+  * { box-sizing: border-box; }
+  body {
+    margin: 0; background: var(--ground); color: var(--ink);
+    font-family: var(--sans); font-size: 17px; line-height: 1.65;
+    -webkit-font-smoothing: antialiased;
+  }
+  .wrap { max-width: 760px; margin: 0 auto; padding: 0 24px 96px; }
+  header.masthead {
+    text-align: center; padding: 72px 0 40px;
+    border-bottom: 1px solid var(--hair); margin-bottom: 8px;
+  }
+  .eyebrow {
+    font-size: 12.5px; letter-spacing: 0.18em; text-transform: uppercase;
+    color: var(--coral); font-weight: 600; margin: 0 0 14px;
+  }
+  h1.brand {
+    font-family: var(--serif); font-weight: 600;
+    font-size: clamp(44px, 9vw, 68px); line-height: 1; margin: 0; letter-spacing: -0.01em;
+  }
+  .masthead .sub {
+    font-family: var(--serif); font-size: clamp(19px, 3.4vw, 24px);
+    color: var(--muted); margin: 18px 0 0; font-style: italic;
+  }
+  .updated { font-size: 13.5px; color: var(--muted); margin: 22px 0 0; font-variant-numeric: tabular-nums; }
+  nav.toc {
+    display: flex; gap: 10px; justify-content: center; flex-wrap: wrap; margin: 28px 0 8px;
+  }
+  nav.toc a {
+    font-size: 14px; font-weight: 600; text-decoration: none; color: var(--ink);
+    padding: 9px 18px; border: 1px solid var(--hair); border-radius: 999px; background: var(--surface);
+  }
+  nav.toc a:hover { border-color: var(--coral); color: var(--coral); }
+  nav.toc a.on { border-color: var(--coral); color: var(--coral); background: color-mix(in srgb, var(--coral) 12%, transparent); }
+  section.doc { padding-top: 56px; scroll-margin-top: 24px; }
+  h2.doc-title {
+    font-family: var(--serif); font-size: clamp(28px, 5vw, 36px); font-weight: 600; margin: 0 0 6px;
+  }
+  .doc-title .rule {
+    display: block; width: 54px; height: 3px; border-radius: 2px; background: var(--coral); margin-top: 16px;
+  }
+  .intro { color: var(--muted); font-size: 16px; margin: 18px 0 4px; }
+  article.clause { padding: 26px 0; border-bottom: 1px solid var(--hair); }
+  article.clause:last-child { border-bottom: none; }
+  h3.clause-head {
+    font-family: var(--serif); font-size: 20px; font-weight: 600; margin: 0 0 8px;
+    display: flex; gap: 12px; align-items: baseline;
+  }
+  h3.clause-head .num {
+    font-family: var(--sans); font-size: 13px; font-weight: 700; color: var(--coral);
+    font-variant-numeric: tabular-nums; flex: 0 0 auto; min-width: 1.6em;
+  }
+  .clause p { margin: 0; }
+  .clause p + p { margin-top: 10px; }
+  .clause ul { margin: 8px 0 0; padding-left: 20px; }
+  .clause li { margin: 4px 0; }
+  .legal-caps {
+    text-transform: uppercase; letter-spacing: 0.02em; font-size: 14.5px;
+    line-height: 1.6; color: var(--muted);
+  }
+  a.inline { color: var(--coral); text-decoration: underline; text-underline-offset: 2px; }
+  footer.legal-foot {
+    margin-top: 64px; padding-top: 28px; border-top: 1px solid var(--hair);
+    text-align: center; color: var(--muted); font-size: 14.5px;
+  }
+  footer.legal-foot a { color: var(--coral); text-decoration: none; }
+  .to-top { display: inline-block; margin-top: 10px; font-weight: 600; }
+</style>
+</head>
+<body>
+<div class="wrap">
+  <header class="masthead" id="top">
+    <p class="eyebrow">Ḥayya ʿala al-Falāḥ · Hasten to success</p>
+    <h1 class="brand">Falaah</h1>
+    <p class="sub">End User License Agreement</p>
+    <p class="updated">Last updated: 22 July 2026</p>
+    <nav class="toc" aria-label="Sections">
+      <a href="falaah-privacy-policy.html">Privacy Policy</a>
+      <a href="falaah-terms-of-service.html">Terms of Service</a>
+      <a href="falaah-eula.html" class="on">EULA</a>
+      <a href="#contact">Contact</a>
+    </nav>
+  </header>
+
+  <section class="doc" id="eula" aria-labelledby="eula-title">
+    <h2 class="doc-title" id="eula-title">End User License Agreement<span class="rule"></span></h2>
+    <p class="intro">This EULA licenses the Falaah iOS app to you and limits our liability — including for all AI-generated results.</p>
+
+    <article class="clause">
+      <h3 class="clause-head"><span class="num">1</span>Agreement between you and Falaah</h3>
+      <p>This End User License Agreement (“EULA”) is a binding agreement between you and the operator of Falaah (“Falaah,” “we,” “us,” or “our”) governing your use of the Falaah mobile application and related services (the “Application”).</p>
+      <p>By downloading, installing, or using the Application, you agree to this EULA, our <a class="inline" href="falaah-terms-of-service.html">Terms of Service</a>, and our <a class="inline" href="falaah-privacy-policy.html">Privacy Policy</a>. If you do not agree, do not download, install, or use the Application.</p>
+      <p>This EULA is concluded between you and Falaah only, and not with Apple Inc. (“Apple”). Falaah, not Apple, is solely responsible for the Application and its content, to the extent responsibility is not disclaimed in this EULA or the Terms of Service. This EULA does not provide usage rules that conflict with the Apple Media Services Terms and Conditions; in the event of a conflict, those Apple terms govern as to Apple’s relationship with you.</p>
+    </article>
+
+    <article class="clause">
+      <h3 class="clause-head"><span class="num">2</span>License</h3>
+      <p>Falaah grants you a non-transferable, non-exclusive, revocable, limited license to install and use the Application on any Apple-branded device that you own or control, as permitted by the Usage Rules set out in the Apple Media Services Terms and Conditions, and solely for your personal, non-commercial use.</p>
+      <p>You may not distribute or make the Application available over a network where it could be used by multiple devices at the same time. You may not rent, lease, lend, sell, redistribute, or sublicense the Application.</p>
+    </article>
+
+    <article class="clause">
+      <h3 class="clause-head"><span class="num">3</span>Restrictions</h3>
+      <p>You agree not to, and not to permit others to:</p>
+      <ul>
+        <li>Copy, modify, or create derivative works of the Application except as permitted by law.</li>
+        <li>Reverse engineer, decompile, disassemble, or attempt to derive the source code of the Application except to the extent this restriction is prohibited by applicable law.</li>
+        <li>Remove, alter, or obscure any proprietary notices.</li>
+        <li>Use the Application in any unlawful manner, for any unlawful purpose, or in a way that could damage, disable, or impair the Application or interfere with any other party’s use of it.</li>
+        <li>Use the Application to build a competing product or service.</li>
+        <li>Misuse AI features or submit content you do not have the right to submit.</li>
+      </ul>
+    </article>
+
+    <article class="clause">
+      <h3 class="clause-head"><span class="num">4</span>Informational / organizational use only — no religious authority</h3>
+      <p>The Application is a personal organizational and reflection aid. It does not issue fatawa or authoritative religious rulings. Prayer times, qaza estimates, plans, dhikr, and AI-generated text or audio are for your own optional use. You must verify religious obligations with qualified scholarship where needed. Use of the Application does not create any duty of care from Falaah to you regarding your worship, health, finances, or any decision you make.</p>
+    </article>
+
+    <article class="clause">
+      <h3 class="clause-head"><span class="num">5</span>AI-generated results — absolute user responsibility</h3>
+      <p>If you use AI features, you acknowledge that outputs may be wrong, incomplete, or unsuitable, and that you alone decide whether and how to use them. You will not treat AI output as a fatwa, scholarly translation, medical advice, legal advice, or other authoritative guidance.</p>
+      <p class="legal-caps">To the maximum extent permitted by applicable law, Falaah disclaims all liability for AI features and for any results generated via AI (including dua text, plans, transcriptions, suggestions, and related content), and for any reliance you place on them. This disclaimer applies regardless of the form of action and even if Falaah was advised of the possibility of harm.</p>
+    </article>
+
+    <article class="clause">
+      <h3 class="clause-head"><span class="num">6</span>Your content and data</h3>
+      <p>Content you submit remains yours, subject to the license granted in the Terms of Service. Our collection and use of personal information — including GDPR rights for EEA/UK users — is described in our Privacy Policy, which is incorporated into this EULA by reference.</p>
+    </article>
+
+    <article class="clause">
+      <h3 class="clause-head"><span class="num">7</span>Maintenance and support</h3>
+      <p>Falaah is solely responsible for providing any maintenance and support services for the Application as required under applicable law, or as Falaah may choose to provide. Apple has no obligation whatsoever to furnish any maintenance and support services with respect to the Application.</p>
+      <p>For support, contact us at <a class="inline" href="mailto:support@mysalahtracker.com">support@mysalahtracker.com</a>.</p>
+    </article>
+
+    <article class="clause">
+      <h3 class="clause-head"><span class="num">8</span>Warranty disclaimer</h3>
+      <p class="legal-caps">To the maximum extent permitted by applicable law, the Application is provided “as is” and “as available,” without warranties of any kind. Falaah disclaims all implied warranties, including merchantability, fitness for a particular purpose, accuracy, and non-infringement.</p>
+      <p>In the event of any failure of the Application to conform to any applicable warranty that cannot be disclaimed, you may notify Apple, and Apple will refund the purchase price (if any) for the Application to you. To the maximum extent permitted by applicable law, Apple will have no other warranty obligation whatsoever with respect to the Application. Any other claims, losses, liabilities, damages, costs, or expenses attributable to any failure to conform to any warranty are addressed solely between you and Falaah under this EULA and the Terms of Service — and, to the maximum extent permitted by law, are disclaimed or limited as set out therein.</p>
+    </article>
+
+    <article class="clause">
+      <h3 class="clause-head"><span class="num">9</span>Product claims</h3>
+      <p>Subject to the disclaimers and liability caps in this EULA and the Terms of Service, Falaah, not Apple, is responsible for addressing any claims by you or any third party relating to the Application or your possession and/or use of the Application, including: (a) product liability claims; (b) any claim that the Application fails to conform to any applicable legal or regulatory requirement; and (c) claims arising under consumer protection, privacy, or similar legislation — except that nothing here expands Falaah’s liability beyond what applicable law allows or beyond the limitations in Section 13 and the Terms of Service.</p>
+    </article>
+
+    <article class="clause">
+      <h3 class="clause-head"><span class="num">10</span>Intellectual property</h3>
+      <p>The Application, including its software, design, text, graphics, and trademarks, is owned by Falaah or its licensors and is protected by intellectual property laws. All rights not expressly granted to you are reserved.</p>
+      <p>In the event of any third-party claim that the Application or your possession and use of the Application infringes that third party’s intellectual property rights, Falaah, not Apple, will be solely responsible for the investigation, defense, settlement, and discharge of any such infringement claim, subject to the liability limitations in this EULA and the Terms of Service.</p>
+    </article>
+
+    <article class="clause">
+      <h3 class="clause-head"><span class="num">11</span>Legal compliance</h3>
+      <p>You represent and warrant that: (a) you are not located in a country that is subject to a U.S. Government embargo, or that has been designated by the U.S. Government as a “terrorist supporting” country; and (b) you are not listed on any U.S. Government list of prohibited or restricted parties. You agree to comply with all applicable third-party terms of agreement when using the Application.</p>
+    </article>
+
+    <article class="clause">
+      <h3 class="clause-head"><span class="num">12</span>Third-party beneficiary</h3>
+      <p>You acknowledge and agree that Apple, and Apple’s subsidiaries, are third-party beneficiaries of this EULA, and that, upon your acceptance of this EULA, Apple will have the right (and will be deemed to have accepted the right) to enforce this EULA against you as a third-party beneficiary of it.</p>
+    </article>
+
+    <article class="clause">
+      <h3 class="clause-head"><span class="num">13</span>Disclaimers and limitation of liability</h3>
+      <p class="legal-caps">To the maximum extent permitted by applicable law, Falaah will not be liable for any indirect, incidental, special, consequential, or punitive damages, or any loss of data, profits, or revenue, or any loss from religious or spiritual reliance, emotional distress, missed prayers, incorrect estimates, or reliance on AI-generated or other App content, arising out of or related to your use of the Application.</p>
+      <p class="legal-caps">To the maximum extent permitted by law, Falaah’s total aggregate liability for all claims relating to the Application will not exceed the greater of: (A) the amounts you paid us for the Application in the twelve (12) months before the claim; or (B) USD $10.00.</p>
+      <p>Nothing in this EULA excludes or limits liability that cannot be excluded or limited under applicable law. These limitations are an essential basis of the bargain.</p>
+    </article>
+
+    <article class="clause">
+      <h3 class="clause-head"><span class="num">14</span>Termination</h3>
+      <p>This EULA is effective until terminated by you or Falaah. Your rights under this EULA will terminate automatically without notice if you fail to comply with any of its terms. Upon termination, you must stop all use of the Application and delete all copies. Sections that by their nature should survive termination will survive.</p>
+    </article>
+
+    <article class="clause">
+      <h3 class="clause-head"><span class="num">15</span>Governing law</h3>
+      <p>This EULA is governed by the laws applicable as stated in the Terms of Service, without regard to conflict-of-law principles, except where mandatory local consumer protection laws apply to you. Nothing in this section deprives you of the protection of mandatory provisions of the law of your country of residence.</p>
+    </article>
+
+    <article class="clause">
+      <h3 class="clause-head"><span class="num">16</span>Changes to this agreement</h3>
+      <p>We may update this EULA from time to time. When we do, we will revise the “Last updated” date above. Your continued use of the Application after an update takes effect constitutes your acceptance of the revised EULA where permitted by law.</p>
+    </article>
+
+    <article class="clause">
+      <h3 class="clause-head"><span class="num">17</span>Contact</h3>
+      <p>If you have any questions, complaints, or claims regarding the Application, please contact us at <a class="inline" href="mailto:support@mysalahtracker.com">support@mysalahtracker.com</a>.</p>
+    </article>
+  </section>
+
+  <footer class="legal-foot" id="contact">
+    <p>Falaah — a Muslim prayer companion.<br>
+    Questions? <a href="mailto:support@mysalahtracker.com">support@mysalahtracker.com</a></p>
+    <a class="to-top" href="#top">↑ Back to top</a>
+  </footer>
+</div>
+</body>
+</html>

@@ -11,6 +11,8 @@ Replace `YOUR-APP.up.railway.app` with your Railway domain:
 | --- | --- | --- |
 | **SnapTract** | `https://YOUR-APP.up.railway.app/snaptract/privacy` | `https://YOUR-APP.up.railway.app/snaptract/terms` |
 | **Falaah** | `https://YOUR-APP.up.railway.app/falaah/privacy` | `https://YOUR-APP.up.railway.app/falaah/terms` |
+
+Falaah EULA: `https://YOUR-APP.up.railway.app/falaah/eula`
 | **Towly** | `https://YOUR-APP.up.railway.app/towly/privacy` | `https://YOUR-APP.up.railway.app/towly/terms` |
 
 Towly EULA: `https://YOUR-APP.up.railway.app/towly/eula`
@@ -57,6 +59,7 @@ npm start   # http://localhost:3000/snaptract/privacy
 | `falaah-privacy-policy.html` | Falaah |
 | `falaah-terms-of-service.html` | Falaah |
 | `falaah-privacy-and-terms.html` | Falaah (combined) |
+| `falaah-eula.html` | Falaah |
 | `snaptract-privacy-policy.html` | SnapTract |
 | `snaptract-terms-of-service.html` | SnapTract |
 | `snaptract-privacy-policy.json` / `snaptract-terms-of-service.json` | SnapTract (app) |
