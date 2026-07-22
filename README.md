@@ -68,3 +68,5 @@ npm start   # http://localhost:3000/snaptract/privacy
 | `towly-privacy-policy.html` | Towly |
 | `towly-terms-of-service.html` | Towly |
 | `towly-eula.html` | Towly |
+| `towly-contact.html` | Towly contact form |
+| `towly-logo.png` | Towly |

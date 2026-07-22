@@ -41,6 +41,7 @@ const APPS = {
       privacy: 'towly-privacy-policy.html',
       terms: 'towly-terms-of-service.html',
       eula: 'towly-eula.html',
+      contact: 'towly-contact.html',
       '': 'towly.html',
     },
   },
