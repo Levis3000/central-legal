@@ -13,6 +13,8 @@ Replace `YOUR-APP.up.railway.app` with your Railway domain:
 | **Falaah** | `https://YOUR-APP.up.railway.app/falaah/privacy` | `https://YOUR-APP.up.railway.app/falaah/terms` |
 | **Towly** | `https://YOUR-APP.up.railway.app/towly/privacy` | `https://YOUR-APP.up.railway.app/towly/terms` |
 
+Towly EULA: `https://YOUR-APP.up.railway.app/towly/eula`
+
 SnapTract JSON (for the iOS app) — product-prefixed filenames:
 
 - `https://YOUR-APP.up.railway.app/snaptract-privacy-policy.json`
@@ -62,3 +64,4 @@ npm start   # http://localhost:3000/snaptract/privacy
 | `towly.html` | Towly hub |
 | `towly-privacy-policy.html` | Towly |
 | `towly-terms-of-service.html` | Towly |
+| `towly-eula.html` | Towly |

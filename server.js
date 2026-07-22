@@ -39,6 +39,7 @@ const APPS = {
     files: {
       privacy: 'towly-privacy-policy.html',
       terms: 'towly-terms-of-service.html',
+      eula: 'towly-eula.html',
       '': 'towly.html',
     },
   },
@@ -90,5 +91,5 @@ app.listen(PORT, () => {
   console.log(`central-legal listening on :${PORT}`);
   console.log('  /snaptract/privacy  /snaptract/terms');
   console.log('  /falaah/privacy     /falaah/terms');
-  console.log('  /towly/privacy      /towly/terms');
+  console.log('  /towly/privacy      /towly/terms      /towly/eula');
 });
