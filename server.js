@@ -15,12 +15,14 @@ const APPS = {
     files: {
       privacy: 'snaptract-privacy-policy.html',
       terms: 'snaptract-terms-of-service.html',
+      eula: 'snaptract-eula.html',
       contact: 'snaptract-contact.html',
       '': 'snaptract.html',
     },
     json: {
       privacy: 'snaptract-privacy-policy.json',
       terms: 'snaptract-terms-of-service.json',
+      eula: 'snaptract-eula.json',
     },
   },
   falaah: {
