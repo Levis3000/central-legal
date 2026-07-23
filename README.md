@@ -17,6 +17,21 @@ Falaah EULA: `https://YOUR-APP.up.railway.app/falaah/eula`
 
 Towly EULA: `https://YOUR-APP.up.railway.app/towly/eula`
 
+Towly contact: `https://YOUR-APP.up.railway.app/towly/contact`
+
+### Towly contact form (Railway env)
+
+The contact page loads `/towly-config.js`, which the Express server builds from env
+(so the anon key is not committed to the repo):
+
+| Variable | Example |
+| --- | --- |
+| `TOWLY_SUPABASE_URL` | `https://xjxjssufxzqjlnvyjmbh.supabase.co` |
+| `TOWLY_SUPABASE_ANON_KEY` | your public Supabase anon key |
+
+Set both in Railway → Variables. If either is missing, the form disables itself and
+points users to `support@towly.app`.
+
 SnapTract JSON (for the iOS app) — product-prefixed filenames:
 
 - `https://YOUR-APP.up.railway.app/snaptract-privacy-policy.json`

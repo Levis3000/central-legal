@@ -58,6 +58,21 @@ app.get('/', (_req, res) => {
   res.sendFile(path.join(ROOT, 'index.html'));
 });
 
+// Towly contact form config from Railway env (no key baked into HTML).
+//   TOWLY_SUPABASE_URL       = https://….supabase.co
+//   TOWLY_SUPABASE_ANON_KEY  = <public anon key>
+function sendTowlyConfig(_req, res) {
+  const config = {
+    supabaseUrl: process.env.TOWLY_SUPABASE_URL || '',
+    anonKey: process.env.TOWLY_SUPABASE_ANON_KEY || '',
+  };
+  res.type('application/javascript');
+  res.set('Cache-Control', 'no-store');
+  res.send(`window.TOWLY_CONFIG = ${JSON.stringify(config)};`);
+}
+app.get('/towly-config.js', sendTowlyConfig);
+app.get('/towly/config.js', sendTowlyConfig);
+
 for (const [slug, cfg] of Object.entries(APPS)) {
   for (const [doc, file] of Object.entries(cfg.files)) {
     const route = doc ? `/${slug}/${doc}` : `/${slug}`;
@@ -94,4 +109,5 @@ app.listen(PORT, () => {
   console.log('  /snaptract/privacy  /snaptract/terms');
   console.log('  /falaah/privacy     /falaah/terms      /falaah/eula');
   console.log('  /towly/privacy      /towly/terms      /towly/eula');
+  console.log('  /towly-config.js   (from TOWLY_SUPABASE_* env)');
 });
