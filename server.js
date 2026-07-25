@@ -45,6 +45,13 @@ const APPS = {
       '': 'towly.html',
     },
   },
+  'guide-sight': {
+    label: 'Guide Sight',
+    files: {
+      privacy: 'guide-sight-privacy-policy.html',
+      terms: 'guide-sight-terms-of-service.html',
+    },
+  },
 };
 
 app.use((req, res, next) => {
@@ -110,4 +117,5 @@ app.listen(PORT, () => {
   console.log('  /falaah/privacy     /falaah/terms      /falaah/eula');
   console.log('  /towly/privacy      /towly/terms      /towly/eula');
   console.log('  /towly-config.js   (from TOWLY_SUPABASE_* env)');
+  console.log('  /guide-sight/privacy   /guide-sight/terms');
 });
