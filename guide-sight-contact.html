@@ -71,11 +71,16 @@
     text-transform: uppercase; color: var(--muted); margin: 16px 0 6px;
   }
   label:first-of-type { margin-top: 0; }
-  input, textarea {
+  input, select, textarea {
     width: 100%; font: inherit; color: var(--ink); background: #fff;
     border: 1px solid var(--hair); border-radius: 12px; padding: 12px 14px;
   }
-  input:focus, textarea:focus {
+  select {
+    min-height: 50px; -webkit-appearance: none; appearance: none;
+    background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='24' height='24' fill='none' stroke='%234E5F73' stroke-width='2.5' stroke-linecap='round' stroke-linejoin='round'><path d='M6 9l6 6 6-6'/></svg>");
+    background-repeat: no-repeat; background-position: right 12px center; padding-right: 42px;
+  }
+  input:focus, select:focus, textarea:focus {
     outline: none; border-color: var(--gold-deep);
     box-shadow: 0 0 0 3px rgba(232,197,71,.35);
   }
@@ -96,7 +101,6 @@
   .note { margin-top: 14px; font-size: 14px; color: var(--muted); }
   .status { margin-top: 12px; font-size: 15px; min-height: 1.3em; }
   .status.err { color: #B91C1C; }
-  .status.ok { color: #166534; }
   .done { text-align: center; padding: 28px 8px; }
   .done .badge {
     width: 58px; height: 58px; border-radius: 50%; background: rgba(232,197,71,0.35);
@@ -128,7 +132,7 @@
     <div class="card" id="card">
       <div id="form-view">
         <p style="margin:0 0 6px; font-weight:800;">Send a message</p>
-        <p class="note" style="margin-top:0;">We read every message and aim to reply within a few business days.</p>
+        <p class="note" style="margin-top:0;">Pick a reason, add details, and send. We read every message.</p>
         <form id="contact-form">
           <label for="name">Name</label>
           <input id="name" name="name" type="text" autocomplete="name" placeholder="Your name">
@@ -136,11 +140,19 @@
           <label for="email">Your email</label>
           <input id="email" name="email" type="email" autocomplete="email" placeholder="you@example.com" required>
 
-          <label for="topic">Topic</label>
-          <input id="topic" name="topic" type="text" placeholder="Support, Privacy Request, Accessibility…" required>
+          <label for="reason">What's it about?</label>
+          <select id="reason" name="reason" required aria-label="What's it about?">
+            <option value="General question">General question</option>
+            <option value="Report a problem">Report a problem</option>
+            <option value="Accessibility feedback">Accessibility feedback</option>
+            <option value="Billing or subscription">Billing or subscription</option>
+            <option value="Privacy Request">Privacy request</option>
+            <option value="Feature suggestion">Feature suggestion</option>
+            <option value="Legal question">Legal question</option>
+          </select>
 
           <label for="message">Message</label>
-          <textarea id="message" name="message" placeholder="How can we help?" required></textarea>
+          <textarea id="message" name="message" placeholder="Add anything that helps us understand…" required></textarea>
 
           <div class="hp" aria-hidden="true">
             <label for="company">Company</label>
@@ -151,7 +163,7 @@
           <div id="status" class="status" role="alert"></div>
         </form>
         <ul>
-          <li>For privacy requests, start the topic with <strong>Privacy Request</strong>.</li>
+          <li>For privacy rights (access, correction, deletion), choose <strong>Privacy request</strong>.</li>
           <li>Include your device and app version when reporting a bug.</li>
           <li>We aim to reply within a few business days.</li>
         </ul>
@@ -177,6 +189,7 @@
 
   <script>
     (function () {
+      var API = "/api/contact";
       var form = document.getElementById("contact-form");
       var btn = document.getElementById("submit-btn");
       var statusEl = document.getElementById("status");
@@ -189,7 +202,7 @@
         btn.textContent = "Sending…";
 
         try {
-          var res = await fetch("/api/contact", {
+          var res = await fetch(API, {
             method: "POST",
             signal: AbortSignal.timeout(25000),
             headers: { "Content-Type": "application/json" },
@@ -197,7 +210,7 @@
               app: "guide-sight",
               name: document.getElementById("name").value.trim(),
               email: document.getElementById("email").value.trim(),
-              topic: document.getElementById("topic").value.trim(),
+              topic: document.getElementById("reason").value,
               message: document.getElementById("message").value.trim(),
               company: document.getElementById("company").value
             })
