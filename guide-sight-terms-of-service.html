@@ -4,8 +4,8 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Guide Sight — Terms of Use</title>
+<link rel="icon" type="image/png" href="guide-sight-icon.png">
 <style>
-
   :root {
     --navy: #0B1A2E;
     --navy-deep: #07101C;
@@ -31,7 +31,7 @@
     line-height: 1.7;
     -webkit-font-smoothing: antialiased;
   }
-  .wrap { max-width: 760px; margin: 0 auto; padding: 0 22px 96px; }
+  .wrap { max-width: 640px; margin: 0 auto; padding: 0 22px 96px; }
   .topbar {
     display: flex; align-items: center; justify-content: space-between; gap: 12px;
     padding: 20px 0 8px; flex-wrap: wrap;
@@ -48,7 +48,7 @@
   }
   .top-links a:hover, .top-links a.on { color: var(--navy); }
   header.masthead {
-    margin: 18px 0 10px; padding: 36px 28px 30px;
+    margin: 18px 0 22px; padding: 32px 26px 28px;
     background: linear-gradient(160deg, var(--navy) 0%, var(--navy-deep) 100%);
     color: #F7F4EC; border-radius: 24px;
     box-shadow: 0 18px 40px rgba(11,26,46,0.28);
@@ -57,218 +57,223 @@
     font-size: 12px; letter-spacing: 0.18em; text-transform: uppercase;
     color: var(--gold); font-weight: 800; margin: 0 0 12px;
   }
-  h1.brand {
-    font-weight: 800; font-size: clamp(34px, 7vw, 52px); line-height: 1.05;
+  h1 {
+    font-weight: 800; font-size: clamp(32px, 7vw, 44px); line-height: 1.05;
     margin: 0; letter-spacing: -0.03em; color: #FFF;
   }
-  .masthead .sub { font-size: clamp(17px, 2.8vw, 20px); color: rgba(247,244,236,0.78); margin: 12px 0 0; }
+  .sub { font-size: 17px; color: rgba(247,244,236,0.78); margin: 12px 0 0; }
   .updated { font-size: 13px; color: rgba(247,244,236,0.62); margin: 16px 0 0; }
-  nav.toc { display: flex; gap: 8px; justify-content: flex-start; flex-wrap: wrap; margin: 22px 0 0; }
+  nav.toc {
+    display: flex; gap: 8px; flex-wrap: wrap; margin: 0 0 18px;
+  }
   nav.toc a {
-    font-size: 13.5px; font-weight: 700; text-decoration: none; color: var(--navy);
+    font-size: 13px; font-weight: 700; text-decoration: none; color: var(--navy);
     padding: 8px 14px; border-radius: 999px; background: var(--gold);
   }
   nav.toc a:hover { filter: brightness(1.05); }
-  section.doc { padding-top: 44px; scroll-margin-top: 20px; }
+  .card {
+    background: var(--surface); border: 1px solid var(--hair); border-radius: 18px;
+    padding: 24px; margin: 0 0 18px;
+    box-shadow: 0 10px 28px rgba(11,26,46,0.06);
+  }
+  section.doc { scroll-margin-top: 20px; }
   h2 {
-    font-size: 22px; font-weight: 800; margin: 0 0 14px; padding-bottom: 10px;
+    font-size: 20px; font-weight: 800; margin: 0 0 14px; padding-bottom: 10px;
     border-bottom: 2px solid var(--gold); color: var(--navy);
   }
-  h3 { font-size: 17px; font-weight: 800; margin: 24px 0 8px; color: var(--navy); }
-  p, li { margin: 0 0 14px; }
-  ul, ol { padding-left: 22px; margin: 0 0 16px; }
+  h3 { font-size: 16px; font-weight: 800; margin: 20px 0 8px; color: var(--navy); }
+  p, li { margin: 0 0 12px; }
+  ul, ol { padding-left: 22px; margin: 0 0 12px; }
   strong { font-weight: 800; }
   a { color: #1A4F8C; }
   .warning {
-    background: var(--surface); border: 1px solid var(--hair);
+    background: rgba(220,38,38,0.04); border: 1px solid rgba(220,38,38,0.2);
     border-left: 4px solid var(--warn); border-radius: 0 14px 14px 0;
-    padding: 16px 18px; margin: 0 0 20px; font-size: 16px;
+    padding: 16px 18px; margin: 0 0 16px; font-size: 16px;
   }
-  .card {
-    background: var(--surface); border: 1px solid var(--hair); border-radius: 18px;
-    padding: 22px 22px; margin: 0 0 18px;
-    box-shadow: 0 10px 28px rgba(11,26,46,0.06);
-  }
-  .back {
-    display: inline-flex; align-items: center; gap: 6px; text-decoration: none;
-    color: var(--navy); font-weight: 700; font-size: 14px; margin: 28px 0 0;
-  }
-  .back:hover { color: var(--gold-deep); }
   blockquote {
-    margin: 0 0 16px; padding: 14px 18px; background: var(--surface);
-    border-left: 4px solid var(--gold); border-radius: 0 12px 12px 0;
-    font-size: 15px; color: var(--muted);
-  }
-  table { width: 100%; border-collapse: collapse; font-size: 15px; margin: 20px 0; }
-  th { text-align: left; font-weight: 800; padding: 10px 12px; background: rgba(11,26,46,0.04); border: 1px solid var(--hair); }
-  td { padding: 10px 12px; border: 1px solid var(--hair); vertical-align: top; }
-  footer.legal-foot {
-    margin-top: 48px; padding-top: 22px; border-top: 1px solid var(--hair);
-    color: var(--muted); font-size: 14px;
+    margin: 0 0 18px; padding: 14px 18px; background: var(--surface);
+    border: 1px solid var(--hair); border-left: 4px solid var(--gold);
+    border-radius: 0 12px 12px 0; font-size: 15px; color: var(--muted);
   }
   .cta {
-    display: inline-flex; align-items: center; justify-content: center; gap: 8px;
-    background: var(--navy); color: #fff !important; text-decoration: none;
+    display: inline-flex; align-items: center; justify-content: center;
+    background: var(--gold); color: var(--navy) !important; text-decoration: none;
     font-weight: 800; font-size: 16px; padding: 14px 20px; border-radius: 14px;
-    box-shadow: 0 10px 24px rgba(11,26,46,0.22);
   }
-  .cta:hover { background: #132742; }
-  label { display:block; font-size:13px; font-weight:800; letter-spacing:.04em; text-transform:uppercase; color:var(--muted); margin:16px 0 6px; }
-  input, textarea {
-    width:100%; font:inherit; color:var(--ink); background:#fff;
-    border:1px solid var(--hair); border-radius:12px; padding:12px 14px;
+  .cta:hover { filter: brightness(1.04); }
+  footer.legal-foot {
+    margin-top: 36px; padding-top: 22px; border-top: 1px solid var(--hair);
+    color: var(--muted); font-size: 14px;
   }
-  input:focus, textarea:focus { outline:none; border-color: var(--gold-deep); box-shadow: 0 0 0 3px rgba(232,197,71,.35); }
-  textarea { min-height: 140px; resize: vertical; }
-  button.send {
-    margin-top: 18px; width: 100%; font-size: 17px; font-weight: 800; color: var(--navy);
-    background: var(--gold); border: none; border-radius: 14px; padding: 15px; cursor: pointer;
-  }
-  button.send:hover { filter: brightness(1.04); }
-
+  footer.legal-foot a { color: var(--muted); text-decoration: none; font-weight: 600; }
+  footer.legal-foot a:hover { color: var(--navy); }
 </style>
 </head>
 <body>
-<div class="wrap">
-  <header class="masthead">
-    <p class="eyebrow">Guide Sight</p>
-    <h1 class="brand">Terms of Use</h1>
-    <p class="sub">Low-vision AI assistant</p>
-    <p class="updated">Last updated: 24 July 2026</p>
-    <nav class="toc">
+  <div class="wrap">
+    <div class="topbar">
+      <a class="brand-lockup" href="guide-sight-privacy-policy.html">
+        <img src="guide-sight-icon.png" alt="Guide Sight">
+        <span class="name">Guide Sight</span>
+      </a>
+      <div class="top-links">
+        <a href="guide-sight-privacy-policy.html">Privacy</a>
+        <a class="on" href="guide-sight-terms-of-service.html">Terms</a>
+        <a href="guide-sight-contact.html">Contact</a>
+      </div>
+    </div>
+
+    <header class="masthead">
+      <p class="eyebrow">Guide Sight</p>
+      <h1>Terms of Use</h1>
+      <p class="sub">The agreement that governs your use of the App.</p>
+      <p class="updated">Last updated: 24 July 2026</p>
+    </header>
+
+    <nav class="toc" aria-label="On this page">
       <a href="#what">What Guide Sight is</a>
       <a href="#ai">AI accuracy</a>
       <a href="#subs">Subscriptions</a>
       <a href="#liability">Liability</a>
       <a href="#contact">Contact</a>
     </nav>
-  </header>
 
-  <p>These Terms of Use ("Terms") are a binding agreement between you and Guide Sight ("we", "us", or "our") governing your use of the Guide Sight mobile application (the "App"). <strong>Please read them carefully — especially Sections 2, 3, and 9 — which contain important disclaimers and limit our liability.</strong></p>
-  <p>By downloading, accessing, or using the App, you agree to these Terms. <strong>If you do not agree, do not use the App.</strong></p>
-  <blockquote><strong>Placeholder:</strong> governing law and venue in Section 12 (<code>[JURISDICTION]</code>) and legal entity name <code>[LEGAL ENTITY NAME]</code>.</blockquote>
+    <div class="card">
+      <p>These Terms of Use ("Terms") are a binding agreement between you and Guide Sight ("we", "us", or "our") governing your use of the Guide Sight mobile application (the "App"). <strong>Please read them carefully — especially Sections 2, 3, and 9 — which contain important disclaimers and limit our liability.</strong></p>
+      <p style="margin-bottom:0;">By downloading, accessing, or using the App, you agree to these Terms. <strong>If you do not agree, do not use the App.</strong></p>
+    </div>
 
-  <section class="doc" id="eligibility">
-    <h2>1. Eligibility</h2>
-    <p>You must be at least 16 years old and able to form a binding contract to use the App. By using the App you represent that you meet these requirements.</p>
-  </section>
+    <blockquote><strong>Placeholder:</strong> governing law and venue in Section 12 (<code>[JURISDICTION]</code>) and legal entity name <code>[LEGAL ENTITY NAME]</code>.</blockquote>
 
-  <section class="doc" id="what">
-    <h2>2. Guide Sight is NOT a medical device — important disclaimer</h2>
-    <div class="warning" style="border-left-color: #DC2626;">
-      <p style="margin:0 0 12px;font-size:16px;font-weight:700;">⚠️ READ THIS BEFORE USING THE APP</p>
-      <p style="margin:0 0 10px;"><strong>Guide Sight is a general-purpose assistive convenience tool only. It is NOT a medical device, NOT a health product, and NOT regulated or approved by the FDA, CE, or any medical or safety authority.</strong></p>
-      <ul style="margin:0 0 10px;">
-        <li><strong>Not medical advice.</strong> Nothing in this App constitutes medical, clinical, pharmaceutical, diagnostic, or professional advice of any kind. Information about medications, dosages, expiry dates, allergens, or health readings is provided for general convenience only and may be wrong or incomplete.</li>
-        <li><strong>Not a safety device.</strong> Guide Sight cannot guarantee the accurate detection of hazards, obstacles, traffic, or dangerous conditions. Do not use it to make safety-critical decisions.</li>
-        <li><strong>Not a substitute</strong> for your own judgment, a licensed professional, a certified mobility aid (cane, guide dog), a caregiver, or any other qualified human assistance.</li>
-        <li><strong>Not an emergency service.</strong> Never rely on this App in an emergency. Call your local emergency number or a trusted person directly.</li>
+    <section class="card doc" id="eligibility">
+      <h2>1. Eligibility</h2>
+      <p style="margin-bottom:0;">You must be at least 16 years old and able to form a binding contract to use the App. By using the App you represent that you meet these requirements.</p>
+    </section>
+
+    <section class="card doc" id="what">
+      <h2>2. Guide Sight is NOT a medical device — important disclaimer</h2>
+      <div class="warning">
+        <p style="margin:0 0 12px;font-size:16px;font-weight:700;">READ THIS BEFORE USING THE APP</p>
+        <p style="margin:0 0 10px;"><strong>Guide Sight is a general-purpose assistive convenience tool only. It is NOT a medical device, NOT a health product, and NOT regulated or approved by the FDA, CE, or any medical or safety authority.</strong></p>
+        <ul style="margin:0 0 10px;">
+          <li><strong>Not medical advice.</strong> Nothing in this App constitutes medical, clinical, pharmaceutical, diagnostic, or professional advice of any kind. Information about medications, dosages, expiry dates, allergens, or health readings is provided for general convenience only and may be wrong or incomplete.</li>
+          <li><strong>Not a safety device.</strong> Guide Sight cannot guarantee the accurate detection of hazards, obstacles, traffic, or dangerous conditions. Do not use it to make safety-critical decisions.</li>
+          <li><strong>Not a substitute</strong> for your own judgment, a licensed professional, a certified mobility aid (cane, guide dog), a caregiver, or any other qualified human assistance.</li>
+          <li><strong>Not an emergency service.</strong> Never rely on this App in an emergency. Call your local emergency number or a trusted person directly.</li>
+        </ul>
+        <p style="margin:0;"><strong>By using Guide Sight you acknowledge and accept all of the above.</strong></p>
+      </div>
+      <p style="margin-bottom:0;">Guide Sight is an <strong>assistive convenience tool</strong> that uses artificial intelligence to describe images, read text aloud, transcribe speech, and help organise everyday tasks and medications. Its purpose is to assist, not to replace professional care or safety equipment.</p>
+    </section>
+
+    <section class="card doc" id="ai">
+      <h2>3. AI output is imperfect — you rely on it entirely at your own risk</h2>
+      <div class="warning">
+        <p style="margin:0 0 10px;"><strong>Artificial intelligence can be wrong, incomplete, out of date, or misleading, and may generate ("hallucinate") information that is factually incorrect.</strong></p>
+        <p style="margin:0;"><strong>We make no warranty — express or implied — that any output from this App is accurate, safe to act on, or fit for any purpose.</strong></p>
+      </div>
+      <p><strong>You must independently verify any information before relying on it for any decision that affects health, safety, finances, or property.</strong> This includes without limitation:</p>
+      <ul>
+        <li>Identifying, taking, or dosing <strong>medications</strong> — always confirm with a pharmacist or prescribing doctor;</li>
+        <li>Reading <strong>expiry dates, allergens, or ingredients</strong>;</li>
+        <li>Detecting <strong>hazards</strong> (e.g. whether a stove is on, obstacles, stairs, traffic);</li>
+        <li><strong>Navigation</strong> and orientation;</li>
+        <li>Identifying <strong>money</strong> or making financial decisions.</li>
       </ul>
-      <p style="margin:0;"><strong>By using Guide Sight you acknowledge and accept all of the above.</strong></p>
-    </div>
-    <p>Guide Sight is an <strong>assistive convenience tool</strong> that uses artificial intelligence to describe images, read text aloud, transcribe speech, and help organise everyday tasks and medications. Its purpose is to assist, not to replace professional care or safety equipment.</p>
-  </section>
+      <p style="margin-bottom:0;"><strong>You use the App and any output it produces entirely at your own risk. We accept no liability for any harm, loss, injury, or damage of any kind arising from your use of or reliance on the App.</strong></p>
+    </section>
 
-  <section class="doc" id="ai">
-    <h2>3. AI output is imperfect — you rely on it entirely at your own risk</h2>
-    <div class="warning" style="border-left-color: #DC2626;">
-      <p style="margin:0 0 10px;"><strong>Artificial intelligence can be wrong, incomplete, out of date, or misleading, and may generate ("hallucinate") information that is factually incorrect.</strong></p>
-      <p style="margin:0;"><strong>We make no warranty — express or implied — that any output from this App is accurate, safe to act on, or fit for any purpose.</strong></p>
-    </div>
-    <p><strong>You must independently verify any information before relying on it for any decision that affects health, safety, finances, or property.</strong> This includes without limitation:</p>
-    <ul>
-      <li>Identifying, taking, or dosing <strong>medications</strong> — always confirm with a pharmacist or prescribing doctor;</li>
-      <li>Reading <strong>expiry dates, allergens, or ingredients</strong>;</li>
-      <li>Detecting <strong>hazards</strong> (e.g. whether a stove is on, obstacles, stairs, traffic);</li>
-      <li><strong>Navigation</strong> and orientation;</li>
-      <li>Identifying <strong>money</strong> or making financial decisions.</li>
-    </ul>
-    <p><strong>You use the App and any output it produces entirely at your own risk. We accept no liability for any harm, loss, injury, or damage of any kind arising from your use of or reliance on the App.</strong></p>
-  </section>
+    <section class="card doc" id="responsibilities">
+      <h2>4. Your responsibilities and acceptable use</h2>
+      <p>You agree to:</p>
+      <ul>
+        <li>Use the App lawfully and in accordance with these Terms;</li>
+        <li>Not rely on the App as your sole means of making safety-critical or medical decisions;</li>
+        <li>Keep your device and account credentials secure;</li>
+        <li>Not misuse, interfere with, or attempt to gain unauthorised access to the App or our systems;</li>
+        <li>Not use the App to capture images of people without any consent required by law.</li>
+      </ul>
+      <p style="margin-bottom:0;">We may suspend or terminate your access if you breach these Terms.</p>
+    </section>
 
-  <section class="doc" id="responsibilities">
-    <h2>4. Your responsibilities and acceptable use</h2>
-    <p>You agree to:</p>
-    <ul>
-      <li>Use the App lawfully and in accordance with these Terms;</li>
-      <li>Not rely on the App as your sole means of making safety-critical or medical decisions;</li>
-      <li>Keep your device and account credentials secure;</li>
-      <li>Not misuse, interfere with, or attempt to gain unauthorised access to the App or our systems;</li>
-      <li>Not use the App to capture images of people without any consent required by law.</li>
-    </ul>
-    <p>We may suspend or terminate your access if you breach these Terms.</p>
-  </section>
+    <section class="card doc" id="third-party">
+      <h2>5. Third-party services</h2>
+      <p style="margin-bottom:0;">The App depends on third-party services (including AI providers, hosting, payment, and app-store platforms). Their availability and performance are outside our control. We are not responsible for third-party services.</p>
+    </section>
 
-  <section class="doc" id="third-party">
-    <h2>5. Third-party services</h2>
-    <p>The App depends on third-party services (including AI providers, hosting, payment, and app-store platforms). Their availability and performance are outside our control. We are not responsible for third-party services.</p>
-  </section>
+    <section class="card doc" id="subs">
+      <h2>6. Subscriptions, purchases, and refunds</h2>
+      <p style="margin-bottom:0;">Some features require a paid subscription, processed by the app store (Apple/Google) and RevenueCat. Subscriptions may <strong>auto-renew</strong> until cancelled. Manage or cancel subscriptions in your app-store account settings. <strong>Refunds are handled by the applicable app store under its policies.</strong></p>
+    </section>
 
-  <section class="doc" id="subs">
-    <h2>6. Subscriptions, purchases, and refunds</h2>
-    <p>Some features require a paid subscription, processed by the app store (Apple/Google) and RevenueCat. Subscriptions may <strong>auto-renew</strong> until cancelled. Manage or cancel subscriptions in your app-store account settings. <strong>Refunds are handled by the applicable app store under its policies.</strong></p>
-  </section>
+    <section class="card doc" id="ip">
+      <h2>7. Intellectual property</h2>
+      <p style="margin-bottom:0;">The App, including its software, design, text, and branding, is owned by us or our licensors. We grant you a limited, personal, non-exclusive, non-transferable, revocable licence to use the App for your own personal, non-commercial use. You retain ownership of the content you create.</p>
+    </section>
 
-  <section class="doc" id="ip">
-    <h2>7. Intellectual property</h2>
-    <p>The App, including its software, design, text, and branding, is owned by us or our licensors. We grant you a limited, personal, non-exclusive, non-transferable, revocable licence to use the App for your own personal, non-commercial use. You retain ownership of the content you create.</p>
-  </section>
+    <section class="card doc" id="warranty">
+      <h2>8. Disclaimer of warranties</h2>
+      <p style="margin-bottom:0;"><strong>THE APP IS PROVIDED "AS IS" AND "AS AVAILABLE", WITH ALL FAULTS AND WITHOUT WARRANTIES OF ANY KIND.</strong> To the maximum extent permitted by law, we disclaim all warranties, including implied warranties of merchantability, fitness for a particular purpose, accuracy, and reliability.</p>
+    </section>
 
-  <section class="doc" id="warranty">
-    <h2>8. Disclaimer of warranties</h2>
-    <p><strong>THE APP IS PROVIDED "AS IS" AND "AS AVAILABLE", WITH ALL FAULTS AND WITHOUT WARRANTIES OF ANY KIND.</strong> To the maximum extent permitted by law, we disclaim all warranties, including implied warranties of merchantability, fitness for a particular purpose, accuracy, and reliability.</p>
-  </section>
+    <section class="card doc" id="liability">
+      <h2>9. Limitation of liability — we take no liability for harm arising from use of this App</h2>
+      <div class="warning">
+        <p style="margin:0 0 10px;font-weight:700;">TO THE MAXIMUM EXTENT PERMITTED BY APPLICABLE LAW, GUIDE SIGHT AND ITS OWNERS, EMPLOYEES, AND SUPPLIERS ACCEPT NO LIABILITY WHATSOEVER FOR ANY HARM, LOSS, INJURY, DEATH, OR DAMAGE OF ANY KIND ARISING FROM YOUR USE OF, OR INABILITY TO USE, THIS APP OR ANY OUTPUT IT PRODUCES.</p>
+        <p style="margin:0;">THIS INCLUDES — WITHOUT LIMITATION — ANY HARM RESULTING FROM: RELIANCE ON AI-GENERATED INFORMATION; MEDICATION IDENTIFICATION OR DOSING DECISIONS; FAILURE TO DETECT HAZARDS, OBSTACLES, OR DANGERS; NAVIGATION OR ORIENTATION; OR ANY OTHER HEALTH, SAFETY, FINANCIAL, OR PROPERTY DECISION.</p>
+      </div>
+      <p>More specifically, and without limiting the above:</p>
+      <ul>
+        <li>We will not be liable for any <strong>indirect, incidental, special, consequential, exemplary, or punitive damages</strong>, or for any loss of profits, data, goodwill, or health outcomes, even if we have been advised of the possibility of such damages.</li>
+        <li>We will not be liable for <strong>any injury, loss, or damage</strong> resulting from your reliance on AI output — including any medical, health, safety, navigation, hazard, or medication decision — which you use entirely at your own risk.</li>
+        <li>Our <strong>total aggregate liability</strong> for all claims relating to the App will not exceed the greater of (a) the total amount you paid us in the <strong>twelve (12) months</strong> before the event giving rise to the claim, or (b) <strong>USD $50</strong>.</li>
+      </ul>
+      <p style="margin-bottom:0;">Nothing in these Terms excludes or limits liability where it would be unlawful to do so — for example, liability for death or personal injury caused by our proven negligence or for fraud. Some jurisdictions do not allow certain limitations, so parts of this section may not apply to you.</p>
+    </section>
 
-  <section class="doc" id="liability">
-    <h2>9. Limitation of liability — we take no liability for harm arising from use of this App</h2>
-    <div class="warning" style="border-left-color: #DC2626;">
-      <p style="margin:0 0 10px;font-weight:700;">TO THE MAXIMUM EXTENT PERMITTED BY APPLICABLE LAW, GUIDE SIGHT AND ITS OWNERS, EMPLOYEES, AND SUPPLIERS ACCEPT NO LIABILITY WHATSOEVER FOR ANY HARM, LOSS, INJURY, DEATH, OR DAMAGE OF ANY KIND ARISING FROM YOUR USE OF, OR INABILITY TO USE, THIS APP OR ANY OUTPUT IT PRODUCES.</p>
-      <p style="margin:0;">THIS INCLUDES — WITHOUT LIMITATION — ANY HARM RESULTING FROM: RELIANCE ON AI-GENERATED INFORMATION; MEDICATION IDENTIFICATION OR DOSING DECISIONS; FAILURE TO DETECT HAZARDS, OBSTACLES, OR DANGERS; NAVIGATION OR ORIENTATION; OR ANY OTHER HEALTH, SAFETY, FINANCIAL, OR PROPERTY DECISION.</p>
-    </div>
-    <p>More specifically, and without limiting the above:</p>
-    <ul>
-      <li>We will not be liable for any <strong>indirect, incidental, special, consequential, exemplary, or punitive damages</strong>, or for any loss of profits, data, goodwill, or health outcomes, even if we have been advised of the possibility of such damages.</li>
-      <li>We will not be liable for <strong>any injury, loss, or damage</strong> resulting from your reliance on AI output — including any medical, health, safety, navigation, hazard, or medication decision — which you use entirely at your own risk.</li>
-      <li>Our <strong>total aggregate liability</strong> for all claims relating to the App will not exceed the greater of (a) the total amount you paid us in the <strong>twelve (12) months</strong> before the event giving rise to the claim, or (b) <strong>USD $50</strong>.</li>
-    </ul>
-    <p>Nothing in these Terms excludes or limits liability where it would be unlawful to do so — for example, liability for death or personal injury caused by our proven negligence or for fraud. Some jurisdictions do not allow certain limitations, so parts of this section may not apply to you.</p>
-  </section>
+    <section class="card doc" id="indemnity">
+      <h2>10. Indemnification</h2>
+      <p style="margin-bottom:0;">To the extent permitted by law, you agree to indemnify and hold harmless Guide Sight and its owners, employees, and suppliers from claims arising from your misuse of the App or violation of these Terms.</p>
+    </section>
 
-  <section class="doc" id="indemnity">
-    <h2>10. Indemnification</h2>
-    <p>To the extent permitted by law, you agree to indemnify and hold harmless Guide Sight and its owners, employees, and suppliers from claims arising from your misuse of the App or violation of these Terms.</p>
-  </section>
+    <section class="card doc" id="changes">
+      <h2>11. Changes and availability</h2>
+      <p style="margin-bottom:0;">We may modify, suspend, or discontinue the App at any time, and may update these Terms. Material changes will be notified as required by law. Your continued use after changes take effect constitutes acceptance.</p>
+    </section>
 
-  <section class="doc" id="changes">
-    <h2>11. Changes and availability</h2>
-    <p>We may modify, suspend, or discontinue the App at any time, and may update these Terms. Material changes will be notified as required by law. Your continued use after changes take effect constitutes acceptance.</p>
-  </section>
+    <section class="card doc" id="governing">
+      <h2>12. Governing law and disputes</h2>
+      <p style="margin-bottom:0;">These Terms are governed by the laws of <strong>[JURISDICTION]</strong>, without regard to conflict-of-laws rules. Subject to mandatory consumer-protection rights, you agree to the exclusive jurisdiction of the courts located in [JURISDICTION].</p>
+    </section>
 
-  <section class="doc" id="governing">
-    <h2>12. Governing law and disputes</h2>
-    <p>These Terms are governed by the laws of <strong>[JURISDICTION]</strong>, without regard to conflict-of-laws rules. Subject to mandatory consumer-protection rights, you agree to the exclusive jurisdiction of the courts located in [JURISDICTION].</p>
-  </section>
+    <section class="card doc" id="consumer">
+      <h2>13. Consumer rights (EU/UK and others)</h2>
+      <p style="margin-bottom:0;">If you are a consumer, you have statutory rights that these Terms do not affect.</p>
+    </section>
 
-  <section class="doc" id="consumer">
-    <h2>13. Consumer rights (EU/UK and others)</h2>
-    <p>If you are a consumer, you have statutory rights that these Terms do not affect.</p>
-  </section>
+    <section class="card doc" id="general">
+      <h2>14. General</h2>
+      <ul>
+        <li><strong>Severability:</strong> if any provision is found unenforceable, the rest remains in effect.</li>
+        <li><strong>No waiver:</strong> our failure to enforce a provision is not a waiver.</li>
+        <li><strong>Entire agreement:</strong> these Terms and the Privacy Policy are the entire agreement regarding the App.</li>
+      </ul>
+    </section>
 
-  <section class="doc" id="general">
-    <h2>14. General</h2>
-    <ul>
-      <li><strong>Severability:</strong> if any provision is found unenforceable, the rest remains in effect.</li>
-      <li><strong>No waiver:</strong> our failure to enforce a provision is not a waiver.</li>
-      <li><strong>Entire agreement:</strong> these Terms and the Privacy Policy are the entire agreement regarding the App.</li>
-    </ul>
-  </section>
+    <section class="card doc" id="contact">
+      <h2>15. Contact</h2>
+      <p><strong>Questions or requests:</strong> use our <a href="guide-sight-contact.html">Contact us</a> page.</p>
+      <p style="margin-bottom:0;"><a class="cta" href="guide-sight-contact.html">Contact us</a></p>
+    </section>
 
-  <section class="doc" id="contact">
-    <h2>15. Contact</h2>
-    <p><strong>Questions or requests:</strong> use our <a href="guide-sight-contact.html">Contact us</a> page.</p>
-    <p><a class="cta" href="guide-sight-contact.html">Contact us</a></p>
-  </section>
-  <footer class="legal-foot">Guide Sight · <a href="/">All apps</a> · <a href="guide-sight-contact.html">Contact us</a></footer>
-</div>
+    <footer class="legal-foot">
+      Guide Sight ·
+      <a href="guide-sight-privacy-policy.html">Privacy</a> ·
+      <a href="guide-sight-terms-of-service.html">Terms</a> ·
+      <a href="guide-sight-contact.html">Contact</a> ·
+      <a href="/">All apps</a>
+    </footer>
+  </div>
 </body>
 </html>

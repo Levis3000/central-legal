@@ -4,8 +4,8 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Guide Sight — Privacy Policy</title>
+<link rel="icon" type="image/png" href="guide-sight-icon.png">
 <style>
-
   :root {
     --navy: #0B1A2E;
     --navy-deep: #07101C;
@@ -31,7 +31,7 @@
     line-height: 1.7;
     -webkit-font-smoothing: antialiased;
   }
-  .wrap { max-width: 760px; margin: 0 auto; padding: 0 22px 96px; }
+  .wrap { max-width: 640px; margin: 0 auto; padding: 0 22px 96px; }
   .topbar {
     display: flex; align-items: center; justify-content: space-between; gap: 12px;
     padding: 20px 0 8px; flex-wrap: wrap;
@@ -48,7 +48,7 @@
   }
   .top-links a:hover, .top-links a.on { color: var(--navy); }
   header.masthead {
-    margin: 18px 0 10px; padding: 36px 28px 30px;
+    margin: 18px 0 22px; padding: 32px 26px 28px;
     background: linear-gradient(160deg, var(--navy) 0%, var(--navy-deep) 100%);
     color: #F7F4EC; border-radius: 24px;
     box-shadow: 0 18px 40px rgba(11,26,46,0.28);
@@ -57,85 +57,88 @@
     font-size: 12px; letter-spacing: 0.18em; text-transform: uppercase;
     color: var(--gold); font-weight: 800; margin: 0 0 12px;
   }
-  h1.brand {
-    font-weight: 800; font-size: clamp(34px, 7vw, 52px); line-height: 1.05;
+  h1 {
+    font-weight: 800; font-size: clamp(32px, 7vw, 44px); line-height: 1.05;
     margin: 0; letter-spacing: -0.03em; color: #FFF;
   }
-  .masthead .sub { font-size: clamp(17px, 2.8vw, 20px); color: rgba(247,244,236,0.78); margin: 12px 0 0; }
+  .sub { font-size: 17px; color: rgba(247,244,236,0.78); margin: 12px 0 0; }
   .updated { font-size: 13px; color: rgba(247,244,236,0.62); margin: 16px 0 0; }
-  nav.toc { display: flex; gap: 8px; justify-content: flex-start; flex-wrap: wrap; margin: 22px 0 0; }
+  nav.toc {
+    display: flex; gap: 8px; flex-wrap: wrap; margin: 0 0 18px;
+  }
   nav.toc a {
-    font-size: 13.5px; font-weight: 700; text-decoration: none; color: var(--navy);
+    font-size: 13px; font-weight: 700; text-decoration: none; color: var(--navy);
     padding: 8px 14px; border-radius: 999px; background: var(--gold);
   }
   nav.toc a:hover { filter: brightness(1.05); }
-  section.doc { padding-top: 44px; scroll-margin-top: 20px; }
+  .card {
+    background: var(--surface); border: 1px solid var(--hair); border-radius: 18px;
+    padding: 24px; margin: 0 0 18px;
+    box-shadow: 0 10px 28px rgba(11,26,46,0.06);
+  }
+  section.doc { scroll-margin-top: 20px; }
+  section.doc + section.doc { margin-top: 0; }
   h2 {
-    font-size: 22px; font-weight: 800; margin: 0 0 14px; padding-bottom: 10px;
+    font-size: 20px; font-weight: 800; margin: 0 0 14px; padding-bottom: 10px;
     border-bottom: 2px solid var(--gold); color: var(--navy);
   }
-  h3 { font-size: 17px; font-weight: 800; margin: 24px 0 8px; color: var(--navy); }
-  p, li { margin: 0 0 14px; }
-  ul, ol { padding-left: 22px; margin: 0 0 16px; }
+  h3 { font-size: 16px; font-weight: 800; margin: 20px 0 8px; color: var(--navy); }
+  p, li { margin: 0 0 12px; }
+  ul, ol { padding-left: 22px; margin: 0 0 12px; }
   strong { font-weight: 800; }
   a { color: #1A4F8C; }
   .warning {
     background: var(--surface); border: 1px solid var(--hair);
     border-left: 4px solid var(--warn); border-radius: 0 14px 14px 0;
-    padding: 16px 18px; margin: 0 0 20px; font-size: 16px;
+    padding: 16px 18px; margin: 0 0 18px; font-size: 16px;
   }
-  .card {
-    background: var(--surface); border: 1px solid var(--hair); border-radius: 18px;
-    padding: 22px 22px; margin: 0 0 18px;
-    box-shadow: 0 10px 28px rgba(11,26,46,0.06);
-  }
-  .back {
-    display: inline-flex; align-items: center; gap: 6px; text-decoration: none;
-    color: var(--navy); font-weight: 700; font-size: 14px; margin: 28px 0 0;
-  }
-  .back:hover { color: var(--gold-deep); }
   blockquote {
-    margin: 0 0 16px; padding: 14px 18px; background: var(--surface);
-    border-left: 4px solid var(--gold); border-radius: 0 12px 12px 0;
-    font-size: 15px; color: var(--muted);
+    margin: 0 0 18px; padding: 14px 18px; background: var(--surface);
+    border: 1px solid var(--hair); border-left: 4px solid var(--gold);
+    border-radius: 0 12px 12px 0; font-size: 15px; color: var(--muted);
   }
-  table { width: 100%; border-collapse: collapse; font-size: 15px; margin: 20px 0; }
-  th { text-align: left; font-weight: 800; padding: 10px 12px; background: rgba(11,26,46,0.04); border: 1px solid var(--hair); }
+  table { width: 100%; border-collapse: collapse; font-size: 15px; margin: 12px 0 4px; }
+  th {
+    text-align: left; font-weight: 800; padding: 10px 12px;
+    background: rgba(11,26,46,0.04); border: 1px solid var(--hair);
+  }
   td { padding: 10px 12px; border: 1px solid var(--hair); vertical-align: top; }
+  .cta {
+    display: inline-flex; align-items: center; justify-content: center;
+    background: var(--gold); color: var(--navy) !important; text-decoration: none;
+    font-weight: 800; font-size: 16px; padding: 14px 20px; border-radius: 14px;
+  }
+  .cta:hover { filter: brightness(1.04); }
   footer.legal-foot {
-    margin-top: 48px; padding-top: 22px; border-top: 1px solid var(--hair);
+    margin-top: 36px; padding-top: 22px; border-top: 1px solid var(--hair);
     color: var(--muted); font-size: 14px;
   }
-  .cta {
-    display: inline-flex; align-items: center; justify-content: center; gap: 8px;
-    background: var(--navy); color: #fff !important; text-decoration: none;
-    font-weight: 800; font-size: 16px; padding: 14px 20px; border-radius: 14px;
-    box-shadow: 0 10px 24px rgba(11,26,46,0.22);
-  }
-  .cta:hover { background: #132742; }
-  label { display:block; font-size:13px; font-weight:800; letter-spacing:.04em; text-transform:uppercase; color:var(--muted); margin:16px 0 6px; }
-  input, textarea {
-    width:100%; font:inherit; color:var(--ink); background:#fff;
-    border:1px solid var(--hair); border-radius:12px; padding:12px 14px;
-  }
-  input:focus, textarea:focus { outline:none; border-color: var(--gold-deep); box-shadow: 0 0 0 3px rgba(232,197,71,.35); }
-  textarea { min-height: 140px; resize: vertical; }
-  button.send {
-    margin-top: 18px; width: 100%; font-size: 17px; font-weight: 800; color: var(--navy);
-    background: var(--gold); border: none; border-radius: 14px; padding: 15px; cursor: pointer;
-  }
-  button.send:hover { filter: brightness(1.04); }
-
+  footer.legal-foot a { color: var(--muted); text-decoration: none; font-weight: 600; }
+  footer.legal-foot a:hover { color: var(--navy); }
 </style>
 </head>
 <body>
-<div class="wrap">
-  <header class="masthead">
-    <p class="eyebrow">Guide Sight</p>
-    <h1 class="brand">Privacy Policy</h1>
-    <p class="sub">Low-vision AI assistant</p>
-    <p class="updated">Last updated: 24 July 2026</p>
-    <nav class="toc">
+  <div class="wrap">
+    <div class="topbar">
+      <a class="brand-lockup" href="guide-sight-privacy-policy.html">
+        <img src="guide-sight-icon.png" alt="Guide Sight">
+        <span class="name">Guide Sight</span>
+      </a>
+      <div class="top-links">
+        <a class="on" href="guide-sight-privacy-policy.html">Privacy</a>
+        <a href="guide-sight-terms-of-service.html">Terms</a>
+        <a href="guide-sight-contact.html">Contact</a>
+      </div>
+    </div>
+
+    <header class="masthead">
+      <p class="eyebrow">Guide Sight</p>
+      <h1>Privacy Policy</h1>
+      <p class="sub">How we collect, use, and protect your information.</p>
+      <p class="updated">Last updated: 24 July 2026</p>
+    </header>
+
+    <nav class="toc" aria-label="On this page">
       <a href="#who">Who we are</a>
       <a href="#collect">What we collect</a>
       <a href="#use">How we use it</a>
@@ -143,152 +146,161 @@
       <a href="#rights">Your rights</a>
       <a href="#contact">Contact</a>
     </nav>
-  </header>
 
-  <p>This Privacy Policy explains how Guide Sight ("we", "us", or "our") collects, uses, and protects your information when you use the Guide Sight mobile application (the "App").</p>
-  <p>By using the App, you agree to this Privacy Policy.</p>
-  <div class="warning" style="border-left-color:#DC2626; margin-bottom:24px;">
-    <strong>⚠️ Important:</strong> Guide Sight is a general-purpose assistive convenience tool. <strong>It is NOT a medical device and is not intended to provide medical advice.</strong> Never rely on it for medical, clinical, safety-critical, or emergency decisions. See our <a href="guide-sight-terms-of-service.html" style="color:inherit;">Terms of Use</a> for the full disclaimer and limitation of liability.
+    <div class="card">
+      <p>This Privacy Policy explains how Guide Sight ("we", "us", or "our") collects, uses, and protects your information when you use the Guide Sight mobile application (the "App").</p>
+      <p style="margin-bottom:0;">By using the App, you agree to this Privacy Policy.</p>
+    </div>
+
+    <div class="warning">
+      <strong>Important:</strong> Guide Sight is a general-purpose assistive convenience tool. <strong>It is NOT a medical device and is not intended to provide medical advice.</strong> Never rely on it for medical, clinical, safety-critical, or emergency decisions. See our <a href="guide-sight-terms-of-service.html">Terms of Use</a> for the full disclaimer and limitation of liability.
+    </div>
+
+    <blockquote><strong>Placeholders to complete before publishing:</strong> <code>[LEGAL ENTITY NAME]</code>, <code>[ADDRESS]</code>, and if you have EU/UK users, your GDPR representative details (Section 12).</blockquote>
+
+    <section class="card doc" id="who">
+      <h2>1. Who we are (Data Controller)</h2>
+      <p>The data controller responsible for your personal data is:</p>
+      <ul>
+        <li><strong>Entity:</strong> [LEGAL ENTITY NAME] (operating the "Guide Sight" app)</li>
+        <li><strong>Contact:</strong> use our <a href="guide-sight-contact.html">Contact us</a> page.</li>
+        <li><strong>Postal address:</strong> [ADDRESS]</li>
+      </ul>
+    </section>
+
+    <section class="card doc" id="summary">
+      <h2>2. Summary (plain language)</h2>
+      <ul>
+        <li>Guide Sight helps people with low vision by describing images, reading text aloud, and helping manage day-to-day tasks and medications.</li>
+        <li>To describe what your camera sees or transcribe your voice, we send that image or audio to trusted AI providers for processing. We do not use it to build advertising profiles, and we do not sell it.</li>
+        <li>Most of your personal content (medications, health readings, notes, contacts) is stored <strong>locally on your device</strong>, not on our servers.</li>
+        <li>You can ask us to access or delete your data at any time.</li>
+        <li>Guide Sight is <strong>not</strong> a medical device — never rely on it for safety-critical or medical decisions.</li>
+      </ul>
+    </section>
+
+    <section class="card doc" id="collect">
+      <h2>3. Information we collect</h2>
+      <h3>3.1 Information you provide</h3>
+      <ul>
+        <li><strong>Camera images / video frames</strong> — captured when you use Live Assist. Used to generate descriptions.</li>
+        <li><strong>Voice recordings</strong> — captured when you ask a question by voice. Used to transcribe your speech.</li>
+        <li><strong>Health and medication information</strong> — medications, dosages, schedules, expiry dates, and health readings you enter. This may constitute <strong>special-category / sensitive data</strong>.</li>
+        <li><strong>Notes and contacts</strong> — notes you save and emergency/responder contacts you add.</li>
+        <li><strong>Account information</strong> — if you sign in, your name, email address, and authentication identifier.</li>
+        <li><strong>Preferences</strong> — settings such as theme, contrast, voice, and detail level.</li>
+      </ul>
+      <h3>3.2 Information collected automatically</h3>
+      <ul>
+        <li><strong>Purchase/subscription data</strong> — managed by RevenueCat and the app store. We receive subscription status and transaction identifiers, not your payment card details.</li>
+        <li><strong>Device and diagnostic data</strong> — app version, device model, OS, crash logs used to operate and improve the App.</li>
+      </ul>
+      <h3>3.3 Where your content is stored</h3>
+      <ul>
+        <li><strong>On your device:</strong> medications, health readings, notes, contacts, and preferences are stored locally using the device's local storage.</li>
+        <li><strong>In transit for processing only:</strong> images and audio are transmitted to our backend and onward to AI providers solely to produce a result, then returned to your device.</li>
+      </ul>
+    </section>
+
+    <section class="card doc" id="use">
+      <h2>4. How we use your information</h2>
+      <p>We use your information to:</p>
+      <ul>
+        <li>Provide the App's core features (image description, text reading, voice transcription, medication and task management);</li>
+        <li>Transcribe your voice and analyse images to answer your questions;</li>
+        <li>Remember your preferences and content;</li>
+        <li>Process subscriptions and prevent abuse;</li>
+        <li>Diagnose problems, maintain security, and improve the App;</li>
+        <li>Respond to your requests and provide support;</li>
+        <li>Comply with legal obligations.</li>
+      </ul>
+      <p style="margin-bottom:0;">We do <strong>not</strong> use your camera images, voice, health data, or notes for advertising, and we do <strong>not</strong> sell your personal information.</p>
+    </section>
+
+    <section class="card doc" id="legal-bases">
+      <h2>5. Legal bases for processing (EU/UK GDPR)</h2>
+      <table>
+        <tr><th>Purpose</th><th>Legal basis</th></tr>
+        <tr><td>Providing the App's features you request</td><td>Performance of a contract (Art. 6(1)(b))</td></tr>
+        <tr><td>Processing images, voice, and health data you submit</td><td>Your <strong>explicit consent</strong> (Art. 6(1)(a); Art. 9(2)(a) for special-category data)</td></tr>
+        <tr><td>Security, abuse prevention, diagnostics</td><td>Legitimate interests (Art. 6(1)(f))</td></tr>
+        <tr><td>Payments and legal/tax records</td><td>Legal obligation (Art. 6(1)(c)) / contract</td></tr>
+      </table>
+    </section>
+
+    <section class="card doc" id="sensitive">
+      <h2>6. Sensitive / special-category data</h2>
+      <p style="margin-bottom:0;">Medication and health information you enter may be "special-category data" under the GDPR (Art. 9). We process it <strong>only</strong> to provide the features you request, based on your explicit consent, and store it locally on your device wherever possible.</p>
+    </section>
+
+    <section class="card doc" id="share">
+      <h2>7. How we share information</h2>
+      <table>
+        <tr><th>Recipient</th><th>Purpose</th><th>Data shared</th></tr>
+        <tr><td><strong>Anthropic</strong> (Claude AI)</td><td>Image/text understanding and responses</td><td>Camera images, your question text</td></tr>
+        <tr><td><strong>OpenAI</strong> (Whisper)</td><td>Speech-to-text transcription</td><td>Voice audio</td></tr>
+        <tr><td><strong>Railway</strong> (hosting)</td><td>Runs our backend proxy</td><td>Data in transit to AI providers</td></tr>
+        <tr><td><strong>RevenueCat</strong></td><td>Subscription management</td><td>Purchase identifiers, subscription status</td></tr>
+        <tr><td><strong>Apple / Google</strong></td><td>App distribution, sign-in, payments</td><td>Account identifier, transaction data</td></tr>
+      </table>
+      <p style="margin:12px 0 0;">We do not sell your personal information and do not share it for cross-context behavioural advertising.</p>
+    </section>
+
+    <section class="card doc" id="transfers">
+      <h2>8. International data transfers</h2>
+      <p style="margin-bottom:0;">We and our providers may process your information in countries outside your own, including the United States. Where we transfer personal data out of the EEA or UK, we rely on Standard Contractual Clauses or an adequacy decision.</p>
+    </section>
+
+    <section class="card doc" id="rights">
+      <h2>9. Your rights</h2>
+      <p><strong>EU/UK GDPR:</strong> access; rectification; erasure; restriction; portability; objection; withdrawal of consent; right to lodge a complaint with your data protection authority.</p>
+      <p><strong>California (CCPA/CPRA):</strong> right to know, access, correct, and delete personal information; right to opt out of "sale" or "sharing" (we do neither).</p>
+      <p style="margin-bottom:0;">Because much of your content is stored only on your device, you can delete most of it directly in the App, or by uninstalling. To exercise rights with respect to data we hold, use our <a href="guide-sight-contact.html">Contact us</a> page (choose topic <strong>Privacy Request</strong>).</p>
+    </section>
+
+    <section class="card doc" id="retention">
+      <h2>10. Data retention</h2>
+      <ul>
+        <li><strong>On-device data</strong> is retained until you delete it or uninstall the App.</li>
+        <li><strong>Images and audio</strong> sent for processing are not retained by us beyond what is needed to provide the service.</li>
+        <li><strong>Diagnostic and transaction records</strong> are retained only as long as necessary or as required by law.</li>
+      </ul>
+    </section>
+
+    <section class="card doc" id="security">
+      <h2>11. Security</h2>
+      <p style="margin-bottom:0;">We use reasonable technical and organisational measures to protect your information, including encryption in transit (HTTPS/TLS) and access controls on our backend. No method of transmission or storage is completely secure.</p>
+    </section>
+
+    <section class="card doc" id="eu-rep">
+      <h2>12. EU/UK representative</h2>
+      <p style="margin-bottom:0;">If you are in the EEA or UK and we are required to appoint a representative under Article 27 GDPR, our representative is: [REPRESENTATIVE NAME AND CONTACT — complete if applicable, otherwise remove this section].</p>
+    </section>
+
+    <section class="card doc" id="children">
+      <h2>13. Children's privacy</h2>
+      <p style="margin-bottom:0;">The App is not directed to children and is not intended for use by anyone under the age of 16. We do not knowingly collect personal data from children.</p>
+    </section>
+
+    <section class="card doc" id="changes">
+      <h2>14. Changes to this Policy</h2>
+      <p style="margin-bottom:0;">We may update this Privacy Policy from time to time. We will update the "Last updated" date and, where required, provide additional notice.</p>
+    </section>
+
+    <section class="card doc" id="contact">
+      <h2>15. Contact us</h2>
+      <p><strong>How to reach us:</strong> use our <a href="guide-sight-contact.html">Contact us</a> page.</p>
+      <p><a class="cta" href="guide-sight-contact.html">Contact us</a></p>
+      <p style="margin:14px 0 0; font-size:15px; color:var(--muted);">If you are in the EEA or UK and are not satisfied with our response, you may lodge a complaint with your local supervisory authority.</p>
+    </section>
+
+    <footer class="legal-foot">
+      Guide Sight ·
+      <a href="guide-sight-privacy-policy.html">Privacy</a> ·
+      <a href="guide-sight-terms-of-service.html">Terms</a> ·
+      <a href="guide-sight-contact.html">Contact</a> ·
+      <a href="/">All apps</a>
+    </footer>
   </div>
-
-  <blockquote><strong>Placeholders to complete before publishing:</strong> <code>[LEGAL ENTITY NAME]</code>, <code>[ADDRESS]</code>, and if you have EU/UK users, your GDPR representative details (Section 12).</blockquote>
-
-  <section class="doc" id="who">
-    <h2>1. Who we are (Data Controller)</h2>
-    <p>The data controller responsible for your personal data is:</p>
-    <ul>
-      <li><strong>Entity:</strong> [LEGAL ENTITY NAME] (operating the "Guide Sight" app)</li>
-      <li><strong>Contact:</strong> use our <a href="guide-sight-contact.html">Contact us</a> page.</li>
-      <li><strong>Postal address:</strong> [ADDRESS]</li>
-    </ul>
-  </section>
-
-  <section class="doc" id="summary">
-    <h2>2. Summary (plain language)</h2>
-    <ul>
-      <li>Guide Sight helps people with low vision by describing images, reading text aloud, and helping manage day-to-day tasks and medications.</li>
-      <li>To describe what your camera sees or transcribe your voice, we send that image or audio to trusted AI providers for processing. We do not use it to build advertising profiles, and we do not sell it.</li>
-      <li>Most of your personal content (medications, health readings, notes, contacts) is stored <strong>locally on your device</strong>, not on our servers.</li>
-      <li>You can ask us to access or delete your data at any time.</li>
-      <li>Guide Sight is <strong>not</strong> a medical device — never rely on it for safety-critical or medical decisions.</li>
-    </ul>
-  </section>
-
-  <section class="doc" id="collect">
-    <h2>3. Information we collect</h2>
-    <h3>3.1 Information you provide</h3>
-    <ul>
-      <li><strong>Camera images / video frames</strong> — captured when you use Live Assist. Used to generate descriptions.</li>
-      <li><strong>Voice recordings</strong> — captured when you ask a question by voice. Used to transcribe your speech.</li>
-      <li><strong>Health and medication information</strong> — medications, dosages, schedules, expiry dates, and health readings you enter. This may constitute <strong>special-category / sensitive data</strong>.</li>
-      <li><strong>Notes and contacts</strong> — notes you save and emergency/responder contacts you add.</li>
-      <li><strong>Account information</strong> — if you sign in, your name, email address, and authentication identifier.</li>
-      <li><strong>Preferences</strong> — settings such as theme, contrast, voice, and detail level.</li>
-    </ul>
-    <h3>3.2 Information collected automatically</h3>
-    <ul>
-      <li><strong>Purchase/subscription data</strong> — managed by RevenueCat and the app store. We receive subscription status and transaction identifiers, not your payment card details.</li>
-      <li><strong>Device and diagnostic data</strong> — app version, device model, OS, crash logs used to operate and improve the App.</li>
-    </ul>
-    <h3>3.3 Where your content is stored</h3>
-    <ul>
-      <li><strong>On your device:</strong> medications, health readings, notes, contacts, and preferences are stored locally using the device's local storage.</li>
-      <li><strong>In transit for processing only:</strong> images and audio are transmitted to our backend and onward to AI providers solely to produce a result, then returned to your device.</li>
-    </ul>
-  </section>
-
-  <section class="doc" id="use">
-    <h2>4. How we use your information</h2>
-    <p>We use your information to:</p>
-    <ul>
-      <li>Provide the App's core features (image description, text reading, voice transcription, medication and task management);</li>
-      <li>Transcribe your voice and analyse images to answer your questions;</li>
-      <li>Remember your preferences and content;</li>
-      <li>Process subscriptions and prevent abuse;</li>
-      <li>Diagnose problems, maintain security, and improve the App;</li>
-      <li>Respond to your requests and provide support;</li>
-      <li>Comply with legal obligations.</li>
-    </ul>
-    <p>We do <strong>not</strong> use your camera images, voice, health data, or notes for advertising, and we do <strong>not</strong> sell your personal information.</p>
-  </section>
-
-  <section class="doc" id="legal-bases">
-    <h2>5. Legal bases for processing (EU/UK GDPR)</h2>
-    <table>
-      <tr><th>Purpose</th><th>Legal basis</th></tr>
-      <tr><td>Providing the App's features you request</td><td>Performance of a contract (Art. 6(1)(b))</td></tr>
-      <tr><td>Processing images, voice, and health data you submit</td><td>Your <strong>explicit consent</strong> (Art. 6(1)(a); Art. 9(2)(a) for special-category data)</td></tr>
-      <tr><td>Security, abuse prevention, diagnostics</td><td>Legitimate interests (Art. 6(1)(f))</td></tr>
-      <tr><td>Payments and legal/tax records</td><td>Legal obligation (Art. 6(1)(c)) / contract</td></tr>
-    </table>
-  </section>
-
-  <section class="doc" id="sensitive">
-    <h2>6. Sensitive / special-category data</h2>
-    <p>Medication and health information you enter may be "special-category data" under the GDPR (Art. 9). We process it <strong>only</strong> to provide the features you request, based on your explicit consent, and store it locally on your device wherever possible.</p>
-  </section>
-
-  <section class="doc" id="share">
-    <h2>7. How we share information</h2>
-    <table>
-      <tr><th>Recipient</th><th>Purpose</th><th>Data shared</th></tr>
-      <tr><td><strong>Anthropic</strong> (Claude AI)</td><td>Image/text understanding and responses</td><td>Camera images, your question text</td></tr>
-      <tr><td><strong>OpenAI</strong> (Whisper)</td><td>Speech-to-text transcription</td><td>Voice audio</td></tr>
-      <tr><td><strong>Railway</strong> (hosting)</td><td>Runs our backend proxy</td><td>Data in transit to AI providers</td></tr>
-      <tr><td><strong>RevenueCat</strong></td><td>Subscription management</td><td>Purchase identifiers, subscription status</td></tr>
-      <tr><td><strong>Apple / Google</strong></td><td>App distribution, sign-in, payments</td><td>Account identifier, transaction data</td></tr>
-    </table>
-    <p>We do not sell your personal information and do not share it for cross-context behavioural advertising.</p>
-  </section>
-
-  <section class="doc" id="transfers">
-    <h2>8. International data transfers</h2>
-    <p>We and our providers may process your information in countries outside your own, including the United States. Where we transfer personal data out of the EEA or UK, we rely on Standard Contractual Clauses or an adequacy decision.</p>
-  </section>
-
-  <section class="doc" id="rights">
-    <h2>9. Your rights</h2>
-    <p><strong>EU/UK GDPR:</strong> access; rectification; erasure; restriction; portability; objection; withdrawal of consent; right to lodge a complaint with your data protection authority.</p>
-    <p><strong>California (CCPA/CPRA):</strong> right to know, access, correct, and delete personal information; right to opt out of "sale" or "sharing" (we do neither).</p>
-    <p>Because much of your content is stored only on your device, you can delete most of it directly in the App, or by uninstalling. To exercise rights with respect to data we hold, use our <a href="guide-sight-contact.html">Contact us</a> page (choose topic <strong>Privacy Request</strong>).</p>
-  </section>
-
-  <section class="doc" id="retention">
-    <h2>10. Data retention</h2>
-    <ul>
-      <li><strong>On-device data</strong> is retained until you delete it or uninstall the App.</li>
-      <li><strong>Images and audio</strong> sent for processing are not retained by us beyond what is needed to provide the service.</li>
-      <li><strong>Diagnostic and transaction records</strong> are retained only as long as necessary or as required by law.</li>
-    </ul>
-  </section>
-
-  <section class="doc" id="security">
-    <h2>11. Security</h2>
-    <p>We use reasonable technical and organisational measures to protect your information, including encryption in transit (HTTPS/TLS) and access controls on our backend. No method of transmission or storage is completely secure.</p>
-  </section>
-
-  <section class="doc" id="eu-rep">
-    <h2>12. EU/UK representative</h2>
-    <p>If you are in the EEA or UK and we are required to appoint a representative under Article 27 GDPR, our representative is: [REPRESENTATIVE NAME AND CONTACT — complete if applicable, otherwise remove this section].</p>
-  </section>
-
-  <section class="doc" id="children">
-    <h2>13. Children's privacy</h2>
-    <p>The App is not directed to children and is not intended for use by anyone under the age of 16. We do not knowingly collect personal data from children.</p>
-  </section>
-
-  <section class="doc" id="changes">
-    <h2>14. Changes to this Policy</h2>
-    <p>We may update this Privacy Policy from time to time. We will update the "Last updated" date and, where required, provide additional notice.</p>
-  </section>
-
-  <section class="doc" id="contact">
-    <h2>15. Contact us</h2>
-    <p><strong>How to reach us:</strong> use our <a href="guide-sight-contact.html">Contact us</a> page.</p>
-    <p><a class="cta" href="guide-sight-contact.html">Contact us</a></p>
-    <p>If you are in the EEA or UK and are not satisfied with our response, you may lodge a complaint with your local supervisory authority.</p>
-  </section>
-  <footer class="legal-foot">Guide Sight · <a href="/">All apps</a> · <a href="guide-sight-contact.html">Contact us</a></footer>
-</div>
 </body>
 </html>
