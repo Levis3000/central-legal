@@ -66,12 +66,6 @@
     padding: 24px; margin: 0 0 18px;
     box-shadow: 0 10px 28px rgba(11,26,46,0.06);
   }
-  .email-pill {
-    display: inline-block; font-weight: 800; font-size: 17px;
-    color: var(--navy); background: rgba(232,197,71,0.35);
-    padding: 10px 14px; border-radius: 999px; text-decoration: none; word-break: break-all;
-  }
-  .email-pill:hover { background: var(--gold); }
   label {
     display: block; font-size: 13px; font-weight: 800; letter-spacing: .04em;
     text-transform: uppercase; color: var(--muted); margin: 16px 0 6px;
@@ -91,14 +85,12 @@
     background: var(--gold); border: none; border-radius: 14px; padding: 15px; cursor: pointer;
   }
   button.send:hover { filter: brightness(1.04); }
-  ul { padding-left: 20px; margin: 8px 0 0; color: var(--muted); font-size: 16px; }
+  ul { padding-left: 20px; margin: 12px 0 0; color: var(--muted); font-size: 16px; }
   footer.legal-foot {
     margin-top: 36px; padding-top: 22px; border-top: 1px solid var(--hair);
     color: var(--muted); font-size: 14px;
   }
-  .note {
-    margin-top: 14px; font-size: 14px; color: var(--muted);
-  }
+  .note { margin-top: 14px; font-size: 14px; color: var(--muted); }
 </style>
 </head>
 <body>
@@ -122,18 +114,8 @@
     </header>
 
     <div class="card">
-      <p style="margin:0 0 10px; font-weight:800;">Email</p>
-      <a class="email-pill" href="mailto:mobileappdeveloper2024@gmail.com?subject=Guide%20Sight%20Support">mobileappdeveloper2024@gmail.com</a>
-      <ul>
-        <li>For privacy requests, put <strong>Privacy Request</strong> in the subject line.</li>
-        <li>Include your device and app version when reporting a bug.</li>
-        <li>We aim to reply within a few business days.</li>
-      </ul>
-    </div>
-
-    <div class="card">
       <p style="margin:0 0 6px; font-weight:800;">Send a message</p>
-      <p class="note" style="margin-top:0;">Opens your email app with the details filled in — nothing is stored on this site.</p>
+      <p class="note" style="margin-top:0;">Fill this out and tap Send — it opens your email app with your message ready. Nothing is stored on this site.</p>
       <form id="contact-form">
         <label for="name">Name</label>
         <input id="name" name="name" type="text" autocomplete="name" placeholder="Your name">
@@ -147,8 +129,13 @@
         <label for="message">Message</label>
         <textarea id="message" name="message" placeholder="How can we help?" required></textarea>
 
-        <button class="send" type="submit">Open email to send</button>
+        <button class="send" type="submit">Send message</button>
       </form>
+      <ul>
+        <li>For privacy requests, start the topic with <strong>Privacy Request</strong>.</li>
+        <li>Include your device and app version when reporting a bug.</li>
+        <li>We aim to reply within a few business days.</li>
+      </ul>
     </div>
 
     <p class="note">Guide Sight is an assistive tool and is not a medical device or an emergency service. In an emergency, contact your local emergency number or a trusted person directly.</p>
@@ -173,11 +160,12 @@
         "Name: " + (name || "(not provided)") + "\n" +
         "Reply-to: " + email + "\n\n" +
         message;
-      var href =
-        "mailto:mobileappdeveloper2024@gmail.com" +
+      // Destination is not shown on the page; only used when sending.
+      var to = ["mobileappdeveloper2024", "gmail.com"].join("@");
+      window.location.href =
+        "mailto:" + to +
         "?subject=" + encodeURIComponent(subject) +
         "&body=" + encodeURIComponent(body);
-      window.location.href = href;
     });
   </script>
 </body>
