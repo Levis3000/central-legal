@@ -1,7 +1,7 @@
 {
   "title": "Terms of Service",
   "updated": "21 July 2026",
-  "contactEmail": "support@snaptract.app",
+  "contactEmail": "",
   "sections": [
     {
       "heading": "Agreement to these Terms",
@@ -21,7 +21,7 @@
     },
     {
       "heading": "Accounts and security",
-      "body": "Access requires Sign in with Apple. You are responsible for maintaining the confidentiality of your Apple ID and device, and for all activity under your account. Notify us promptly at support@snaptract.app if you suspect unauthorized access. We are not liable for loss or damage arising from your failure to keep credentials or devices secure."
+      "body": "Access requires Sign in with Apple. You are responsible for maintaining the confidentiality of your Apple ID and device, and for all activity under your account. Notify us promptly via Contact us if you suspect unauthorized access. We are not liable for loss or damage arising from your failure to keep credentials or devices secure."
     },
     {
       "heading": "Subscriptions, billing, and trials",
@@ -81,7 +81,7 @@
     },
     {
       "heading": "Governing law and disputes",
-      "body": "Except where prohibited by mandatory law of your country of residence, these Terms are governed by the laws of the State of Delaware, United States, without regard to conflict-of-law rules, and courts located in Delaware shall have exclusive jurisdiction — except that consumers in the EEA, UK, or other jurisdictions with mandatory protective rules may bring proceedings in their country of residence, and those mandatory rules continue to apply.\n\nBefore filing a claim, you agree to try to resolve the dispute informally by contacting support@snaptract.app. Nothing in these Terms limits your right to file a complaint with a consumer protection or data-protection authority."
+      "body": "Except where prohibited by mandatory law of your country of residence, these Terms are governed by the laws of the State of Delaware, United States, without regard to conflict-of-law rules, and courts located in Delaware shall have exclusive jurisdiction — except that consumers in the EEA, UK, or other jurisdictions with mandatory protective rules may bring proceedings in their country of residence, and those mandatory rules continue to apply.\n\nBefore filing a claim, you agree to try to resolve the dispute informally by using Contact us. Nothing in these Terms limits your right to file a complaint with a consumer protection or data-protection authority."
     },
     {
       "heading": "Apple App Store terms",
@@ -97,7 +97,7 @@
     },
     {
       "heading": "Contact",
-      "body": "Questions about these Terms: support@snaptract.app, or use Contact us in the app / on our legal site."
+      "body": "Questions about these Terms: use Contact us, or use Contact us in the app / on our legal site."
     }
   ]
 }

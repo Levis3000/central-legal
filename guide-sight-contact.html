@@ -80,17 +80,29 @@
     box-shadow: 0 0 0 3px rgba(232,197,71,.35);
   }
   textarea { min-height: 140px; resize: vertical; }
+  .hp { position: absolute; left: -9999px; width: 1px; height: 1px; overflow: hidden; }
   button.send {
     margin-top: 18px; width: 100%; font-size: 17px; font-weight: 800; color: var(--navy);
     background: var(--gold); border: none; border-radius: 14px; padding: 15px; cursor: pointer;
   }
   button.send:hover { filter: brightness(1.04); }
+  button.send:disabled { opacity: 0.6; cursor: default; }
   ul { padding-left: 20px; margin: 12px 0 0; color: var(--muted); font-size: 16px; }
   footer.legal-foot {
     margin-top: 36px; padding-top: 22px; border-top: 1px solid var(--hair);
     color: var(--muted); font-size: 14px;
   }
+  footer.legal-foot a { color: var(--muted); text-decoration: none; font-weight: 600; }
   .note { margin-top: 14px; font-size: 14px; color: var(--muted); }
+  .status { margin-top: 12px; font-size: 15px; min-height: 1.3em; }
+  .status.err { color: #B91C1C; }
+  .status.ok { color: #166534; }
+  .done { text-align: center; padding: 28px 8px; }
+  .done .badge {
+    width: 58px; height: 58px; border-radius: 50%; background: rgba(232,197,71,0.35);
+    color: var(--navy); display: grid; place-items: center; margin: 0 auto 14px;
+    font-size: 28px; font-weight: 800;
+  }
 </style>
 </head>
 <body>
@@ -113,29 +125,43 @@
       <p class="sub">Support, accessibility feedback, privacy requests, or legal questions.</p>
     </header>
 
-    <div class="card">
-      <p style="margin:0 0 6px; font-weight:800;">Send a message</p>
-      <p class="note" style="margin-top:0;">Fill this out and tap Send — it opens your email app with your message ready. Nothing is stored on this site.</p>
-      <form id="contact-form">
-        <label for="name">Name</label>
-        <input id="name" name="name" type="text" autocomplete="name" placeholder="Your name">
+    <div class="card" id="card">
+      <div id="form-view">
+        <p style="margin:0 0 6px; font-weight:800;">Send a message</p>
+        <p class="note" style="margin-top:0;">We read every message and aim to reply within a few business days.</p>
+        <form id="contact-form">
+          <label for="name">Name</label>
+          <input id="name" name="name" type="text" autocomplete="name" placeholder="Your name">
 
-        <label for="email">Your email</label>
-        <input id="email" name="email" type="email" autocomplete="email" placeholder="you@example.com" required>
+          <label for="email">Your email</label>
+          <input id="email" name="email" type="email" autocomplete="email" placeholder="you@example.com" required>
 
-        <label for="topic">Topic</label>
-        <input id="topic" name="topic" type="text" placeholder="Support, Privacy Request, Accessibility…" required>
+          <label for="topic">Topic</label>
+          <input id="topic" name="topic" type="text" placeholder="Support, Privacy Request, Accessibility…" required>
 
-        <label for="message">Message</label>
-        <textarea id="message" name="message" placeholder="How can we help?" required></textarea>
+          <label for="message">Message</label>
+          <textarea id="message" name="message" placeholder="How can we help?" required></textarea>
 
-        <button class="send" type="submit">Send message</button>
-      </form>
-      <ul>
-        <li>For privacy requests, start the topic with <strong>Privacy Request</strong>.</li>
-        <li>Include your device and app version when reporting a bug.</li>
-        <li>We aim to reply within a few business days.</li>
-      </ul>
+          <div class="hp" aria-hidden="true">
+            <label for="company">Company</label>
+            <input id="company" name="company" tabindex="-1" autocomplete="off">
+          </div>
+
+          <button class="send" id="submit-btn" type="submit">Send message</button>
+          <div id="status" class="status" role="alert"></div>
+        </form>
+        <ul>
+          <li>For privacy requests, start the topic with <strong>Privacy Request</strong>.</li>
+          <li>Include your device and app version when reporting a bug.</li>
+          <li>We aim to reply within a few business days.</li>
+        </ul>
+      </div>
+
+      <div id="done-view" class="done" hidden>
+        <div class="badge">✓</div>
+        <h2 style="margin:0 0 8px;">Message sent</h2>
+        <p class="note" style="margin:0;">Thanks — we've got your message and will get back to you soon.</p>
+      </div>
     </div>
 
     <p class="note">Guide Sight is an assistive tool and is not a medical device or an emergency service. In an emergency, contact your local emergency number or a trusted person directly.</p>
@@ -150,24 +176,45 @@
   </div>
 
   <script>
-    document.getElementById("contact-form").addEventListener("submit", function (e) {
-      e.preventDefault();
-      var name = document.getElementById("name").value.trim();
-      var email = document.getElementById("email").value.trim();
-      var topic = document.getElementById("topic").value.trim();
-      var message = document.getElementById("message").value.trim();
-      var subject = "Guide Sight — " + topic;
-      var body =
-        "Name: " + (name || "(not provided)") + "\n" +
-        "Reply-to: " + email + "\n\n" +
-        message;
-      // Destination is not shown on the page; only used when sending.
-      var to = ["mobileappdeveloper2024", "gmail.com"].join("@");
-      window.location.href =
-        "mailto:" + to +
-        "?subject=" + encodeURIComponent(subject) +
-        "&body=" + encodeURIComponent(body);
-    });
+    (function () {
+      var form = document.getElementById("contact-form");
+      var btn = document.getElementById("submit-btn");
+      var statusEl = document.getElementById("status");
+
+      form.addEventListener("submit", async function (e) {
+        e.preventDefault();
+        statusEl.className = "status";
+        statusEl.textContent = "";
+        btn.disabled = true;
+        btn.textContent = "Sending…";
+
+        try {
+          var res = await fetch("/api/contact", {
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify({
+              app: "guide-sight",
+              name: document.getElementById("name").value.trim(),
+              email: document.getElementById("email").value.trim(),
+              topic: document.getElementById("topic").value.trim(),
+              message: document.getElementById("message").value.trim(),
+              company: document.getElementById("company").value
+            })
+          });
+          var data = await res.json().catch(function () { return {}; });
+          if (!res.ok || !data.ok) {
+            throw new Error((data && data.error) || "Send failed");
+          }
+          document.getElementById("form-view").hidden = true;
+          document.getElementById("done-view").hidden = false;
+        } catch (err) {
+          statusEl.className = "status err";
+          statusEl.textContent = err.message || "Couldn't send just now — please try again in a moment.";
+          btn.disabled = false;
+          btn.textContent = "Send message";
+        }
+      });
+    })();
   </script>
 </body>
 </html>

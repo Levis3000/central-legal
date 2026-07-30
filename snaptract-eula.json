@@ -1,7 +1,7 @@
 {
   "title": "End User License Agreement",
   "updated": "22 July 2026",
-  "contactEmail": "support@snaptract.app",
+  "contactEmail": "",
   "sections": [
     {
       "heading": "Agreement between you and SnapTract",
@@ -25,7 +25,7 @@
     },
     {
       "heading": "Maintenance and support",
-      "body": "SnapTract is solely responsible for providing any maintenance and support services for the Application as required under applicable law, or as SnapTract may choose to provide. Apple has no obligation whatsoever to furnish any maintenance and support services with respect to the Application.\n\nFor support, contact us at support@snaptract.app."
+      "body": "SnapTract is solely responsible for providing any maintenance and support services for the Application as required under applicable law, or as SnapTract may choose to provide. Apple has no obligation whatsoever to furnish any maintenance and support services with respect to the Application.\n\nFor support, use Contact us."
     },
     {
       "heading": "Warranty",
@@ -65,7 +65,7 @@
     },
     {
       "heading": "Contact",
-      "body": "If you have any questions, complaints, or claims regarding the Application, please contact us at support@snaptract.app. We aim to respond within 48 hours."
+      "body": "If you have any questions, complaints, or claims regarding the Application, please use Contact us. We aim to respond within 48 hours."
     }
   ]
 }

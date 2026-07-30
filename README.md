@@ -1,45 +1,44 @@
 # Central Legal
 
-One repo + one Railway service for every app’s **Privacy Policy** and **Terms of Service**.
-Each app still gets its **own URLs**.
+One repo + one Railway service for every app’s **Privacy Policy**, **Terms**, and **Contact** forms.
+Each app still gets its **own URLs**. Support inbox addresses are **never shown** on public pages.
 
 ## Per-app links (same Railway deploy)
 
 Replace `YOUR-APP.up.railway.app` with your Railway domain:
 
-| App | Privacy | Terms |
-| --- | --- | --- |
-| **SnapTract** | `https://YOUR-APP.up.railway.app/snaptract/privacy` | `https://YOUR-APP.up.railway.app/snaptract/terms` |
-| **Falaah** | `https://YOUR-APP.up.railway.app/falaah/privacy` | `https://YOUR-APP.up.railway.app/falaah/terms` |
+| App | Privacy | Terms | Contact |
+| --- | --- | --- | --- |
+| **SnapTract** | `/snaptract/privacy` | `/snaptract/terms` | `/snaptract/contact` |
+| **Falaah** | `/falaah/privacy` | `/falaah/terms` | — |
+| **Towly** | `/towly/privacy` | `/towly/terms` | `/towly/contact` |
+| **Guide Sight** | `/guide-sight/privacy` | `/guide-sight/terms` | `/guide-sight/contact` |
 
-Falaah EULA: `https://YOUR-APP.up.railway.app/falaah/eula`
-| **Towly** | `https://YOUR-APP.up.railway.app/towly/privacy` | `https://YOUR-APP.up.railway.app/towly/terms` |
+Falaah EULA: `/falaah/eula` · Towly EULA: `/towly/eula` · SnapTract EULA: `/snaptract/eula`
 
-Towly EULA: `https://YOUR-APP.up.railway.app/towly/eula`
+## Contact forms (SMTP)
 
-Towly contact: `https://YOUR-APP.up.railway.app/towly/contact`
+All contact forms `POST /api/contact`. The server emails your inbox via SMTP.
+**Subjects are always prefixed with the app name**, e.g. `[Guide Sight] Privacy Request`.
 
-### Towly contact form (Railway env)
+Set these in Railway → Variables (see also `.env.example`):
 
-The contact page loads `/towly-config.js`, which the Express server builds from env
-(so the anon key is not committed to the repo):
-
-| Variable | Example |
+| Variable | Notes |
 | --- | --- |
-| `TOWLY_SUPABASE_URL` | `https://xjxjssufxzqjlnvyjmbh.supabase.co` |
-| `TOWLY_SUPABASE_ANON_KEY` | your public Supabase anon key |
+| `SMTP_HOST` | e.g. `smtp.gmail.com` |
+| `SMTP_PORT` | e.g. `587` (or `465`) |
+| `SMTP_SECURE` | `true` for 465, otherwise omit/`false` |
+| `SMTP_USER` | SMTP login |
+| `SMTP_PASS` | SMTP password / app password |
+| `SMTP_FROM` | Optional From override (defaults to `SMTP_USER`) |
+| `CONTACT_TO_EMAIL` | Destination inbox (kept server-side only) |
 
-Set both in Railway → Variables. If either is missing, the form disables itself and
-points users to `support@towly.app`.
+Do **not** commit real credentials or the destination address.
 
-SnapTract JSON (for the iOS app) — product-prefixed filenames:
+SnapTract JSON (for the iOS app):
 
-- `https://YOUR-APP.up.railway.app/snaptract-privacy-policy.json`
-- `https://YOUR-APP.up.railway.app/snaptract-terms-of-service.json`
-
-Also available as short aliases: `/snaptract/privacy.json`, `/snaptract/terms.json`
-
-Contact (SnapTract only): `https://YOUR-APP.up.railway.app/snaptract-contact.html`
+- `/snaptract-privacy-policy.json`, `/snaptract-terms-of-service.json`
+- Short aliases: `/snaptract/privacy.json`, `/snaptract/terms.json`
 
 Optional combined Falaah page: `/falaah/both`
 
@@ -57,31 +56,24 @@ Same backend; different hostnames if you want cleaner App Store URLs.
 
 1. Railway → **New Project → Deploy from GitHub** → `central-legal`
 2. It runs `npm install` then `npm start` (uses `PORT` automatically)
-3. **Settings → Networking → Generate Domain**
-4. Use the per-app paths above in App Store Connect / in-app links
+3. Add the SMTP / `CONTACT_TO_EMAIL` variables above
+4. **Settings → Networking → Generate Domain**
+5. Use the per-app paths above in App Store Connect / in-app links
 
 ## Local
 
 ```bash
+cp .env.example .env   # fill SMTP_* and CONTACT_TO_EMAIL
 npm install
-npm start   # http://localhost:3000/snaptract/privacy
+npm start              # http://localhost:3000/guide-sight/contact
 ```
 
 ## Files
 
 | File | App |
 | --- | --- |
-| `falaah-privacy-policy.html` | Falaah |
-| `falaah-terms-of-service.html` | Falaah |
-| `falaah-privacy-and-terms.html` | Falaah (combined) |
-| `falaah-eula.html` | Falaah |
-| `snaptract-privacy-policy.html` | SnapTract |
-| `snaptract-terms-of-service.html` | SnapTract |
-| `snaptract-privacy-policy.json` / `snaptract-terms-of-service.json` | SnapTract (app) |
-| `snaptract-contact.html` | SnapTract contact form |
-| `towly.html` | Towly hub |
-| `towly-privacy-policy.html` | Towly |
-| `towly-terms-of-service.html` | Towly |
-| `towly-eula.html` | Towly |
-| `towly-contact.html` | Towly contact form |
-| `towly-logo.png` | Towly |
+| `falaah-*.html` | Falaah |
+| `snaptract-*.html` / `snaptract-*.json` | SnapTract |
+| `towly-*.html` | Towly |
+| `guide-sight-*.html` | Guide Sight |
+| `server.js` | Express + `/api/contact` SMTP |

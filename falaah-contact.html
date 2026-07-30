@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Falaah — Contact Us</title>
+<style>
+  :root {
+    --bg: #F7F4EE; --card: #FFFcf7; --ink: #1C2A1A; --muted: #5C6B58;
+    --line: rgba(28,42,26,0.12); --green: #2F6B3A; --green-deep: #1F4A28;
+    --sans: system-ui, -apple-system, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  }
+  * { box-sizing: border-box; }
+  body { margin:0; background: linear-gradient(180deg, var(--bg), #E8EDE6); color:var(--ink);
+    font-family:var(--sans); font-size:18px; line-height:1.7; }
+  .wrap { max-width:640px; margin:0 auto; padding:28px 22px 96px; }
+  h1 { font-size:clamp(30px,6vw,40px); margin:18px 0 6px; letter-spacing:-.02em; }
+  .lead { color:var(--muted); margin:0 0 22px; }
+  .card { background:var(--card); border:1px solid var(--line); border-radius:18px; padding:24px;
+    box-shadow:0 10px 28px rgba(28,42,26,.06); }
+  label { display:block; font-size:13px; font-weight:800; letter-spacing:.04em; text-transform:uppercase;
+    color:var(--muted); margin:16px 0 6px; }
+  label:first-of-type { margin-top:0; }
+  input, textarea { width:100%; font:inherit; color:var(--ink); background:#fff;
+    border:1px solid var(--line); border-radius:12px; padding:12px 14px; }
+  textarea { min-height:140px; resize:vertical; }
+  .hp { position:absolute; left:-9999px; width:1px; height:1px; overflow:hidden; }
+  button { margin-top:18px; width:100%; font-size:17px; font-weight:800; color:#fff;
+    background:var(--green); border:none; border-radius:14px; padding:15px; cursor:pointer; }
+  button:disabled { opacity:.6; cursor:default; }
+  .status { margin-top:12px; font-size:15px; min-height:1.3em; }
+  .err { color:#B91C1C; }
+  .done { text-align:center; padding:28px 8px; display:none; }
+  .nav a { color:var(--muted); font-size:14px; font-weight:600; margin-right:14px; text-decoration:none; }
+  footer { margin-top:36px; color:var(--muted); font-size:14px; }
+</style>
+</head>
+<body>
+  <div class="wrap">
+    <div class="nav">
+      <a href="falaah-privacy-policy.html">Privacy</a>
+      <a href="falaah-terms-of-service.html">Terms</a>
+      <a href="falaah-eula.html">EULA</a>
+      <a href="falaah-contact.html">Contact</a>
+    </div>
+    <h1>Contact us</h1>
+    <p class="lead">Questions about Falaah, privacy requests, or feedback — send a message and we’ll get back to you.</p>
+
+    <div class="card">
+      <div id="form-view">
+        <form id="contact-form">
+          <label for="name">Name</label>
+          <input id="name" name="name" type="text" autocomplete="name" placeholder="Your name">
+
+          <label for="email">Your email</label>
+          <input id="email" name="email" type="email" autocomplete="email" placeholder="you@example.com" required>
+
+          <label for="topic">Topic</label>
+          <input id="topic" name="topic" type="text" placeholder="Support, Privacy Request…" required>
+
+          <label for="message">Message</label>
+          <textarea id="message" name="message" placeholder="How can we help?" required></textarea>
+
+          <div class="hp" aria-hidden="true">
+            <label for="company">Company</label>
+            <input id="company" name="company" tabindex="-1" autocomplete="off">
+          </div>
+
+          <button id="submit-btn" type="submit">Send message</button>
+          <div id="status" class="status" role="alert"></div>
+        </form>
+      </div>
+      <div id="done-view" class="done">
+        <h2>Message sent</h2>
+        <p class="lead" style="margin:0;">Thanks — we’ve got your message.</p>
+      </div>
+    </div>
+
+    <footer>Falaah · <a href="falaah-privacy-policy.html">Privacy</a> · <a href="falaah-terms-of-service.html">Terms</a></footer>
+  </div>
+  <script>
+    document.getElementById("contact-form").addEventListener("submit", async function (e) {
+      e.preventDefault();
+      var btn = document.getElementById("submit-btn");
+      var statusEl = document.getElementById("status");
+      statusEl.className = "status";
+      statusEl.textContent = "";
+      btn.disabled = true;
+      btn.textContent = "Sending…";
+      try {
+        var res = await fetch("/api/contact", {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({
+            app: "falaah",
+            name: document.getElementById("name").value.trim(),
+            email: document.getElementById("email").value.trim(),
+            topic: document.getElementById("topic").value.trim(),
+            message: document.getElementById("message").value.trim(),
+            company: document.getElementById("company").value
+          })
+        });
+        var data = await res.json().catch(function () { return {}; });
+        if (!res.ok || !data.ok) throw new Error((data && data.error) || "Send failed");
+        document.getElementById("form-view").style.display = "none";
+        document.getElementById("done-view").style.display = "block";
+      } catch (err) {
+        statusEl.className = "status err";
+        statusEl.textContent = err.message || "Couldn't send just now — please try again.";
+        btn.disabled = false;
+        btn.textContent = "Send message";
+      }
+    });
+  </script>
+</body>
+</html>

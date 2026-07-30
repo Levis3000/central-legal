@@ -1,7 +1,7 @@
 {
   "title": "Privacy Policy",
   "updated": "21 July 2026",
-  "contactEmail": "support@snaptract.app",
+  "contactEmail": "",
   "sections": [
     {
       "heading": "Introduction",
@@ -9,7 +9,7 @@
     },
     {
       "heading": "Who we are (data controller)",
-      "body": "For personal data processed in connection with the Service, the data controller is the operator of SnapTract, reachable at support@snaptract.app.\n\nIf you are in the European Economic Area (EEA), United Kingdom, or Switzerland, you may contact us at the same address to exercise your rights or raise privacy questions. Where required by law, you may also lodge a complaint with your local supervisory authority."
+      "body": "For personal data processed in connection with the Service, the data controller is the operator of SnapTract, reachable via Contact us.\n\nIf you are in the European Economic Area (EEA), United Kingdom, or Switzerland, you may contact us at the same address to exercise your rights or raise privacy questions. Where required by law, you may also lodge a complaint with your local supervisory authority."
     },
     {
       "heading": "Scope",
@@ -53,11 +53,11 @@
     },
     {
       "heading": "Your rights (EEA, UK, Switzerland)",
-      "body": "Subject to applicable law, you may have the right to:\n\n• Access your personal data.\n• Rectify inaccurate data.\n• Erase data (\"right to be forgotten\").\n• Restrict or object to certain processing.\n• Data portability.\n• Withdraw consent where processing is consent-based.\n• Lodge a complaint with a supervisory authority in your country of residence or work.\n\nYou can exercise many of these rights in the app (edit or delete data; delete your account from Profile). For other requests, email support@snaptract.app. We may need to verify your identity before fulfilling a request. Some rights are limited where we have overriding legitimate grounds or legal duties."
+      "body": "Subject to applicable law, you may have the right to:\n\n• Access your personal data.\n• Rectify inaccurate data.\n• Erase data (\"right to be forgotten\").\n• Restrict or object to certain processing.\n• Data portability.\n• Withdraw consent where processing is consent-based.\n• Lodge a complaint with a supervisory authority in your country of residence or work.\n\nYou can exercise many of these rights in the app (edit or delete data; delete your account from Profile). For other requests, use Contact us. We may need to verify your identity before fulfilling a request. Some rights are limited where we have overriding legitimate grounds or legal duties."
     },
     {
       "heading": "Your rights (California and other US states)",
-      "body": "If you are a California resident (and where similar US state laws apply, such as Virginia, Colorado, Connecticut, Utah, and others), you may have rights to:\n\n• Know / access categories and specific pieces of personal information collected.\n• Delete personal information.\n• Correct inaccurate personal information.\n• Opt out of \"sale\" or \"sharing\" for cross-context behavioral advertising (we do not sell or share personal information for such purposes).\n• Limit use of sensitive personal information where applicable.\n• Non-discrimination for exercising privacy rights.\n\nTo submit a request, email support@snaptract.app or use in-app account deletion. We will not discriminate against you for exercising your rights. We do not use personal information for targeted advertising as defined under those laws."
+      "body": "If you are a California resident (and where similar US state laws apply, such as Virginia, Colorado, Connecticut, Utah, and others), you may have rights to:\n\n• Know / access categories and specific pieces of personal information collected.\n• Delete personal information.\n• Correct inaccurate personal information.\n• Opt out of \"sale\" or \"sharing\" for cross-context behavioral advertising (we do not sell or share personal information for such purposes).\n• Limit use of sensitive personal information where applicable.\n• Non-discrimination for exercising privacy rights.\n\nTo submit a request, use Contact us or use in-app account deletion. We will not discriminate against you for exercising your rights. We do not use personal information for targeted advertising as defined under those laws."
     },
     {
       "heading": "Your choices",
@@ -65,7 +65,7 @@
     },
     {
       "heading": "Children's privacy",
-      "body": "SnapTract is not directed to children under 13 (or under 16 in the EEA/UK where a higher digital consent age applies), and we do not knowingly collect personal information from children. If you believe a child has provided us personal information, contact support@snaptract.app and we will take steps to delete it."
+      "body": "SnapTract is not directed to children under 13 (or under 16 in the EEA/UK where a higher digital consent age applies), and we do not knowingly collect personal information from children. If you believe a child has provided us personal information, use Contact us and we will take steps to delete it."
     },
     {
       "heading": "Cookies, analytics, and tracking",
@@ -85,7 +85,7 @@
     },
     {
       "heading": "Contact",
-      "body": "Privacy questions or requests: support@snaptract.app, or use Contact us in the app / on our legal site.\n\nWe aim to respond within a reasonable period and, for GDPR requests, within one month (extendable where permitted by law for complex requests)."
+      "body": "Privacy questions or requests: use Contact us, or use Contact us in the app / on our legal site.\n\nWe aim to respond within a reasonable period and, for GDPR requests, within one month (extendable where permitted by law for complex requests)."
     }
   ]
 }

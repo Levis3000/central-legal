@@ -101,13 +101,10 @@
       </div>
     </div>
 
-    <footer>Or email <a class="link" href="mailto:support@snaptract.app">support@snaptract.app</a></footer>
+    <footer>Prefer the app? Use <strong>Contact us</strong> from Profile / Settings.</footer>
   </div>
 
 <script>
-  const SUPABASE_URL = "https://YOUR-PROJECT.supabase.co";
-  const SUPABASE_ANON_KEY = "YOUR-SUPABASE-ANON-KEY";
-
   const $ = (id) => document.getElementById(id);
 
   $("form").addEventListener("submit", async (e) => {
@@ -120,23 +117,20 @@
     const btn = $("send");
     btn.disabled = true; btn.textContent = "Sending…";
     try {
-      const res = await fetch(`${SUPABASE_URL}/rest/v1/contact_messages`, {
+      const res = await fetch("/api/contact", {
         method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-          "apikey": SUPABASE_ANON_KEY,
-          "Authorization": `Bearer ${SUPABASE_ANON_KEY}`,
-          "Prefer": "return=minimal",
-        },
+        headers: { "Content-Type": "application/json" },
         body: JSON.stringify({
-          app: "SnapTract",
-          name: $("name").value.trim() || null,
-          email: $("email").value.trim() || null,
+          app: "snaptract",
+          name: $("name").value.trim(),
+          email: $("email").value.trim(),
+          topic: "Support",
           message,
-          source: "web",
+          company: $("company").value,
         }),
       });
-      if (!res.ok) throw new Error(await res.text());
+      const data = await res.json().catch(() => ({}));
+      if (!res.ok || !data.ok) throw new Error(data.error || "Send failed");
       const name = $("name").value.trim();
       $("doneMsg").textContent =
         `Thanks${name ? ", " + name : ""}! We've got your message and will get back to you within 48 hours.`;
@@ -144,7 +138,7 @@
       $("done").hidden = false;
     } catch (err) {
       btn.disabled = false; btn.textContent = "Send message";
-      $("err").textContent = "Couldn't send just now — please try again in a moment.";
+      $("err").textContent = err.message || "Couldn't send just now — please try again in a moment.";
       console.error(err);
     }
   });

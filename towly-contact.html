@@ -21,6 +21,7 @@
     background:var(--card); border:1px solid var(--line); border-radius:12px; padding:12px 14px; }
   input:focus, textarea:focus { outline:none; border-color:var(--blue); box-shadow:0 0 0 3px rgba(111,155,181,.2); }
   textarea { min-height:140px; resize:vertical; }
+  .hp { position:absolute; left:-9999px; width:1px; height:1px; overflow:hidden; }
   button { margin-top:22px; width:100%; font-size:17px; font-weight:600; color:#fff;
     background:var(--blue); border:none; border-radius:14px; padding:15px; cursor:pointer; }
   button:disabled { opacity:.6; cursor:default; }
@@ -57,6 +58,11 @@
         <label for="message">Message</label>
         <textarea id="message" name="message" placeholder="How can we help?" required></textarea>
 
+        <div class="hp" aria-hidden="true">
+          <label for="company">Company</label>
+          <input id="company" name="company" tabindex="-1" autocomplete="off">
+        </div>
+
         <button id="submit-btn" type="submit">Send message</button>
         <div id="status" class="status"></div>
       </form>
@@ -69,57 +75,38 @@
     </div>
   </div>
 
-  <!-- Runtime config from Railway env (see /towly-config.js in server.js). -->
-  <script src="/towly-config.js"></script>
   <script>
-    // Values come from Railway env via /towly-config.js. The anon key is
-    // intentionally NOT hardcoded here — keep it out of the repo.
-    const cfg = window.TOWLY_CONFIG || {};
-    const SUPABASE_URL = cfg.supabaseUrl || "";
-    const SUPABASE_ANON_KEY = cfg.anonKey || "";
-
     const form = document.getElementById("contact-form");
     const btn = document.getElementById("submit-btn");
     const statusEl = document.getElementById("status");
 
-    if (!SUPABASE_URL || !SUPABASE_ANON_KEY) {
-      btn.disabled = true;
-      statusEl.className = "status err";
-      statusEl.innerHTML = 'The contact form isn\'t configured yet. Please email <a href="mailto:support@towly.app">support@towly.app</a>.';
-    }
-
     form.addEventListener("submit", async (e) => {
       e.preventDefault();
-      if (!SUPABASE_URL || !SUPABASE_ANON_KEY) return;
       statusEl.textContent = "";
+      statusEl.className = "status";
       btn.disabled = true;
       btn.textContent = "Sending…";
 
-      const payload = {
-        name: document.getElementById("name").value.trim() || null,
-        email: document.getElementById("email").value.trim(),
-        message: document.getElementById("message").value.trim(),
-        source: "web"
-      };
-
       try {
-        const res = await fetch(SUPABASE_URL + "/rest/v1/contact_messages", {
+        const res = await fetch("/api/contact", {
           method: "POST",
-          headers: {
-            "apikey": SUPABASE_ANON_KEY,
-            "Authorization": "Bearer " + SUPABASE_ANON_KEY,
-            "Content-Type": "application/json",
-            "Content-Profile": "towly",
-            "Prefer": "return=minimal"
-          },
-          body: JSON.stringify(payload)
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({
+            app: "towly",
+            name: document.getElementById("name").value.trim(),
+            email: document.getElementById("email").value.trim(),
+            topic: "Support",
+            message: document.getElementById("message").value.trim(),
+            company: document.getElementById("company").value,
+          }),
         });
-        if (!res.ok) throw new Error("Request failed (" + res.status + ")");
+        const data = await res.json().catch(() => ({}));
+        if (!res.ok || !data.ok) throw new Error(data.error || "Send failed");
         document.getElementById("form-view").style.display = "none";
         document.getElementById("done-view").style.display = "block";
       } catch (err) {
         statusEl.className = "status err";
-        statusEl.innerHTML = 'Sorry, that didn\'t send. Please try again or email <a href="mailto:support@towly.app">support@towly.app</a>.';
+        statusEl.textContent = err.message || "Sorry, that didn't send. Please try again in a moment.";
         btn.disabled = false;
         btn.textContent = "Send message";
       }
