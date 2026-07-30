@@ -83,17 +83,25 @@ function env(name) {
   return typeof v === 'string' && v.trim() ? v.trim() : '';
 }
 
+/** Pull bare address from `Name <addr@host>` or plain addr. */
+function extractEmail(raw) {
+  const s = String(raw || '').trim();
+  const m = s.match(/<([^>]+)>/);
+  return (m ? m[1] : s).trim();
+}
+
 /** Resolve SMTP settings; accept common aliases so Railway naming mismatches don't break forms. */
 function smtpSettings() {
   const host = env('SMTP_HOST');
-  const user = env('SMTP_USER') || env('SMTP_FROM');
+  const fromRaw = env('SMTP_FROM');
+  const user = env('SMTP_USER') || extractEmail(fromRaw);
   const pass = env('SMTP_PASS') || env('SMTP_PASSWORD');
   const to =
     env('CONTACT_TO_EMAIL') ||
     env('SMTP_TO') ||
     env('SUPPORT_EMAIL') ||
     env('CONTACT_EMAIL');
-  const from = env('SMTP_FROM') || user;
+  const from = fromRaw || user;
   const port = Number(env('SMTP_PORT') || 587);
   const secure =
     env('SMTP_SECURE') === 'true' ||
@@ -117,11 +125,55 @@ function createTransport(settings) {
     host: s.host,
     port: s.port,
     secure: s.secure,
+    // Fail fast — Railway / blocked SMTP ports otherwise hang the request forever.
+    connectionTimeout: 12_000,
+    greetingTimeout: 12_000,
+    socketTimeout: 20_000,
     auth: {
       user: s.user,
       pass: s.pass,
     },
+    tls: {
+      // Gmail / STARTTLS on 587
+      minVersion: 'TLSv1.2',
+    },
+    requireTLS: !s.secure && s.port === 587,
   });
+}
+
+function withTimeout(promise, ms, label) {
+  let timer;
+  const timeout = new Promise((_, reject) => {
+    timer = setTimeout(() => reject(new Error(`${label} timed out after ${ms}ms`)), ms);
+  });
+  return Promise.race([promise, timeout]).finally(() => clearTimeout(timer));
+}
+
+/** Optional HTTPS path — more reliable on Railway than raw SMTP. */
+async function sendViaResend({ from, to, replyTo, subject, text }) {
+  const key = env('RESEND_API_KEY');
+  if (!key) return null;
+  const fromAddr = from.includes('<') ? from : `Contact <${extractEmail(from)}>`;
+  const res = await fetch('https://api.resend.com/emails', {
+    method: 'POST',
+    headers: {
+      Authorization: `Bearer ${key}`,
+      'Content-Type': 'application/json',
+    },
+    body: JSON.stringify({
+      from: fromAddr,
+      to: [to],
+      reply_to: replyTo || undefined,
+      subject,
+      text,
+    }),
+    signal: AbortSignal.timeout(15_000),
+  });
+  const data = await res.json().catch(() => ({}));
+  if (!res.ok) {
+    throw new Error((data && (data.message || data.error)) || `Resend HTTP ${res.status}`);
+  }
+  return data;
 }
 
 /**
@@ -130,13 +182,15 @@ function createTransport(settings) {
  *   SMTP_HOST, SMTP_PORT, SMTP_USER (or SMTP_FROM), SMTP_PASS
  *   CONTACT_TO_EMAIL (or SMTP_TO) — destination inbox, never shown publicly
  *   SMTP_FROM optional
+ *   RESEND_API_KEY optional — preferred when set (HTTPS, avoids SMTP hangs)
  *
  * Subject is always prefixed with the app name, e.g. "[Guide Sight] Privacy Request"
  */
 app.post('/api/contact', async (req, res) => {
   try {
     const smtp = smtpSettings();
-    if (!smtp.configured) {
+    const hasResend = Boolean(env('RESEND_API_KEY'));
+    if (!smtp.configured && !hasResend) {
       console.error('[contact] SMTP not configured, missing:', smtp.missing.join(', '));
       return res.status(503).json({
         ok: false,
@@ -182,22 +236,43 @@ app.post('/api/contact', async (req, res) => {
       .filter((line) => line !== null)
       .join('\n');
 
+    const fromAddress = smtp.from || env('SMTP_FROM') || env('SMTP_USER') || 'onboarding@resend.dev';
+    const toAddress = smtp.to || env('CONTACT_TO_EMAIL') || env('SMTP_TO');
+    if (!toAddress) {
+      return res.status(503).json({
+        ok: false,
+        error: 'Contact form is not configured yet. Please try again later.',
+        missing: ['CONTACT_TO_EMAIL'],
+      });
+    }
+
     const mail = {
-      from: `"${appName} Contact" <${smtp.from}>`,
-      to: smtp.to,
+      from: `"${appName} Contact" <${extractEmail(fromAddress)}>`,
+      to: toAddress,
       replyTo: email || undefined,
       subject,
       text,
     };
 
+    if (hasResend) {
+      await sendViaResend(mail);
+      return res.json({ ok: true, via: 'resend' });
+    }
+
+    console.log(`[contact] SMTP send via ${smtp.host}:${smtp.port} secure=${smtp.secure} user=${smtp.user}`);
     const transport = createTransport(smtp);
-    await transport.sendMail(mail);
-    return res.json({ ok: true });
+    await withTimeout(transport.sendMail(mail), 25_000, 'SMTP send');
+    try { transport.close(); } catch (_) { /* ignore */ }
+    return res.json({ ok: true, via: 'smtp' });
   } catch (err) {
-    console.error('[contact] send failed', err && err.message ? err.message : err);
-    return res.status(500).json({
+    const msg = err && err.message ? err.message : String(err);
+    console.error('[contact] send failed', msg);
+    const timedOut = /timed out|Timeout|ETIMEDOUT|ESOCKET/i.test(msg);
+    return res.status(timedOut ? 504 : 500).json({
       ok: false,
-      error: "Couldn't send just now — please try again in a moment.",
+      error: timedOut
+        ? 'Email server did not respond in time. Check SMTP_HOST/PORT (try 465 + SMTP_SECURE=true) or use RESEND_API_KEY.'
+        : "Couldn't send just now — please try again in a moment.",
     });
   }
 });
@@ -207,8 +282,14 @@ app.get('/api/contact/status', (_req, res) => {
   res.set('Cache-Control', 'no-store');
   res.json({
     ok: true,
-    configured: smtp.configured,
-    missing: smtp.missing,
+    configured: smtp.configured || Boolean(env('RESEND_API_KEY')),
+    missing: smtp.configured || env('RESEND_API_KEY') ? [] : smtp.missing,
+    smtp: {
+      host: smtp.host || null,
+      port: smtp.port || null,
+      secure: smtp.secure,
+      userSet: Boolean(smtp.user),
+    },
     // names only — never values
     present: {
       SMTP_HOST: Boolean(env('SMTP_HOST')),
@@ -218,6 +299,7 @@ app.get('/api/contact/status', (_req, res) => {
       SMTP_PORT: Boolean(env('SMTP_PORT')),
       CONTACT_TO_EMAIL: Boolean(env('CONTACT_TO_EMAIL')),
       SMTP_TO: Boolean(env('SMTP_TO')),
+      RESEND_API_KEY: Boolean(env('RESEND_API_KEY')),
     },
   });
 });

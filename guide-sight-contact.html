@@ -191,6 +191,7 @@
         try {
           var res = await fetch("/api/contact", {
             method: "POST",
+            signal: AbortSignal.timeout(25000),
             headers: { "Content-Type": "application/json" },
             body: JSON.stringify({
               app: "guide-sight",
