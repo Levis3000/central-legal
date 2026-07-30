@@ -78,46 +78,70 @@ app.get('/', (_req, res) => {
   res.sendFile(path.join(ROOT, 'index.html'));
 });
 
-function smtpConfigured() {
-  return Boolean(
-    process.env.SMTP_HOST &&
-    process.env.SMTP_USER &&
-    process.env.SMTP_PASS &&
-    process.env.CONTACT_TO_EMAIL
-  );
+function env(name) {
+  const v = process.env[name];
+  return typeof v === 'string' && v.trim() ? v.trim() : '';
 }
 
-function createTransport() {
-  const port = Number(process.env.SMTP_PORT || 587);
+/** Resolve SMTP settings; accept common aliases so Railway naming mismatches don't break forms. */
+function smtpSettings() {
+  const host = env('SMTP_HOST');
+  const user = env('SMTP_USER') || env('SMTP_FROM');
+  const pass = env('SMTP_PASS') || env('SMTP_PASSWORD');
+  const to =
+    env('CONTACT_TO_EMAIL') ||
+    env('SMTP_TO') ||
+    env('SUPPORT_EMAIL') ||
+    env('CONTACT_EMAIL');
+  const from = env('SMTP_FROM') || user;
+  const port = Number(env('SMTP_PORT') || 587);
   const secure =
-    process.env.SMTP_SECURE === 'true' ||
-    process.env.SMTP_SECURE === '1' ||
+    env('SMTP_SECURE') === 'true' ||
+    env('SMTP_SECURE') === '1' ||
     port === 465;
+  const missing = [];
+  if (!host) missing.push('SMTP_HOST');
+  if (!user) missing.push('SMTP_USER (or SMTP_FROM)');
+  if (!pass) missing.push('SMTP_PASS');
+  if (!to) missing.push('CONTACT_TO_EMAIL (or SMTP_TO)');
+  return { host, user, pass, to, from, port, secure, missing, configured: missing.length === 0 };
+}
+
+function smtpConfigured() {
+  return smtpSettings().configured;
+}
+
+function createTransport(settings) {
+  const s = settings || smtpSettings();
   return nodemailer.createTransport({
-    host: process.env.SMTP_HOST,
-    port,
-    secure,
+    host: s.host,
+    port: s.port,
+    secure: s.secure,
     auth: {
-      user: process.env.SMTP_USER,
-      pass: process.env.SMTP_PASS,
+      user: s.user,
+      pass: s.pass,
     },
   });
 }
 
 /**
  * Shared contact endpoint for all app forms.
- * Env (set in Railway — do not commit secrets or the inbox address):
- *   SMTP_HOST, SMTP_PORT, SMTP_USER, SMTP_PASS, SMTP_FROM (optional)
- *   CONTACT_TO_EMAIL  — destination inbox (not shown on any public page)
+ * Env (set on the central-legal Railway service — not the AI proxy):
+ *   SMTP_HOST, SMTP_PORT, SMTP_USER (or SMTP_FROM), SMTP_PASS
+ *   CONTACT_TO_EMAIL (or SMTP_TO) — destination inbox, never shown publicly
+ *   SMTP_FROM optional
  *
  * Subject is always prefixed with the app name, e.g. "[Guide Sight] Privacy Request"
  */
 app.post('/api/contact', async (req, res) => {
   try {
-    if (!smtpConfigured()) {
+    const smtp = smtpSettings();
+    if (!smtp.configured) {
+      console.error('[contact] SMTP not configured, missing:', smtp.missing.join(', '));
       return res.status(503).json({
         ok: false,
         error: 'Contact form is not configured yet. Please try again later.',
+        missing: smtp.missing,
       });
     }
 
@@ -158,19 +182,15 @@ app.post('/api/contact', async (req, res) => {
       .filter((line) => line !== null)
       .join('\n');
 
-    const fromAddress =
-      process.env.SMTP_FROM ||
-      process.env.SMTP_USER;
-
     const mail = {
-      from: `"${appName} Contact" <${fromAddress}>`,
-      to: process.env.CONTACT_TO_EMAIL,
+      from: `"${appName} Contact" <${smtp.from}>`,
+      to: smtp.to,
       replyTo: email || undefined,
       subject,
       text,
     };
 
-    const transport = createTransport();
+    const transport = createTransport(smtp);
     await transport.sendMail(mail);
     return res.json({ ok: true });
   } catch (err) {
@@ -183,8 +203,23 @@ app.post('/api/contact', async (req, res) => {
 });
 
 app.get('/api/contact/status', (_req, res) => {
+  const smtp = smtpSettings();
   res.set('Cache-Control', 'no-store');
-  res.json({ ok: true, configured: smtpConfigured() });
+  res.json({
+    ok: true,
+    configured: smtp.configured,
+    missing: smtp.missing,
+    // names only — never values
+    present: {
+      SMTP_HOST: Boolean(env('SMTP_HOST')),
+      SMTP_USER: Boolean(env('SMTP_USER')),
+      SMTP_FROM: Boolean(env('SMTP_FROM')),
+      SMTP_PASS: Boolean(env('SMTP_PASS') || env('SMTP_PASSWORD')),
+      SMTP_PORT: Boolean(env('SMTP_PORT')),
+      CONTACT_TO_EMAIL: Boolean(env('CONTACT_TO_EMAIL')),
+      SMTP_TO: Boolean(env('SMTP_TO')),
+    },
+  });
 });
 
 for (const [slug, cfg] of Object.entries(APPS)) {
@@ -225,4 +260,7 @@ app.listen(PORT, () => {
   console.log('  /towly/privacy      /towly/terms      /towly/eula');
   console.log('  /guide-sight/privacy   /guide-sight/terms   /guide-sight/contact');
   console.log(`  SMTP configured: ${smtpConfigured() ? 'yes' : 'no'}`);
+  if (!smtpConfigured()) {
+    console.log('  SMTP missing:', smtpSettings().missing.join(', '));
+  }
 });
