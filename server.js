@@ -266,13 +266,18 @@ app.post('/api/contact', async (req, res) => {
     return res.json({ ok: true, via: 'smtp' });
   } catch (err) {
     const msg = err && err.message ? err.message : String(err);
-    console.error('[contact] send failed', msg);
-    const timedOut = /timed out|Timeout|ETIMEDOUT|ESOCKET/i.test(msg);
+    const code = err && (err.code || err.responseCode);
+    console.error('[contact] send failed', { message: msg, code, response: err && err.response });
+    const timedOut = /timed out|Timeout|ETIMEDOUT|ESOCKET|ECONNECTION/i.test(msg);
+    const authFail = /Invalid login|Username and Password not accepted|EAUTH|535|534|Application-specific password/i.test(msg + String(code || ''));
     return res.status(timedOut ? 504 : 500).json({
       ok: false,
       error: timedOut
-        ? 'Email server did not respond in time. Check SMTP_HOST/PORT (try 465 + SMTP_SECURE=true) or use RESEND_API_KEY.'
-        : "Couldn't send just now — please try again in a moment.",
+        ? 'Email server did not respond in time. Try SMTP_PORT=465 and SMTP_SECURE=true, or set RESEND_API_KEY.'
+        : authFail
+          ? 'Email login failed. Use SMTP_USER=your full Gmail address and an App Password (not your normal Gmail password).'
+          : "Couldn't send just now — please try again in a moment.",
+      hint: timedOut ? 'timeout' : authFail ? 'auth' : 'smtp',
     });
   }
 });
